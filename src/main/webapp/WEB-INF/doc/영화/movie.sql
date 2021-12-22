@@ -1,0 +1,69 @@
+DROP TABLE movie;
+
+CREATE TABLE movie(
+    mno     NUMBER(10)   NOT NULL, 
+    title      VARCHAR(100) NOT NULL,
+    director VARCHAR(50) NULL,
+    act       VARCHAR(100) NULL,
+    plot      VARCHAR(100) NULL,
+    genre    VARCHAR(100) NULL,
+    PRIMARY KEY (mno)
+); 
+
+DROP SEQUENCE movie_seq;
+
+CREATE SEQUENCE movie_seq
+START WITH 1
+INCREMENT BY 1
+MAXVALUE 99999999
+CACHE 2
+NOCYCLE;     
+
+DROP TABLE review;
+
+CREATE TABLE review(
+    rno   NUMBER(10) NOT NULL,
+    id    VARCHAR(50) NOT NULL,
+    udate VARCHAR(100) NOT NULL,
+    con  VARCHAR(100) NOT NULL,
+    mno NUMBER(10) NOT NULL,
+    PRIMARY KEY (rno)
+);
+
+DROP SEQUENCE review_seq;
+
+CREATE SEQUENCE review_seq
+START WITH 1
+INCREMENT BY 1
+MAXVALUE 99999999
+CACHE 2
+NOCYCLE;
+
+ALTER TABLE review
+ADD CONSTRAINT review FOREIGN KEY(mno)
+REFERENCES movie(mno);
+
+CREATE TABLE comment(
+    cno   NUMBER(10) NOT NULL,
+    id    VARCHAR(50) NOT NULL,
+    udate VARCHAR(100) NOT NULL,
+    con  VARCHAR(100) NOT NULL,
+    mno NUMBER(10) NOT NULL,
+    PRIMARY KEY (rno)
+);
+
+DROP SEQUENCE comment_seq;
+
+CREATE SEQUENCE comment_seq
+START WITH 1
+INCREMENT BY 1
+MAXVALUE 99999999
+CACHE 2
+NOCYCLE;
+
+ALTER TABLE comment
+ADD CONSTRAINT comment FOREIGN KEY(mno)
+REFERENCES movie(mno);
+
+COMMIT;
+         
