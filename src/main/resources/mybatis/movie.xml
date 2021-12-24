@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="dev.mvc.movie.MonieDAOInter"> 
+    <insert id="movie_create" parameterType="dev.mvc.movie.MonieVO">
+    INSERT INTO movie(mno, title, director, act, plot, genre)
+    VALUES(movie_seq.nextval, #{mno})
+    </insert>
+  
+  <select id="movie_read" resultType="dev.mvc.movie.MovieVO" parameterType="int">
+    SELECT mno, title, director, act, plot, genre
+    FROM movie
+    WHERE mno = #{mno}
+  </select>
+
+  <update id="movie_update" parameterType="dev.mvc.movie.MovieVO">
+    UPDATE movie
+    SET title=#{title}, director=#{director}, act=#{act}, plot=#{plot}, genre=#{genre}
+    WHERE mno = #{mno}
+  </update> 
+  
+  <delete id="movie_delete" parameterType="int">
+    DELETE FROM movie
+    WHERE mno=#{mno}
+  </delete>
+ 
+</mapper> 
+
+
