@@ -23,8 +23,8 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>269</x>
-        <y>160</y>
+        <x>250</x>
+        <y>326</y>
       </constraint>
       <sourceConnections>
         <net.java.amateras.db.visual.model.ForeignKeyModel>
@@ -51,8 +51,8 @@
             <constraint>
               <height>-1</height>
               <width>-1</width>
-              <x>248</x>
-              <y>395</y>
+              <x>114</x>
+              <y>564</y>
             </constraint>
             <sourceConnections/>
             <targetConnections>
@@ -80,7 +80,7 @@
                     <height>-1</height>
                     <width>-1</width>
                     <x>53</x>
-                    <y>241</y>
+                    <y>339</y>
                   </constraint>
                   <sourceConnections>
                     <net.java.amateras.db.visual.model.ForeignKeyModel>
@@ -107,8 +107,8 @@
                         <constraint>
                           <height>-1</height>
                           <width>-1</width>
-                          <x>54</x>
-                          <y>35</y>
+                          <x>32</x>
+                          <y>235</y>
                         </constraint>
                         <sourceConnections/>
                         <targetConnections>
@@ -216,8 +216,8 @@
                   <constraint>
                     <height>-1</height>
                     <width>-1</width>
-                    <x>462</x>
-                    <y>255</y>
+                    <x>490</x>
+                    <y>305</y>
                   </constraint>
                   <sourceConnections>
                     <net.java.amateras.db.visual.model.ForeignKeyModel reference="../../.."/>
@@ -507,8 +507,8 @@
                               <constraint>
                                 <height>-1</height>
                                 <width>-1</width>
-                                <x>606</x>
-                                <y>433</y>
+                                <x>550</x>
+                                <y>687</y>
                               </constraint>
                               <sourceConnections>
                                 <net.java.amateras.db.visual.model.ForeignKeyModel>
@@ -736,7 +736,7 @@
             <error></error>
             <linkedPath></linkedPath>
             <tableName>member</tableName>
-            <logicalName>회원가입</logicalName>
+            <logicalName>회원</logicalName>
             <description></description>
             <columns>
               <net.java.amateras.db.visual.model.ColumnModel>
@@ -927,8 +927,8 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>56</x>
-        <y>478</y>
+        <x>1394</x>
+        <y>387</y>
       </constraint>
       <sourceConnections/>
       <targetConnections/>
@@ -1006,10 +1006,49 @@
       </backgroundColor>
       <sql></sql>
     </net.java.amateras.db.visual.model.TableModel>
+    <net.java.amateras.db.visual.model.NoteModel>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.db.visual.model.NoteModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>284</height>
+        <width>127</width>
+        <x>108</x>
+        <y>751</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <content>회원가입&#xd;
+create&#xd;
+&#xd;
+로그인&#xd;
+login&#xd;
+&#xd;
+정보 수정&#xd;
+update&#xd;
+&#xd;
+계정 탈퇴&#xd;
+delete&#xd;
+&#xd;
+/관리자/&#xd;
+회원리스트&#xd;
+list&#xd;
+&#xd;
+회원정보&#xd;
+detail&#xd;
+&#xd;
+</content>
+    </net.java.amateras.db.visual.model.NoteModel>
   </children>
   <dommains/>
   <dialectName>hsqldb</dialectName>
-  <logicalMode>false</logicalMode>
+  <logicalMode>true</logicalMode>
   <jarFile></jarFile>
   <jdbcDriver>sun.jdbc.odbc.JdbcOdbc</jdbcDriver>
   <jdbcUrl></jdbcUrl>
