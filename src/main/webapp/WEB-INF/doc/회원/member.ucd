@@ -77,8 +77,8 @@
               <constraint>
                 <height>635</height>
                 <width>975</width>
-                <x>135</x>
-                <y>93</y>
+                <x>118</x>
+                <y>89</y>
               </constraint>
               <sourceConnections/>
               <targetConnections/>
@@ -183,8 +183,8 @@
                               <constraint>
                                 <height>40</height>
                                 <width>100</width>
-                                <x>403</x>
-                                <y>374</y>
+                                <x>454</x>
+                                <y>362</y>
                               </constraint>
                               <sourceConnections>
                                 <net.java.amateras.uml.usecasediagram.model.UsecaseExtendModel reference="../../.."/>
@@ -510,8 +510,8 @@
                                     <constraint>
                                       <height>40</height>
                                       <width>100</width>
-                                      <x>444</x>
-                                      <y>253</y>
+                                      <x>448</x>
+                                      <y>230</y>
                                     </constraint>
                                     <sourceConnections>
                                       <net.java.amateras.uml.usecasediagram.model.UsecaseIncludeModel reference="../../.."/>
