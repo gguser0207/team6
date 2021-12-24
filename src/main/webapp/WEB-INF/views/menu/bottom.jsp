@@ -10,6 +10,6 @@
 </style>
 </head>
 <body>
- <div> Team6 test</div>
+ 
 </body>
 </html>
