@@ -1,15 +1,17 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
  
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>http://localhost:9091/</title>
-<style type="text/css">
-  *{ font-family: Malgun Gothic; font-size: 26px;}
-</style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>team6</title>
 </head>
 <body>
- <div> Team6 test</div>
+  <div class="center">
+    <a href="#">로그인</a>
+  </div>
 </body>
 </html>
