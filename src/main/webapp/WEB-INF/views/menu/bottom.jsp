@@ -1,15 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
  
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>http://localhost:9091/</title>
-<style type="text/css">
-  *{ font-family: Malgun Gothic; font-size: 26px;}
-</style>
-</head>
-<body>
- 
-</body>
-</html>
+  </DIV> <%-- content 내용 종료 --%>
+
+  
+  <%-- 화면 하단 메뉴 --%>
+  <DIV class='bottom'>
+    이현수[PL]   임동규[DA]   송은호[AI]   유성용[WP] 
+  </DIV>
+  
+</DIV> <%-- container_main 종료 --%>
