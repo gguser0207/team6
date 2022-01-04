@@ -23,9 +23,9 @@ public class CartProc implements CartProcInter {
   }
 
   @Override
-  public int cartMovieDetail(CartVO cartVO) {
-    int cnt = this.cartDAO.cartMovieDetail(cartVO);
-    return cnt;
+  public List<CartVO> cartMovieDetail(CartVO cartVO) {
+    List<CartVO> list = this.cartDAO.cartMovieDetail(cartVO);
+    return list;
   }
 
   @Override

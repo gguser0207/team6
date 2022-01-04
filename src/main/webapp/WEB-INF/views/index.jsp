@@ -10,8 +10,35 @@
   <title>team6</title>
 </head>
 <body>
-  <div class="center">
-    <a href="#">로그인</a>
+  <div class="slider">
+    <div class="slide" style="background-image: url(./1.jpg);"></div>
+    <div class="slide" style="background-image: url(./2.jpg);"></div>
+    <div class="slide" style="background-image: url(./3.jpg);"></div>
+    <a class="prev" onclick="button_click(-1)">&#10094</a>
+    <a class="next" onclick="button_click(1)">&#10095</a>
   </div>
+  <DIV class='bottom'>
+    이현수[PL]   임동규[DA]   송은호[AI]   유성용[WP] 
+  </DIV>
+  <script>
+    let currSlide = 1;
+    showSlide(currSlide);
+    function button_click(num){
+      showSlide((currSlide += num))
+    }
+    function showSlide(num){
+      const slides = document.querySelectorAll(".slide");
+      if(num>slides.length){
+        currSlide=1;
+      } if(num<1){
+        currSlide = slides.length;
+      }
+      for(let i=0; i<slides.length; i++){
+        slides[i].style.display="none";
+      }slides[currSlide -1].style.display="block";
+    }
+
+  </script>
+
 </body>
 </html>

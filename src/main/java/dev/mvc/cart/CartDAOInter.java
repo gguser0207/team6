@@ -21,7 +21,7 @@ public interface CartDAOInter {
      * @param cartVO
      * @return
      */
-    public int cartMovieDetail(CartVO cartVO);
+    public List<CartVO> cartMovieDetail(CartVO cartVO);
 
     /**
      * 상품 삭제
