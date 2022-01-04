@@ -9,8 +9,6 @@ CREATE TABLE cart (
                       FOREIGN KEY (memberno) REFERENCES member (memberno)
 );
 
-DROP TABLE cart_seq CASCADE CONSTRAINTS;
-
 CREATE SEQUENCE cart_seq
     START WITH 1              -- 시작 번호
     INCREMENT BY 1          -- 증가값
