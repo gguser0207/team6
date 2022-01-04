@@ -49,7 +49,7 @@ CREATE TABLE comment(
     udate VARCHAR(100) NOT NULL,
     con  VARCHAR(100) NOT NULL,
     mno NUMBER(10) NOT NULL,
-    PRIMARY KEY (rno)
+    PRIMARY KEY (cno)
 );
 
 DROP SEQUENCE comment_seq;

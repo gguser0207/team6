@@ -19,7 +19,7 @@
 
   <!--개인 장바구니 내 영화 조회-->
   <select id="cartMovieDetail" resultType="dev.mvc.cart.CartVO" parameterType="int">
-    SELECT mno, title, director, act, plot, genre
+    SELECT mno, title, director, act, plot
     FROM movie
     WHERE mno = #{movieno}
   </select>
