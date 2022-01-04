@@ -38,6 +38,13 @@ CREATE SEQUENCE member_seq
 INSERT INTO member(memberno, id, pw, nickname, phone, address1, address2, rdate, grade) 
 VALUES (member_seq.nextval, 'id1', '1234', '홍길동', 01000000000, '경기도 파주시 OOO로', 'OO동 OO호', sysdate, 1);
 
+INSERT INTO member(memberno, id, pw, nickname, phone, address1, address2, rdate, grade) 
+VALUES (member_seq.nextval, 'id2', '5678', '아무개', 01033300000, '서울특별시 강서구 OOO로', 'OO동 OO호', sysdate, 11);
+
+INSERT INTO member(memberno, id, pw, nickname, phone, address1, address2, rdate, grade) 
+VALUES (member_seq.nextval, 'id3', '1234', '아무나', 01001000000, '경상남도 OO시 OOO로', 'OO동 OO호', sysdate, 30);
+commit;
+
  -- 조회
 SELECT memberno, id, pw, nickname, phone, address1, address2, rdate, grade
 FROM MEMBER
