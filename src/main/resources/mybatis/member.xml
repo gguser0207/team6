@@ -6,22 +6,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace = "dev.mvc.member.MemberDAOInter">
 <!-- 회원가입 -->
   <insert id="create" parameterType="dev.mvc.member.MemberVO">
-    INSERT INTO member(memberno, id, pw, nickname, <!-- email, --> phone, address1, address2, rdate, grade)
-    VALUES (member_seq.nextval, #{id}, #{pw}, #{name}, <!-- #{email}, --> #{phone}, 
+    INSERT INTO member(memberno, id, pw, nickname,  email, phone, zipcode, address1, address2, rdate, grade)
+    VALUES (member_seq.nextval, #{id}, #{pw}, #{nickname}, #{email}, #{phone}, #{zipcode},
                  #{address1}, #{address2}, sysdate, #{grade})
   </insert>
+
   <!-- 아이디 중복 검색 -->
     <select id="checkID" resultType="int" parameterType="String">
     SELECT COUNT(id) as cnt
     FROM member
     WHERE id=#{id}
   </select>
+  
+  
   <!-- 전체 회원 검색 -->
   <select id="list" resultType="dev.mvc.member.MemberVO">
-    SELECT memberno, id, pw, nickname, <!-- email, --> phone, address1, address2, rdate, grade
+    SELECT memberno, id, pw, nickname, email, phone, address1, address2, rdate, grade
     FROM member
     ORDER BY memberno ASC
   </select>
+
 
   <!-- memberno로 회원 정보 조회 -->
   <select id="read" resultType="dev.mvc.member.MemberVO" parameterType="int">

@@ -7,7 +7,7 @@
 <head> 
 <meta charset="UTF-8"> 
 <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, width=device-width" /> 
-<title>Resort world</title>
+<title>Movie</title>
 
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
 
@@ -69,7 +69,7 @@
           } else {
             $('#modal_content').attr('class', 'alert alert-success'); // Bootstrap CSS 변경
             msg = "사용 가능한 ID 입니다.";
-            $('#btn_close').attr("data-focus", "passwd");  // passwd 입력으로 focus 이동
+            $('#btn_close').attr("data-focus", "pw");  // passwd 입력으로 focus 이동
             // $.cookie('checkId', 'TRUE'); // Cookie 기록
           }
           
@@ -107,7 +107,7 @@
 
   function send() { // 회원 가입 처리
     // 패스워드를 정상적으로 2번 입력했는지 확인
-    if ($('#passwd').val() != $('#passwd2').val()) {
+    if ($('#pw').val() != $('#pw2').val()) {
       msg = '입력된 패스워드가 일치하지 않습니다.<br>';
       msg += "패스워드를 다시 입력해주세요.<br>"; 
       
@@ -116,7 +116,7 @@
       $('#modal_content').html(msg);  // 내용
       $('#modal_panel').modal();         // 다이얼로그 출력
       
-      $('#btn_send').attr('data-focus', 'passwd');
+      $('#btn_send').attr('data-focus', 'pw');
       
       return false; // submit 중지
     }
@@ -179,23 +179,23 @@
     </div>   
                 
     <div class="form-group">
-      <label for="passwd" class="col-md-2 control-label" style='font-size: 0.9em;'>패스워드*</label>    
+      <label for="pw" class="col-md-2 control-label" style='font-size: 0.9em;'>패스워드*</label>    
       <div class="col-md-10">
-        <input type='password' class="form-control" name='passwd' id='passwd' value='' required="required" style='width: 30%;' placeholder="패스워드">
+        <input type='password' class="form-control" name='pw' id='pw' value='' required="required" style='width: 30%;' placeholder="패스워드">
       </div>
     </div>   
 
     <div class="form-group">
-      <label for="passwd2" class="col-md-2 control-label" style='font-size: 0.9em;'>패스워드 확인*</label>    
+      <label for="pw2" class="col-md-2 control-label" style='font-size: 0.9em;'>패스워드 확인*</label>    
       <div class="col-md-10">
-        <input type='password' class="form-control" name='passwd2' id='passwd2' value='' required="required" style='width: 30%;' placeholder="패스워드">
+        <input type='password' class="form-control" name='pw2' id='pw2' value='' required="required" style='width: 30%;' placeholder="패스워드">
       </div>
     </div>   
     
     <div class="form-group">
-      <label for="mname" class="col-md-2 control-label" style='font-size: 0.9em;'>성명*</label>    
+      <label for="nickname" class="col-md-2 control-label" style='font-size: 0.9em;'>성명*</label>    
       <div class="col-md-10">
-        <input type='text' class="form-control" name='mname' id='mname' 
+        <input type='text' class="form-control" name='nickname' id='nickname' 
                    value='' required="required" style='width: 30%;' placeholder="성명">
       </div>
     </div>   
@@ -206,8 +206,16 @@
         <input type='text' class="form-control" name='tel' id='tel' 
                    value='' required="required" style='width: 30%;' placeholder="전화번호"> 예) 010-0000-0000
       </div>
-    </div>   
-
+    </div>  
+     
+	<div class="form-group">
+      <label for="'email'" class="col-md-2 control-label" style='font-size: 0.9em;'>이메일*</label>    
+      <div class="col-md-10">
+        <input type='text' class="form-control" name='email' id='email' 
+                   value='' required="required" style='width: 30%;' placeholder="이메일">  예) example@naver.com
+      </div>
+    </div>  
+    
     <div class="form-group">
       <label for="zipcode" class="col-md-2 control-label" style='font-size: 0.9em;'>우편번호</label>    
       <div class="col-md-10">

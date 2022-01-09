@@ -78,7 +78,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label" style='font-size: 0.9em;'>성명</label>    
         <div class="col-md-10">
-          <input type='text' class="form-control" name='mname' id='mname' 
+          <input type='text' class="form-control" name='nickname' id='nickname' 
                      value='${memberVO.nickname }' required="required" autofocus="autofocus" 
                      style='width: 30%;' placeholder="성명">
         </div>
