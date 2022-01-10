@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace = "dev.mvc.member.MemberDAOInter">
 <!-- 회원가입 -->
   <insert id="create" parameterType="dev.mvc.member.MemberVO">
-    INSERT INTO member(memberno, id, pw, nickname,  email, phone, zipcode, address1, address2, rdate, grade)
-    VALUES (member_seq.nextval, #{id}, #{pw}, #{nickname}, #{email}, #{phone}, #{zipcode},
+    INSERT INTO member(memberno, id, pw, nickname, phone, email, zipcode, address1, address2, rdate, grade)
+    VALUES (member_seq.nextval, #{id}, #{pw}, #{nickname}, #{phone}, #{email}, #{zipcode},
                  #{address1}, #{address2}, sysdate, #{grade})
   </insert>
 

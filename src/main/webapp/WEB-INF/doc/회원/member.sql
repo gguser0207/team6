@@ -5,7 +5,7 @@ CREATE TABLE member (
   id             VARCHAR(20)   NOT NULL UNIQUE, -- 아이디, 중복 불가, 레코드를 구분 
   pw            VARCHAR(60)   NOT NULL, -- 패스워드, 영숫자 조합
   nickname  VARCHAR(30)   NOT NULL, -- 성명, 한글 10자 저장 가능
-  phone         VARCHAR(14)   NULL, -- 전화번호
+  phone         VARCHAR(60)   NULL, -- 전화번호
   email        VARCHAR(60)       NULL, -- 이메일, 중복 불가
   zipcode       NUMBER(7)        NULL, -- 우편번호, 
   address1    VARCHAR(80)       NOT NULL, -- 주소 1
@@ -52,7 +52,7 @@ commit;
  -- 조회
 SELECT memberno, id, pw, nickname, phone, address1, address2, rdate, grade
 FROM MEMBER
-WHERE memberno = 1;
+WHERE memberno = 2;
 
 SELECT memberno, id, pw, nickname, phone, address1, address2, rdate, grade
 FROM MEMBER

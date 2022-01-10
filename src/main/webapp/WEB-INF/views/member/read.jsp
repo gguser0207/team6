@@ -87,10 +87,18 @@
       <div class="form-group">
         <label class="col-md-2 control-label" style='font-size: 0.9em;'>전화번호</label>    
         <div class="col-md-10">
-          <input type='text' class="form-control" name='tel' id='tel' 
-                     value='${memberVO.phone }' required="required" style='width: 30%;' placeholder="전화번호"> 예) 010-0000-0000
+          <input type='text' class="form-control" name='phone' id='phone' 
+                     value='${memberVO.phone}' required="required" style='width: 30%;' placeholder="전화번호"> 예) 010-0000-0000
         </div>
       </div>   
+   
+   <div class="form-group">
+      <label for="'email'" class="col-md-2 control-label" style='font-size: 0.9em;'>이메일*</label>    
+      <div class="col-md-10">
+        <input type='text' class="form-control" name='email' id='email' 
+                   value='' required="required" style='width: 30%;' placeholder="이메일">  예) example@naver.com
+      </div>
+    </div>
    
       <div class="form-group">
         <label class="col-md-2 control-label" style='font-size: 0.9em;'>우편번호</label>    

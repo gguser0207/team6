@@ -155,7 +155,7 @@ public class MemberCont {
     
     JSONObject json = new JSONObject();
     json.put("rname", memberVO.getNickname());
-    json.put("rtel", memberVO.getPhone());
+    json.put("rphone", memberVO.getPhone());
     json.put("rzipcode", memberVO.getZipcode());
     json.put("raddress1", memberVO.getAddress1());
     json.put("raddress2", memberVO.getAddress2());
