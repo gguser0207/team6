@@ -76,7 +76,7 @@ public class MemberCont {
     
     if (cnt == 1) {
       mav.addObject("code", "create_success");
-      mav.addObject("nickname", memberVO.getNickname());  // 홍길동님(user4) 회원 가입을 축하합니다.
+      mav.addObject("mname", memberVO.getNickname());  // 홍길동님(user4) 회원 가입을 축하합니다.
       mav.addObject("id", memberVO.getId());
     } else {
       mav.addObject("code", "create_fail");
@@ -155,7 +155,7 @@ public class MemberCont {
     
     JSONObject json = new JSONObject();
     json.put("rname", memberVO.getNickname());
-    json.put("rphone", memberVO.getPhone());
+    json.put("rtel", memberVO.getPhone());
     json.put("rzipcode", memberVO.getZipcode());
     json.put("raddress1", memberVO.getAddress1());
     json.put("raddress2", memberVO.getAddress2());
@@ -271,7 +271,7 @@ public class MemberCont {
     // 현재 패스워드 검사
     HashMap<Object, Object> map = new HashMap<Object, Object>();
     map.put("memberno", memberno);
-    map.put("pw", current_passwd);
+    map.put("passwd", current_passwd);
     
     int cnt = memberProc.passwd_check(map);
     int update_cnt = 0; // 변경된 패스워드 수

@@ -12,7 +12,6 @@
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
@@ -27,13 +26,13 @@
 <body>
 <jsp:include page="../menu/top.jsp" flush='false' />
  
-<DIV class='content_body'>  
+<DIV class='content_body_login'>  
   <DIV style='width: 80%; margin: 0px auto;'>
     <FORM name='frm' method='POST' action='./login.do' class="form-horizontal">
       <%-- 로그인 후 자동으로 이동할 페이지 전달 ★ --%>
       <input type="hidden" name="return_url" value="${return_url}">
       
-      <div class="form-group">
+      <div class="btn_login">
         <label class="col-md-4 control-label" style='font-size: 0.8em;'>아이디</label>    
         <div class="col-md-8">
           <input type='text' class="form-control" name='id' id='id' 
@@ -47,7 +46,7 @@
    
       </div>   
    
-      <div class="form-group">
+      <div class="btn_login">
         <label class="col-md-4 control-label" style='font-size: 0.8em;'>패스워드</label>    
         <div class="col-md-8">
           <input type='password' class="form-control" name='pw' id='pw' 
@@ -59,7 +58,7 @@
         </div>
       </div>   
    
-      <div class="form-group">
+      <div class="btn_login">
         <div class="col-md-offset-4 col-md-8">
           <button type="submit" class="btn btn-primary btn-md">로그인</button>
           <button type='button' onclick="location.href='./create.do'" class="btn btn-primary btn-md">회원가입</button>

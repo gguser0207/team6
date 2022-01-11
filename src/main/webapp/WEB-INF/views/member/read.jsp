@@ -12,7 +12,6 @@
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  
  
@@ -29,39 +28,10 @@
     회원 정보 조회 및 수정
   </DIV>
 
-  <DIV class='content_body'>    
-    <ASIDE class="aside_right">
-      <A href="javascript:location.reload();">새로고침</A>
-      <span class='menu_divide' >│</span> 
-      <A href='./create.do'>회원 가입</A>
-      <span class='menu_divide' >│</span> 
-      <A href='./list.do'>목록</A>
-    </ASIDE> 
-   
+  <DIV class='content_body_member_read'>    
+
     <div class='menu_line'></div>
-    
-    <DIV id='main_panel'></DIV>
-   
-    <!-- Modal -->
-    <div class="modal fade" id="modal_panel" role="dialog">
-      <div class="modal-dialog">
-      
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-            <h4 class="modal-title" id='modal_title'></h4> <!-- 제목 -->
-          </div>
-          <div class="modal-body">
-            <p id='modal_content'></p> <!-- 내용 -->
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-        
-      </div>
-    </div> <!-- Modal END -->
+
       
     <FORM name='frm' id='frm' method='POST' action='./update.do' 
                 onsubmit="return send();" class="form-horizontal">
@@ -77,8 +47,8 @@
                   
       <div class="form-group">
         <label class="col-md-2 control-label" style='font-size: 0.9em;'>성명</label>    
-        <div class="col-md-10">
-          <input type='text' class="form-control" name='nickname' id='nickname' 
+        <div class="member_bar" style="color: white;">
+          <input type='text' class="form-control" name='mname' id='mname' 
                      value='${memberVO.nickname }' required="required" autofocus="autofocus" 
                      style='width: 30%;' placeholder="성명">
         </div>
@@ -86,32 +56,24 @@
    
       <div class="form-group">
         <label class="col-md-2 control-label" style='font-size: 0.9em;'>전화번호</label>    
-        <div class="col-md-10">
-          <input type='text' class="form-control" name='phone' id='phone' 
-                     value='${memberVO.phone}' required="required" style='width: 30%;' placeholder="전화번호"> 예) 010-0000-0000
+        <div class="member_bar">
+          <input type='text' class="form-control" name='tel' id='tel' 
+                     value='${memberVO.phone }' required="required" style='width: 30%;' placeholder="전화번호"> 예) 010-0000-0000
         </div>
       </div>   
    
-   <div class="form-group">
-      <label for="'email'" class="col-md-2 control-label" style='font-size: 0.9em;'>이메일*</label>    
-      <div class="col-md-10">
-        <input type='text' class="form-control" name='email' id='email' 
-                   value='' required="required" style='width: 30%;' placeholder="이메일">  예) example@naver.com
-      </div>
-    </div>
-   
       <div class="form-group">
         <label class="col-md-2 control-label" style='font-size: 0.9em;'>우편번호</label>    
-        <div class="col-md-10">
+        <div class="member_bar">
           <input type='text' class="form-control" name='zipcode' id='zipcode' 
                      value='${memberVO.zipcode }' required="required" style='width: 30%;' placeholder="우편번호">
-          <input type="button" onclick="DaumPostcode()" value="우편번호 찾기" class="btn btn-info btn-md">
+          <input type="button" onclick="DaumPostcode()" value="우편번호 찾기" class="btn_members_update">
         </div>
       </div>  
    
       <div class="form-group">
         <label class="col-md-2 control-label" style='font-size: 0.9em;'>주소</label>    
-        <div class="col-md-10">
+        <div class="member_bar">
           <input type='text' class="form-control" name='address1' id='address1' 
                      value='${memberVO.address1 }' required="required" style='width: 80%;' placeholder="주소">
         </div>
@@ -119,7 +81,7 @@
    
       <div class="form-group">
         <label class="col-md-2 control-label" style='font-size: 0.9em;'>상세 주소</label>    
-        <div class="col-md-10">
+        <div class="member_bar">
           <input type='text' class="form-control" name='address2' id='address2' 
                      value='${memberVO.address2 }' required="required" style='width: 80%;' placeholder="상세 주소">
         </div>

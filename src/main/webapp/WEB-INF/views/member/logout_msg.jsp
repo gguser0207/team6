@@ -14,7 +14,6 @@
           src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
 <!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     
 <script type="text/javascript">
@@ -31,15 +30,14 @@
  
 <DIV class='title_line'>알림</DIV>
   <DIV class='message'>
-    <fieldset class='fieldset_basic'>
       <ul>
         <li class='li_none'>이용해 주셔서감사합니다.</li>
         <li class='li_none'>
-          <button type="button" id="btn_home" class="btn btn-primary btn-md">확인</button>
+          <button type="button" id="btn_home" class="btn_home">홈 화면으로 가기</button>
         </li>
         
       </ul>
-    </fieldset>    
+  
   </DIV>
  
 <jsp:include page="../menu/bottom.jsp" flush='false' />
