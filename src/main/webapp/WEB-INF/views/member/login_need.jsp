@@ -28,7 +28,7 @@
 <jsp:include page="../menu/top.jsp" flush='false' />
  
   <DIV class='message'>
-    <H3>로그인이 필요한 페이지입니다.</H3>
+    <H3>관리자 등급의 사용자가 아닙니다.</H3>
     <BR><BR>
     <button type='button' 
                  onclick="location.href='/member/login.do'" 
@@ -36,6 +36,9 @@
     <button type='button' 
                  onclick="location.href='/member/create.do'" 
                  class="btn btn-info">회원 가입</button>       
+	<button type='button' 
+                 onclick="location.href='/index.do'" 
+                 class="btn btn-info">홈페이지</button>  
 
   </DIV>
  
