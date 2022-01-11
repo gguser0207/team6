@@ -13,9 +13,7 @@
  
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  
  
 <script type="text/javascript">
@@ -32,7 +30,7 @@
     회원(관리자 전용)
   </DIV>
 
-  <DIV class='content_body'>
+  <DIV class='content_body_member_list'>
 
     <ASIDE class="aside_right">
       <A href="javascript:location.reload();">새로고침</A>
@@ -45,25 +43,26 @@
     <div class='menu_line'></div>
     
    
-    <table class="table table-striped" style='width: 100%;'>
+    <table style='width: 100%;'>
     <colgroup>
       <col style='width: 5%;'/>
       <col style='width: 10%;'/>
       <col style='width: 15%;'/>
       <col style='width: 15%;'/>
-      <col style='width: 30%;'/>
-      <col style='width: 15%;'/>
+      <col style='width: 25%;'/>
       <col style='width: 10%;'/>
+      <col style='width: 20%;'/>
     </colgroup>
-    <TR>
-      <TH class='th_bs'>번호</TH>
-      <TH class='th_bs'>ID</TH>
-      <TH class='th_bs'>성명</TH>
-      <TH class='th_bs'>전화번호</TH>
-      <TH class='th_bs'>주소</TH>
-      <TH class='th_bs'>등록일</TH>
-      <TH class='th_bs'>기타</TH>
-    </TR>
+        <TR class="member">
+          <TH class='th_bs'>번호</TH>
+          <TH class='th_bs'>ID</TH>
+          <TH class='th_bs'>성명</TH>
+          <TH class='th_bs'>전화번호</TH>
+          <TH class='th_bs'>주소</TH>
+          <TH class='th_bs'>등록일</TH>
+          <TH class='th_bs'>기타</TH>
+        </TR>
+    
    
     <c:forEach var="memberVO" items="${list}">
       <c:set var="memberno" value ="${memberVO.memberno}" />
@@ -110,3 +109,5 @@
 </body>
  
 </html>
+
+
