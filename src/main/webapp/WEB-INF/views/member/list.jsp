@@ -71,7 +71,7 @@
       <c:set var="nickname" value ="${memberVO.nickname}" />
       <c:set var="phone" value ="${memberVO.phone}" />
       <c:set var="address1" value ="${memberVO.address1}" />
-      <c:set var="mdate" value ="${memberVO.rdate}" />
+      <c:set var="rdate" value ="${memberVO.rdate}" />
        
     <TR>
       <TD class=td_basic>${memberno}</TD>
