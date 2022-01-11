@@ -7,15 +7,13 @@
 <head> 
 <meta charset="UTF-8"> 
 <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, width=device-width" /> 
-<title>Movie</title>
-
-<link href="/css/style.css" rel="Stylesheet" type="text/css">
+<title>회원가입</title>
 
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link href="/css/style.css" rel="Stylesheet" type="text/css">
 
 <script type="text/javascript">
   $(function() { // 자동 실행
@@ -27,6 +25,7 @@
     $('#btn_close').on('click', setFocus); // Dialog창을 닫은후의 focus 이동
     $('#btn_send').on('click', send); 
   });
+  
 
   // jQuery ajax 요청
   function checkID() {
@@ -40,7 +39,7 @@
     if ($.trim(id).length == 0) { // id를 입력받지 않은 경우
       msg = '· ID를 입력하세요.<br>· ID 입력은 필수 입니다.<br>· ID는 3자이상 권장합니다.';
       
-      $('#modal_content').attr('class', 'alert alert-danger'); // Bootstrap CSS 변경
+      $('#modal_panel').css('display', 'flex'); // Bootstrap CSS 변경
       $('#modal_title').html('ID 중복 확인'); // 제목 
       $('#modal_content').html(msg);        // 내용
       $('#btn_close').attr("data-focus", "id");  // 닫기 버튼 클릭시 id 입력으로 focus 이동
@@ -69,7 +68,7 @@
           } else {
             $('#modal_content').attr('class', 'alert alert-success'); // Bootstrap CSS 변경
             msg = "사용 가능한 ID 입니다.";
-            $('#btn_close').attr("data-focus", "pw");  // passwd 입력으로 focus 이동
+            $('#btn_close').attr("data-focus", "passwd");  // passwd 입력으로 focus 이동
             // $.cookie('checkId', 'TRUE'); // Cookie 기록
           }
           
@@ -107,7 +106,7 @@
 
   function send() { // 회원 가입 처리
     // 패스워드를 정상적으로 2번 입력했는지 확인
-    if ($('#pw').val() != $('#pw2').val()) {
+    if ($('#passwd').val() != $('#passwd2').val()) {
       msg = '입력된 패스워드가 일치하지 않습니다.<br>';
       msg += "패스워드를 다시 입력해주세요.<br>"; 
       
@@ -116,7 +115,7 @@
       $('#modal_content').html(msg);  // 내용
       $('#modal_panel').modal();         // 다이얼로그 출력
       
-      $('#btn_send').attr('data-focus', 'pw');
+      $('#btn_send').attr('data-focus', 'passwd');
       
       return false; // submit 중지
     }
@@ -136,14 +135,14 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>
+          <button type="button" class="btn_close" data-dismiss="modal">×</button>
           <h4 class="modal-title" id='modal_title'></h4><!-- 제목 -->
         </div>
         <div class="modal-body">
           <p id='modal_content'></p>  <!-- 내용 -->
         </div>
         <div class="modal-footer">
-          <button type="button" id="btn_close" data-focus="" class="btn btn-default" 
+          <button type="button" id="btn_close" data-focus="" class="btn_close" 
                       data-dismiss="modal">닫기</button>
         </div>
       </div>
@@ -164,37 +163,37 @@
     <span class='menu_divide' >│</span> 
     <A href='./list.do'>목록</A>
   </ASIDE>  -->
- <DIV class='content_body'>
+ <DIV class='content_body_member'>
   <div class='menu_line'></div>
-  
+  <div class="member_create_title"><p>회 원 가 입</p></div>
   <FORM name='frm' id='frm' method='POST' action='./create.do' class="form-horizontal">
   
     <div class="form-group">
       <label for="id" class="col-md-2 control-label" style='font-size: 0.9em;'>아이디*</label>    
-      <div class="col-md-10">
+      <div class="member_bar">
         <input type='text' class="form-control" name='id' id='id' value='' required="required" style='width: 30%;' placeholder="아이디" autofocus="autofocus">
-        <button type='button' id="btn_checkID" class="btn btn-info btn-md">중복확인</button>
+        <button type='button' id="btn_checkID" class="btn_members">중복확인</button>
         <SPAN id='id_span'></SPAN> <!-- ID 중복 관련 메시지 -->        
       </div>
     </div>   
                 
     <div class="form-group">
       <label for="pw" class="col-md-2 control-label" style='font-size: 0.9em;'>패스워드*</label>    
-      <div class="col-md-10">
+      <div class="member_bar">
         <input type='password' class="form-control" name='pw' id='pw' value='' required="required" style='width: 30%;' placeholder="패스워드">
       </div>
     </div>   
 
     <div class="form-group">
       <label for="pw2" class="col-md-2 control-label" style='font-size: 0.9em;'>패스워드 확인*</label>    
-      <div class="col-md-10">
+      <div class="member_bar">
         <input type='password' class="form-control" name='pw2' id='pw2' value='' required="required" style='width: 30%;' placeholder="패스워드">
       </div>
     </div>   
     
     <div class="form-group">
       <label for="nickname" class="col-md-2 control-label" style='font-size: 0.9em;'>성명*</label>    
-      <div class="col-md-10">
+      <div class="member_bar">
         <input type='text' class="form-control" name='nickname' id='nickname' 
                    value='' required="required" style='width: 30%;' placeholder="성명">
       </div>
@@ -202,32 +201,32 @@
 
     <div class="form-group">
       <label for="phone" class="col-md-2 control-label" style='font-size: 0.9em;'>전화번호*</label>    
-      <div class="col-md-10">
+      <div class="member_bar">
         <input type='text' class="form-control" name='phone' id='phone' 
                    value='' required="required" style='width: 30%;' placeholder="전화번호"> 예) 010-0000-0000
       </div>
-    </div>  
-     
-	<div class="form-group">
+    </div>   
+
+    <div class="form-group">
       <label for="'email'" class="col-md-2 control-label" style='font-size: 0.9em;'>이메일*</label>    
-      <div class="col-md-10">
+      <div class="member_bar">
         <input type='text' class="form-control" name='email' id='email' 
                    value='' required="required" style='width: 30%;' placeholder="이메일">  예) example@naver.com
       </div>
     </div>  
-    
+
     <div class="form-group">
       <label for="zipcode" class="col-md-2 control-label" style='font-size: 0.9em;'>우편번호</label>    
-      <div class="col-md-10">
+      <div class="member_bar">
         <input type='text' class="form-control" name='zipcode' id='zipcode' 
                    value='' style='width: 30%;' placeholder="우편번호">
-        <button type="button" id="btn_DaumPostcode" class="btn btn-info btn-md">우편번호 찾기</button>
+        <button type="button" id="btn_DaumPostcode" class="btn_members">우편번호 찾기</button>
       </div>
     </div>  
 
     <div class="form-group">
       <label for="address1" class="col-md-2 control-label" style='font-size: 0.9em;'>주소</label>    
-      <div class="col-md-10">
+      <div class="member_bar">
         <input type='text' class="form-control" name='address1' id='address1' 
                    value='' style='width: 80%;' placeholder="주소">
       </div>
@@ -235,7 +234,7 @@
 
     <div class="form-group">
       <label for="address2" class="col-md-2 control-label" style='font-size: 0.9em;'>상세 주소</label>    
-      <div class="col-md-10">
+      <div class="member_bar">
         <input type='text' class="form-control" name='address2' id='address2' 
                    value='' style='width: 80%;' placeholder="상세 주소">
       </div>
@@ -317,8 +316,8 @@
     
     <div class="form-group">
       <div class="col-md-offset-2 col-md-10">
-        <button type="button" id='btn_send' class="btn btn-primary btn-md">가입</button>
-        <button type="button" onclick="history.back()" class="btn btn-primary btn-md">취소</button>
+        <button type="button" id='btn_send' class="btn_members">가입</button>
+        <button type="button" onclick="history.back()" class="btn_members">취소</button>
 
       </div>
     </div>   

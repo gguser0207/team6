@@ -14,7 +14,7 @@
           src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
 <!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     
     
@@ -35,18 +35,15 @@
 <jsp:include page="../menu/top.jsp" flush='false' />
  
 <DIV class='title_line'>알림</DIV>
-  <DIV class='message'>
-    <fieldset class='fieldset_basic'>
+  <DIV class='message_fail'>
       <ul>
         <li class='li_none'>회원 로그인에 실패했습니다.</li>
         <li class='li_none'>ID 또는 패스워드가 일치하지 않습니다.</li>
         <li class='li_none'>
-          <button type="button" id="btn_retry" class="btn btn-primary btn-md">로그인 다시 시도</button>
+          <button type="button" id="btn_retry" class="btn btn-primary btn-md">다시 시도</button>
           <button type="button" id="btn_home" class="btn btn-primary btn-md">확인</button>
-        </li>
-        
+        </li> 
       </ul>
-    </fieldset>    
   </DIV>
  
 <jsp:include page="../menu/bottom.jsp" flush='false' />

@@ -14,7 +14,6 @@
  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     
 <script type="text/javascript">
  
@@ -28,35 +27,16 @@
  
 <DIV class='title_line'>영화</DIV>
 
-<DIV class='content_body'>
-  <DIV id='panel_create' style='padding: 10px 0px 10px 0px; background-color: #F9F9F9; width: 100%; text-align: center;'>
-    <FORM name='frm_create' id='frm_create' method='POST' action='./create.do'>
-      <label>영화제목</label>
-      <input type='text' name='name' value='' required="required" style='width: 25%;'
-                 autofocus="autofocus">
-  
-      <label>순서</label>
-      <input type='number' name='seqno' value='1' required="required" 
-                min='1' max='1000' step='1' style='width: 5%;'>
-  
-      <label>형식</label>
-      <select name='visible'>
-        <option value='Y' selected="selected">Y</option>
-        <option value='N'>N</option>
-      </select>
-       
-      <button type="submit" id='submit' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">등록</button>
-      <button type="button" onclick="cancel();" class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">취소</button>
-    </FORM>
-  </DIV>
+<DIV class='content_body_movie_list'>
+<div class="create_form_move"><a href="/movie/create.do">영 화 등 록</a></div> 
     
-  <TABLE class='table table-striped'>
+  <TABLE class='table table-striped' style="width:100%;">
     <colgroup>
       <col style='width: 10%;'/>
+      <col style='width: 15%;'/>
       <col style='width: 10%;'/>
-      <col style='width: 30%;'/>
-      <col style='width: 20%;'/>
-      <col style='width: 10%;'/>    
+      <col style='width: 15%;'/>
+      <col style='width: 30%;'/>    
       <col style='width: 20%;'/>
     </colgroup>
    
@@ -94,8 +74,8 @@
         <TD class="td_bs">${plot}</TD>  
         
         <TD class="td_bs">
-          <A href="./read_update.do?mno=${mno }" title="수정"><span class="glyphicon glyphicon-pencil"></span></A>
-          <A href="./read_delete.do?mno=${mno }" title="삭제"><span class="glyphicon glyphicon-trash"></span></A>         
+          <A href="./read_update.do?mno=${mno }" title="수정"><span>수정</span></A>
+          <A href="./read_delete.do?mno=${mno }" title="삭제"><span>삭제</span></A>         
         </TD>   
       </TR>   
     </c:forEach> 

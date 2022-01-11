@@ -36,7 +36,7 @@
     <button type='button' 
                  onclick="location.href='/member/create.do'" 
                  class="btn btn-info">회원 가입</button>       
-	<button type='button' 
+    <button type='button' 
                  onclick="location.href='/index.do'" 
                  class="btn btn-info">홈페이지</button>  
 
