@@ -33,5 +33,5 @@ insert into cart(cartno, memberno, mno) values(cart_seq.nextval, 6, 6);
 
 commit;
 
-select c.cartno, me.nickname, m.title, m.director, m.actor from cart c, member me, movie m
+select c.cartno, me.nickname, m.title, m.director, m.actor, m.THUMB1 from cart c, member me, movie m
 where me.memberno = c.memberno and c.mno = m.mno and c.memberno = 4;

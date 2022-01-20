@@ -15,8 +15,7 @@ public class CartVO {
 
     private String title = "";
     private String director = "";
-    private String actor = "";
-
+    private String thumb1 = "";
 
     public int getCartno(){return cartno;}
     public void setCartno(int cartno){this.cartno = cartno;}
@@ -33,6 +32,6 @@ public class CartVO {
     public String getDirector(){return director;}
     public void setDirector(String director){this.director = director;}
 
-    public String getActor(){return actor;}
-    public void setActor(String actor){this.actor = actor;}
+    public String getThumb1(){return thumb1;}
+    public void setThumb1(String thumb1){this.thumb1 = thumb1;}
 }
