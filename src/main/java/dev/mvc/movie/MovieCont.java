@@ -181,7 +181,7 @@ public class MovieCont {
     	
     	mav.addObject("mno", moiveVO.getMno());
     	
-    	mav.setViewName("redirect:/movie/read_cookie.do");
+    	mav.setViewName("redirect:/movie/read.do");
     	
     	return mav;
     }

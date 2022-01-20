@@ -8,7 +8,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="dev.mvc.movie.MovieDAOInter"> 
     <insert id="create" parameterType="dev.mvc.movie.MovieVO">
-    
         INSERT INTO movie(mno, title, director, actor, plot, word, file1,
         						 file1saved, thumb1, size2, release, price, passwd)
         VALUES(movie_seq.nextval, #{title}, #{director}, #{actor}, #{plot}, #{word},

@@ -182,13 +182,10 @@
 <body>
 <jsp:include page="../menu/top.jsp" flush='false' />
  
-<DIV class='title_line'>
-  <A href="../categrp/list.do" class='title_link'>카테고리 그룹</A> > 
-  <A href="../cate/list_by_categrpno.do?categrpno=${categrpVO.categrpno }" class='title_link'>${categrpVO.name }</A> >
-  <A href="./list_by_cateno_search_paging.do?cateno=${cateno }" class='title_link'>${cateVO.name }</A>
-</DIV>
 
-<DIV class='content_body'>
+
+          
+<DIV class='content_body_read'>
   <ASIDE class="aside_right">
     <A href="./create.do?mno=${mno }">등록</A>
     <span class='menu_divide' >│</span>
@@ -198,6 +195,14 @@
     <span class='menu_divide' >│</span>
     <A href="./list_grid.do?mno=${mno }">갤러리형</A>
     <span class='menu_divide' >│</span>
+    <form id=read_btn>
+    <button type='button' id='btn_cart' class="btn btn-info" onclick="cart_ajax(${mno })">장바 구니</button>
+    <span class='menu_divide' >│</span>
+    <button type='button' onclick="" class="btn btn-info">관심 상품</button>
+    <span class='menu_divide' >│</span>
+	<button type='button' id='btn_ordering' class="btn btn-info" onclick="cart_ajax(${mno })">바로 구매</button>  
+    <span id="span_animation"></span>
+    </form>
   </ASIDE> 
   
 <%--   <DIV style="text-align: right; clear: both;">  
@@ -266,50 +271,39 @@
     </FORM>
   </DIV>
   <%-- ******************** Ajax 기반 로그인 폼 종료 ******************** --%>
-  <fieldset class="fieldset_basic">
-    <ul>
-      <li class="li_none">
+
+    <div class="read_contents">
         <c:set var="file1saved" value="${file1saved.toLowerCase() }" />
-        <DIV style="width: 50%; float: left; margin-right: 10px;">
+        <DIV style="width: 50%;">
             <c:choose>
               <c:when test="${thumb1.endsWith('jpg') || thumb1.endsWith('png') || thumb1.endsWith('gif')}">
                 <%-- /static/contents/storage/ --%>
-                <IMG src="/movie/images/${file1saved }" style="width: 100%;"> 
+                <IMG src="/movie/images/${file1saved }" style="width: 40%;"> 
               </c:when>
               <c:otherwise> <!-- 기본 이미지 출력 -->
-                <IMG src="/movie/images/none1.png" style="width: 100%;"> 
+                <IMG src="/movie/images/none1.png" style="width: 40%;"> 
               </c:otherwise>
             </c:choose>
         </DIV>
-        <DIV style="width: 47%; height: 260px; float: left; margin-right: 10px; margin-bottom: 30px;">
-          <span style="font-size: 1.5em; font-weight: bold;">${title }</span><br>
-          <%-- <del><fmt:formatNumber value="${price}" pattern="#,###" /> 원</del><br> --%>
-          <form>
-            <button type='button' id='btn_cart' class="btn btn-info" style='margin-bottom: 2px;'
-                        onclick="cart_ajax(${mno })">장바 구니</button><br>
-            <button type='button' id='btn_ordering' class="btn btn-info" 
-                        onclick="cart_ajax(${mno })">바로 구매</button>  
-          <button type='button' onclick="" class="btn btn-info">관심 상품</button>
-          <span id="span_animation"></span>
-          </form>
-        </DIV> 
-
-        <DIV>${contents }</DIV>
-      </li>
-      <li class="li_none">
-        <DIV style='text-decoration: none;'>
-          검색어(키워드): ${word }
-        </DIV>
-      </li>
-      <li class="li_none">
-        <DIV>
+        
+        <DIV style="width: 48%; height: 300px; float: left; margin-bottom: 60px;">
+          <span style="font-size: 2em; font-weight: bold;">${title }</span><br>
+          <DIV style='margin-bottom: 0px;'>${plot }</DIV>
+          <DIV style='text-decoration: none;'>검색어(키워드): ${word }</DIV>
           <c:if test="${file1.trim().length() > 0 }">
             첨부 파일: <A href='/download?dir=/contents/storage&filename=${file1saved}&downname=${file1}'>${file1}</A> (${size1_label})  
           </c:if>
+          <del><fmt:formatNumber value="${price}" pattern="#,###" /> 원</del><br>
+        </DIV> 
+      <div class="read_words">
+
+      </div>
+      <div class="li_none">
+        <DIV>
+
         </DIV>
-      </li>   
-    </ul>
-  </fieldset>
+      </div>   
+    </div>
 
 </DIV>
  
