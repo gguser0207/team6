@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "dev.mvc.cart.CartDAOInter">
+    <insert id="create" parameterType="dev.mvc.cart.CartVO">
+        INSERT INTO cart(cartno, memberno, mno)
+        VALUES (cart_seq.nextval, #{memberno}, #{mno})
+    </insert>
+
+    <!--개인 장바구니 리스트 조회-->
+    <select id="cartList" resultType="dev.mvc.cart.CartVO">
+        select c.cartno, me.nickname, m.title, m.director, m.actor  from cart c, member me, movie m
+        where c.memberno = #{memberno} and c.memberno = me.memberno and c.mno = m.mno;
+    </select>
+
+    <!--개인 장바구니 내 영화 조회 및 장바구니 담기 비활성화-->
+    <select id="cartMovieDetail" resultType="dev.mvc.cart.CartVO" parameterType="int">
+        SELECT mno, title, director, actor, plot
+        FROM movie
+        WHERE mno = #{movieno}
+    </select>
+
+    <delete id="cartDelete" parameterType="int">
+        delete cart where CARTNO = #{cartno}
+    </delete>
+</mapper>
+  
