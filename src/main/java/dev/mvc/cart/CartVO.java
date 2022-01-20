@@ -10,11 +10,12 @@ import lombok.ToString;
 @ToString
 public class CartVO {
     private int cartno;
-    private int memberno = -1;
-    private int mno = -1;
+    private int memberno;
+    private int mno;
 
     private String title = "";
     private String director = "";
+    private String actor = "";
 
 
     public int getCartno(){return cartno;}
@@ -23,6 +24,15 @@ public class CartVO {
     public int getmemberno(){return memberno;}
     public void setmemberno(int memberno){this.memberno = memberno;}
 
-    public int getMno(){return cartno;}
+    public int getMno(){return mno;}
     public void setMno(int mno){this.mno = mno;}
+
+    public String getTitle(){return title;}
+    public void setTitle(String title){this.title = title;}
+
+    public String getDirector(){return director;}
+    public void setDirector(String director){this.director = director;}
+
+    public String getActor(){return actor;}
+    public void setActor(String actor){this.actor = actor;}
 }

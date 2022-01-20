@@ -2,7 +2,7 @@ package dev.mvc.cart;
 
 import java.util.List;
 
-public interface CartDAOInter {
+public interface CartProcInter {
 
     /**
      * 장바구니 컬럼 생성

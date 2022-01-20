@@ -10,14 +10,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </insert>
 
     <!--개인 장바구니 리스트 조회-->
-    <select id="cartList" resultType="dev.mvc.cart.CartVO">
-        select c.cartno, m.title, m.director from cart c, movie m
---         where c.memberno = #{memberno} and c.mno = m.mno;
+    <select id="cartList" resultType="dev.mvc.cart.CartVO" parameterType="int">
+        select c.cartno, c.MEMBERNO, c.MNO, m.title, m.director, m.ACTOR from cart c, movie m
+        where c.memberno = #{memberno} and c.mno = m.mno;
     </select>
 
     <!--개인 장바구니 내 영화 조회 및 장바구니 담기 비활성화-->
     <select id="cartMovieDetail" resultType="dev.mvc.cart.CartVO" parameterType="int">
-        SELECT mno, title, director, act, plot
+        SELECT mno, title, director, ACTOR, plot
         FROM movie
         WHERE mno = #{mno}
     </select>
