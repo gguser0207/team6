@@ -71,7 +71,7 @@
           <div class="td_bs">
           <FORM name='frm_delete' id='frm_delete' method='POST' action='/categrp/delete.do'>
            <input type='hidden' name='categrp_no' id='categrp_no' value='${categrpVO.categrp_no }'>
-           <input type='hidden' name='categrp_no' id='categrp_no' value='${categrpVO.categrp_name }'>
+           <input type='hidden' name='categrp_name' id='categrp_name' value='${categrpVO.categrp_name }'>
           <button class="btn_ud" type="submit" id='submit_delete'>삭제</button>
         </FORM>
           <a href="./update.do?categrp_no=${categrp_no }" class="btn_ud">수정</a>

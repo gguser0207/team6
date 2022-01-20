@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import dev.mvc.movie.MovieVO;
-
 public interface MovieProcInter {
     /**
      * 등록
@@ -25,13 +23,28 @@ public interface MovieProcInter {
      */
     public MovieVO read(int mno);
     
+
     /**
-     * 수정 처리
-     * update id="update" parameterType="dev.mvc.movie.MovieVO"
+     * 수정 폼
+     * update id="read_update_text" parameterType="dev.mvc.movie.MovieVO"
      * @param movieVO
      * @return 수정된 레코드 갯수
      */
-    public int update(MovieVO movieVO);
+    public MovieVO read_update_text(int mno);
+    /**
+     * 텍스트 수정 처리
+     * update id="update_text" parameterType="dev.mvc.movie.MovieVO"
+     * @param movieVO
+     * @return 수정된 레코드 갯수
+     */
+    public int update_text(MovieVO movieVO);
+    /**
+     * 파일 수정 처리
+     * update id="update_file" parameterType="dev.mvc.movie.MovieVO"
+     * @param movieVO
+     * @return 수정된 레코드 갯수
+     */
+    public int update_file(MovieVO movieVO);
 
     /**
      * 삭제 처리
@@ -40,5 +53,12 @@ public interface MovieProcInter {
      * @return 처리된 레코드 갯수
      */
     public int delete(int mno);
+
+    /**
+     * 패스워드 체크
+     * @param hashMap
+     * @return
+     */
+    public int passwd_check(HashMap<String, Object> map);
     
 }

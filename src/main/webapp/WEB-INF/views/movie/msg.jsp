@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  
 <!DOCTYPE html> 
 <html lang="ko"> 
 <head> 
@@ -12,8 +11,6 @@
 
 <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
 </head> 
 <body>
 <jsp:include page="../menu/top.jsp" flush='false' />
@@ -24,29 +21,29 @@
   <fieldset class='fieldset_basic'>
     <UL>
       <c:choose>
-        <c:when test="${code == 'create_success'}"> <%-- Java if --%>
+        <c:when test="${param.code == 'create_success'}"> <%-- Java if --%>
           <LI class='li_none'>
-            <span class="span_success">새로운 영화 [${movieVO.name }] 등록했습니다.</span>
+            <span class="span_success">새로운 영화 [${movieVO.title }] 등록했습니다.</span>
           </LI>                                                                      
         </c:when>
-        <c:when test="${code == 'create_fail'}"> <%-- Java if --%>
+        <c:when test="${param.code == 'create_fail'}"> <%-- Java if --%>
           <LI class='li_none'>
-            <span class="span_success">새로운 영화 [${movieVO.name }] 등록에 실패했습니다.</span>
+            <span class="span_success">새로운 영화 [${movieVO.title }] 등록에 실패했습니다.</span>
           </LI>                                                                      
         </c:when>
-        <c:when test="${code == 'update'}"> <%-- Java if --%>
+        <c:when test="${param.code == 'update'}"> <%-- Java if --%>
           <LI class='li_none'>
             <span class="span_success">영화 수정에 실패했습니다.</span>
           </LI>                                                                      
         </c:when>
-        <c:when test="${code == 'delete_success'}"> <%-- Java if --%>
+        <c:when test="${param.code == 'delete_success'}"> <%-- Java if --%>
           <LI class='li_none'>
-            <span class="span_success">[${movieVO.name }] 영화 삭제에 성공했습니다.</span>
+            <span class="span_success">[${movieVO.title }] 영화 삭제에 성공했습니다.</span>
           </LI>                                                                      
         </c:when>        
-        <c:when test="${code == 'delete_fail'}"> <%-- Java if --%>
+        <c:when test="${param.code == 'delete_fail'}"> <%-- Java if --%>
           <LI class='li_none'>
-            <span class="span_fail">[${movieVO.name }] 영화 삭제에 실패했습니다.</span>
+            <span class="span_fail">[${movieVO.title }] 영화 삭제에 실패했습니다.</span>
           </LI>                                                                      
         </c:when> 
         <c:otherwise>
@@ -60,14 +57,7 @@
       </c:choose>
       <LI class='li_none'>
         <br>
-        <c:choose>
-          <c:when test="${msg == 'child_record_found' }">
-            삭제하려는 영화에 속한 영화가 있습니다.<br>
-            하위 영화를 모두 삭제해야 영화를 삭제할 수 있습니다.<br>
-            하위 영화를 모두 삭제해주세요.<br>
-            『<A href="../movie/list.do?mno=${param.mno }">소속된 영화 삭제</A>』
-          </c:when>
-        </c:choose>
+
       </LI>
       <LI class='li_none'>
         <br>
