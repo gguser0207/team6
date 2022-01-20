@@ -10,8 +10,12 @@ import lombok.ToString;
 @ToString
 public class CartVO {
     private int cartno;
-    private int memberno;
-    private int mno;
+    private int memberno = -1;
+    private int mno = -1;
+
+    private String title = "";
+    private String director = "";
+
 
     public int getCartno(){return cartno;}
     public void setCartno(int cartno){this.cartno = cartno;}

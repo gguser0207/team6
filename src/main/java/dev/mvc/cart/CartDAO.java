@@ -11,7 +11,7 @@ public class CartDAO implements CartDAOInter{
     private CartDAOInter cartDAO;
 
     public CartDAO(){
-        System.out.println("->CartDAO created.");
+        System.out.println("-> CartDAO created.");
     }
 
     @Override
@@ -21,14 +21,15 @@ public class CartDAO implements CartDAOInter{
     }
 
     @Override
-    public List<CartVO> cartList(int memberno){
-        List<CartVO> list = this.cartDAO.cartList(memberno);
+    public List<CartVO> cartList(/*int memberno*/){
+        List<CartVO> list = this.cartDAO.cartList(/*memberno*/);
+        System.out.println(list);
         return list;
     }
 
     @Override
-    public CartVO cartMovieDetail(int memberno){
-        CartVO cartVO = this.cartDAO.cartMovieDetail(memberno);
+    public CartVO cartMovieDetail(int mno){
+        CartVO cartVO = this.cartDAO.cartMovieDetail(mno);
         return cartVO;
     }
 

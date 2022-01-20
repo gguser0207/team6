@@ -15,14 +15,14 @@ public interface CartDAOInter {
      * 개인 장바구니 리스트 조회
      * @return
      */
-    public List<CartVO> cartList(int memberno);
+    public List<CartVO> cartList(/*int memberno*/);
 
     /**
      * 로그인 된 멤버로 장바구니 내 정보조회
-     * @param memberno
+     * @param mno
      * @return
      */
-    public CartVO cartMovieDetail(int memberno);
+    public CartVO cartMovieDetail(int mno);
 
     /**
      * 장바구니 삭제

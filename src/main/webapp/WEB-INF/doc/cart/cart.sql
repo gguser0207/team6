@@ -17,20 +17,21 @@ create sequence cart_seq
     cache 2
     nocycle;
 
-COMMENT ON TABLE cart is 'Ä«Æ® ±×·ì';
-COMMENT ON COLUMN cart.cartno is 'Ä«Æ® ±×·ì ¹øÈ£ ';
-COMMENT ON COLUMN cart.mno is '¿µÈ­ ¹øÈ£';
-COMMENT ON COLUMN cart.memberno is '¸â¹ö ¹øÈ£';
+COMMENT ON TABLE cart is 'ì¹´íŠ¸ ê·¸ë£¹';
+COMMENT ON COLUMN cart.cartno is 'ì¹´íŠ¸ ê·¸ë£¹ ë²ˆí˜¸ ';
+COMMENT ON COLUMN cart.mno is 'ì˜í™” ë²ˆí˜¸';
+COMMENT ON COLUMN cart.memberno is 'ë©¤ë²„ ë²ˆí˜¸';
 
 select * from member;
 select * from movie;
 
-insert into cart(cartno, memberno, mno) values(cart_seq.nextval, 4, 6);
-insert into cart(cartno, memberno, mno) values(cart_seq.nextval, 4, 8);
+delete cart;
+insert into cart(cartno, memberno, mno) values(cart_seq.nextval, 4, 25);
+insert into cart(cartno, memberno, mno) values(cart_seq.nextval, 4, 26);
 insert into cart(cartno, memberno, mno) values(cart_seq.nextval, 5, 6);
 insert into cart(cartno, memberno, mno) values(cart_seq.nextval, 6, 6);
 
 commit;
 
-select c.cartno, me.nickname, m.title, m.director, m.actor  from cart c, member me, movie m
+select c.cartno, me.nickname, m.title, m.director from cart c, member me, movie m
 where me.memberno = c.memberno and c.mno = m.mno and c.memberno = 4;
