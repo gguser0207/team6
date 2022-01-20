@@ -4,7 +4,7 @@
 <c:set var="mno" value="${movieVO.mno }" />
 <c:set var="title" value="${movieVO.title }" />
 <c:set var="director" value="${movieVO.director }" />
-<c:set var="act" value="${movieVO.act }" />
+<c:set var="actor" value="${movieVO.actor }" />
 <c:set var="plot" value="${movieVO.plot }" />
  
 <!DOCTYPE html> 
@@ -18,7 +18,6 @@
  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     
 <script type="text/javascript">
  
@@ -30,7 +29,7 @@
 <body>
 <jsp:include page="../menu/top.jsp" />
  
-<DIV class='title_line'>영화 > ${name } 삭제</DIV>
+<DIV class='title_line'>영화 > ${title } 삭제</DIV>
 
 <DIV class='content_body'>
   <DIV id='panel_delete' style='padding: 10px 0px 10px 0px; background-color: #F9F9F9; width: 100%; text-align: center;'>
@@ -40,7 +39,7 @@
         
       <label>영화 이름</label>: ${title }  
       <label>감독, 연출</label>: ${director }   
-      <label>출연</label>: ${act }  
+      <label>출연</label>: ${actor }  
        
       <button type="submit" id='submit' class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">삭제</button>
       <button type="button" onclick="location.href='./list.do'" class='btn btn-primary btn-xs' style="height: 22px; margin-bottom: 3px;">취소</button>
@@ -73,13 +72,13 @@
       <c:set var="mno" value="${movieVO.mno }" />
       <c:set var="title" value="${movieVO.title }" />
       <c:set var="director" value="${movieVO.director }" />
-      <c:set var="act" value="${movieVO.act }" />
+      <c:set var="actor" value="${movieVO.actor }" />
       <c:set var="plot" value="${movieVO.plot }" />
       <TR>
         <TD class="td_bs">${mno }</TD>
         <TD class="td_bs_left"><A href="../movie/read.do?mno=${mno }">${title }</A></TD>
         <TD class="td_bs">${director}</TD>
-        <TD class="td_bs">${act}</TD>
+        <TD class="td_bs">${actor}</TD>
         <TD class="td_bs">${plot}</TD>  
         
         <TD class="td_bs">

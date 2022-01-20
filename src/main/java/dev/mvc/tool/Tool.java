@@ -304,7 +304,7 @@ public class Tool {
         if (file.exists() && file.isFile()) { // 존재하는 파일인지 검사
           sw = file.delete();  // 파일 삭제
         } else {
-          System.out.println("-> 삭제할 파일이 없음");
+          System.out.println("삭제할 파일이 없음");
         }
       }
     } catch(Exception e) {

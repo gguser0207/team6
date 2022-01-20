@@ -44,27 +44,39 @@ public class MovieProc implements MovieProcInter {
     }
 
     /**
-     * 조회
      */
     @Override
     public MovieVO read(int mno) {
-        MovieVO movieVO = this.movieDAO.read(mno);
-
-        String title = movieVO.getTitle();
-        
-        title = Tool.convertChar(title); // 특수 문자 처리
-
-        movieVO.setTitle(title);
-
-        long size1 = movieVO.getSize1();
-        movieVO.setSize1_label(Tool.unit(size1));
-
-        return movieVO;
+    	MovieVO movieVO = this.movieDAO.read(mno);
+    	
+    	String title = movieVO.getTitle();
+    	String plot = movieVO.getPlot();
+    	
+    	title = Tool.convertChar(title);
+    	plot = Tool.convertChar(plot);
+    	
+    	movieVO.setTitle(title);;
+    	movieVO.setPlot(plot);
+    	
+    	long size1 = movieVO.getSize2();
+    	movieVO.setSize1_label(Tool.unit(size1));
+    	
+    	return movieVO;
+    }
+    @Override
+    public MovieVO read_update_text(int mno) {
+    	MovieVO movieVO = this.movieDAO.read(mno);
+    	return movieVO;
     }
     
     @Override
-    public int update(MovieVO movieVO) {
-        int cnt = this.movieDAO.update(movieVO);
+    public int update_text(MovieVO movieVO) {
+        int cnt = this.movieDAO.update_text(movieVO);
+        return cnt;
+    }
+    @Override
+    public int update_file(MovieVO movieVO) {
+        int cnt = this.movieDAO.update_file(movieVO);
         return cnt;
     }
 
@@ -73,5 +85,9 @@ public class MovieProc implements MovieProcInter {
         int cnt = this.movieDAO.delete(mno);
         return cnt;
     }
-
+    
+    public int passwd_check(HashMap<String, Object> map) {
+        int cnt = this.movieDAO.passwd_check(map);
+        return cnt;
+    }
 }
