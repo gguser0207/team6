@@ -90,4 +90,10 @@ public class MovieProc implements MovieProcInter {
         int cnt = this.movieDAO.passwd_check(map);
         return cnt;
     }
+
+	@Override
+	public int search_count(HashMap<String, Object> hashmap) {
+		int count = movieDAO.search_count(hashmap);
+		return count;
+	}
 }

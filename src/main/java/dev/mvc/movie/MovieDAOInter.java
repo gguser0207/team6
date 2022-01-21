@@ -61,4 +61,14 @@ public interface MovieDAOInter {
      * @return
      */
     public int passwd_check(HashMap<String, Object> map);
+    
+    /**
+     * movie 검색 갯수
+     * @param hashmap
+     * @return
+     */
+    public int search_count(HashMap<String, Object> hashmap);
+    
+    
+    
 }

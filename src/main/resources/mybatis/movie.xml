@@ -51,6 +51,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE mno= #{mno}
   </delete> 
   
+  <select id='search_count' resultType='int' parameterType='HashMap'>
+  	SELECT COUNT(*) as cnt
+  	FROM technology
+  	<choose>
+  	  <when test='word == null or word ==""'>
+  	  WHERE mno = #{mno}
+  	  </when>
+  	  <otherwise>
+  	  	WHERE mno =#{mno} AND (title LIKE '%'||#{word}||'%'
+  	  							OR plot LIKE '%' ||#{word}||'%'
+  	  							OR word LIKE '%' ||#{word}||'%')
+  	  </otherwise>
+  	</choose>
+  </select>
+  
+  
   <select id="passwd_check" resultType='int' parameterType='HashMap'>
   SELECT COUNT(*) as cnt
   FROM movie

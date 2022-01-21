@@ -16,8 +16,9 @@
           <li><A class='menu_link'  href='/member/login.do' >로그인</A><span class='top_menu_sep'> </span></li>
           <li><a href="/member/create.do">회원가입</a></li>
         </c:when>
+
         <c:otherwise><!--${sessionScope.id }님 반갑습니다.  -->
-          <li ><A href='#' >마이페이지</A><span class='top_menu_sep'> </span></li>
+          <li ><A href='/cart/buylist.do' >구매목록</A><span class='top_menu_sep'> </span></li>
           <li ><A href='#' >장바구니</A><span class='top_menu_sep'> </span></li>
           <li><a href="/member/list.do">회원목록</a></li>
           <li class='login_id'><A href='/member/logout.do' >로그아웃</A><span class='top_menu_sep'> </span></li>
@@ -26,8 +27,11 @@
 <!--         <li><a href="http://localhost:9091/member/login.do">로그인</a></li>
         <li><a href="http://localhost:9091/member/create.do">회원가입</a></li> -->
         <!-- <li><a href="http://localhost:9091/member/list.do">회원목록</a></li> -->
-        <li style="margin-left: 15px;"><form id="search" name="search" method="POST" action="#">
-          <input type="text" placeholder="영화/장르"><input type="submit" value="검색"></input>
+        <li style="margin-left: 15px;">
+        <form id="search" name="search" method="POST" action="list.do">
+        
+          <input type="text" name='word' id='word' placeholder="영화/장르"></input>
+          <input type="submit" value="검색"></input>
         </form></li>
       </ul>
       </div>

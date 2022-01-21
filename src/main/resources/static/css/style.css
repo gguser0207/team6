@@ -625,4 +625,62 @@ div.read_contents{
 	width:100%;
 	text-align:center;
 }
+
+div.container_main_cart{
+	height: 1200px;
+	width:100%;
+}
+
+
+
+
+button.colorblue{
+	background:blue;
+	outline:none;
+	border:none;
+	color:white;
+	border-radius: 4px;
+}
+button.colorgreen{
+	background:blue;
+	outline:none;
+	border:none;
+	color:white;
+	border-radius: 4px;
+	font-size:14px;
+	margin:1px;
+}
+button.colorblue{
+	background:green;
+	outline:none;
+	border:none;
+	color:white;
+	border-radius: 4px;
+	font-size:14px;
+	margin:1px;
+}
+button.colorred{
+	background:red;
+	outline:none;
+	border:none;
+	color:white;
+	border-radius: 4px;
+	font-size:14px;
+	margin:1px;
+}
+button:hover{
+	cursor:pointer;
+}
+button.colorgreen_size20{
+	background:green;
+	outline:none;
+	border:none;
+	color:white;
+	border-radius: 4px;
+	font-size:20px;
+	margin:1px;
+}
+
+
+
 /* 관리자 로그인시에만 출력 */

@@ -125,6 +125,9 @@ public class MovieCont {
         // 출력 순서별 출력
         List<MovieVO> list = this.movieProc.list();
         mav.addObject("list", list); // request.setAttribute("list", list);
+        
+        // 검색작업 준비이	
+        
 
         mav.setViewName("/movie/list"); // /webapp/WEB-INF/views/movie/list.jsp
         return mav;
