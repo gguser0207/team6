@@ -103,7 +103,7 @@
     <div class="form-group">
        <label class="control-label col-md-2">가격</label>
        <div class="col-md-10">
-         <input type='text' name='price' value='1,200' required="required" 
+         <input type='text' name='price' value='1200' required="required" 
                    autofocus="autofocus" class="form-control" style='width: 100%;'>
        </div>
     </div>

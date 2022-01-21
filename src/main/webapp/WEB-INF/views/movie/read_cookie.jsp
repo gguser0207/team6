@@ -156,15 +156,14 @@
         success: function(rdata) { // 응답이 온경우
           var str = '';
           console.log('-> cart_ajax_post cnt: ' + rdata.cnt);  // 1: 쇼핑카트 등록 성공
-          
           if (rdata.cnt == 1) {
             var sw = confirm('선택한 상품이 장바구니에 담겼습니다.\n장바구니로 이동하시겠습니까?');
             if (sw == true) {
               // 쇼핑카트로 이동
-              location.href='/cart/list_by_memberno.do';
+              location.href='/cart/list.do';
             }           
           } else {
-            alert('선택한 상품을 장바구니에 담지못했습니다.<br>잠시후 다시 시도해주세요.');
+            alert('선택한 상품을 장바구니에 담지못했습니다.\n잠시후 다시 시도해주세요.');
           }
         },
         // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우 
@@ -192,8 +191,6 @@
     <A href="javascript:location.reload();">새로고침</A>
     <span class='menu_divide' >│</span>
     <A href="./list.do?mno=${mno }&now_page=${param.now_page}&word=${param.word }">기본 목록형</A>    
-    <span class='menu_divide' >│</span>
-    <A href="./list_grid.do?mno=${mno }">갤러리형</A>
     <span class='menu_divide' >│</span>
     <form id=read_btn>
     <button type='button' id='btn_cart' class="btn btn-info" onclick="cart_ajax(${mno })">장바 구니</button>

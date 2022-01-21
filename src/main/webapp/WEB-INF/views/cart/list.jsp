@@ -11,10 +11,7 @@
 <title>mypage_cart</title>
  
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
-<link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-/>
+
 <script type="text/javascript"
         src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
@@ -23,43 +20,42 @@
 <body>
 <jsp:include page="../menu/top.jsp" flush='false'/>
 
-<div class="container text-light">
-    <div class="row">
-        <div class="col-12">나의 장바구니</div>
-        <c:forEach var="vo" items="${list}">
-            ${vo.cartno} /  / ${vo.director} <br>
-        <div class="col-3">
-            <div class="row mt-4 mb-4">
-                <div class="col-3">
-                    <div class="col-9 border">
-                        <c:choose>
-                            <c:when test="${vo.thumb1.endsWith('jpg') || vo.thumb1.endsWith('png') || thumb1.endsWith('gif')}">
-                                <%-- /static/contents/storage/ --%>
-                                <IMG src="/movie/images/${vo.thumb1}" style="width: 150px; height: 200px;">
-                            </c:when>
-                            <c:otherwise> <!-- 기본 이미지 출력 -->
-                                <IMG src="/movie/images/none1.png" style="width: 150px; height: 200px;">
-                            </c:otherwise>
-                        </c:choose>
-                        <div class="border">${vo.title}</div>
-                        <button type="button" class="btn-primary">평생 소장</button>
-                        <button type="button" class="btn-success">대여하기</button>
-                        <button
-                                type="button"
-                                class="btn-danger"
-                                data-bs-toggle="modal"
-                                data-bs-target="#myModal"
-                        >
-                            제거
-                        </button>
-                    </div>
-                </div>
-            </div>
+<div class="container_main_cart">
+        <div class="title_line_cart">장바구니</div>
+        <c:forEach var="vo" items="${list}" varStatus="status">
+	      <c:if test="${status.index % 4 == 0 && status.index != 0 }"> 
+	        <HR class='menu_line'>
+	      </c:if>
+	    <div class="row" style="width:22%; float:left; margin:0.5%; padding:0.5%;
+          background-color: 000; text-align:center;">
+				 주문번호: ${vo.cartno} | 감독: ${vo.director} <br>
+             <c:choose>
+                 <c:when test="${vo.thumb1.endsWith('jpg') || vo.thumb1.endsWith('png') || thumb1.endsWith('gif')}">
+                     <%-- /static/contents/storage/ --%>
+                     <IMG src="/movie/images/${vo.thumb1}" style="width: 150px; height: 200px;">
+                 </c:when>
+                 <c:otherwise> <!-- 기본 이미지 출력 -->
+                     <IMG src="/movie/images/none1.png" style="width: 150px; height: 200px;">
+                 </c:otherwise>
+             </c:choose>
+             <div class="border">${vo.title}</div>
+             <button type="button" class="colorblue">평생 소장</button>
+             <button type="button" class="colorgreen">대여하기</button>
+             <button
+                     type="button"
+                     class="colorred"
+                     data-bs-toggle="modal"
+                     data-bs-target="#myModal"
+             >
+                 제거
+             </button>
         </div>
         </c:forEach>
+        <div class="cart_total"><button class="colorgreen_size28">전체 구매하러 가기</button></div>
+        
     </div>
-</div>
-<button class="btn-primary mt-5">전체 구매하러 가기</button>
+
+
 
 <%--<div class="modal" id="myModal">--%>
 <%--    <div class="modal-dialog">--%>

@@ -22,8 +22,7 @@
 <jsp:include page="../menu/top.jsp" flush='false'/>
 
 <div class="container_main_cart">
-
-        <div class="col-12">나의 장바구니</div>
+        <div class="title_line_cart">구매목록</div>
         <c:forEach var="vo" items="${list}" varStatus="status">
 	      <c:if test="${status.index % 4 == 0 && status.index != 0 }"> 
 	        <HR class='menu_line'>
@@ -41,8 +40,6 @@
                  </c:otherwise>
              </c:choose>
              <div class="border">${vo.title}</div>
-             <button type="button" class="colorblue">평생 소장</button>
-             <button type="button" class="colorgreen">대여하기</button>
              <button
                      type="button"
                      class="colorred"
@@ -53,7 +50,7 @@
              </button>
         </div>
         </c:forEach>
-        <div class="cart_total"><button class="colorgreen">전체 구매하러 가기</button></div>
+        <div class="cart_total"><button class="colorgreen_size28">전체 삭제하기</button></div>
         
     </div>
 

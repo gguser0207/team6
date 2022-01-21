@@ -19,7 +19,7 @@
 
         <c:otherwise><!--${sessionScope.id }님 반갑습니다.  -->
           <li ><A href='/cart/buylist.do' >구매목록</A><span class='top_menu_sep'> </span></li>
-          <li ><A href='#' >장바구니</A><span class='top_menu_sep'> </span></li>
+          <li ><A href='/cart/list.do' >장바구니</A><span class='top_menu_sep'> </span></li>
           <li><a href="/member/list.do">회원목록</a></li>
           <li class='login_id'><A href='/member/logout.do' >로그아웃</A><span class='top_menu_sep'> </span></li>
         </c:otherwise>

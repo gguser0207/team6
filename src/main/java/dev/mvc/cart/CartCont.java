@@ -32,8 +32,11 @@ public class CartCont {
         int memberno = (Integer)session.getAttribute("memberno");
         cartVO.setmemberno(memberno);
 
+        
+        int cnt = this.cartProc.create(cartVO);
+        
         JSONObject json = new JSONObject();
-
+        json.put("cnt", cnt);
         System.out.println("-> cartCont create: " + json.toString());
         return json.toString();
     }

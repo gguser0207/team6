@@ -23,12 +23,12 @@
       <c:choose>
         <c:when test="${param.code == 'create_success'}"> <%-- Java if --%>
           <LI class='li_none'>
-            <span class="span_success">새로운 영화 [${movieVO.title }] 등록했습니다.</span>
+            <span class="span_success">새로운 영화를 등록했습니다.</span>
           </LI>                                                                      
         </c:when>
         <c:when test="${param.code == 'create_fail'}"> <%-- Java if --%>
           <LI class='li_none'>
-            <span class="span_success">새로운 영화 [${movieVO.title }] 등록에 실패했습니다.</span>
+            <span class="span_success">새로운 영화 등록에 실패했습니다.</span>
           </LI>                                                                      
         </c:when>
         <c:when test="${param.code == 'update'}"> <%-- Java if --%>

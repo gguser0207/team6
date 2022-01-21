@@ -7,7 +7,7 @@ body{
   animation: fade 1.5s;
   margin-left: 150px;
   margin-right: 150px;
-  height: 100vh;
+  height: 200vh;
   background-image: url('../images/movie_main.jpg');
   background-repeat : no-repeat;
   background-size : cover;
@@ -57,7 +57,7 @@ a {
 .slider{
   width: 500px;
   height: 550px;
-  top: 18%; /* 관리자 로그인시 18%로 조정 아닐시 13%*/
+  top: 9%; /* 관리자 로그인시 18%로 조정 아닐시 13%*/
   left: 35%;
   position: relative;
   display: flex; /* 관리자 접속시 none 회원 접속시 flex */
@@ -564,7 +564,7 @@ td.td_left a{padding:0px;}
 .content_body_movie_list{
     z-index:0;
     position:relative;
-    top:8%;
+    top:2%;
     left:8%;
     width: 90%;
     justify-content:center;
@@ -606,6 +606,7 @@ form.form-horizontal{
 	width:1500px;
 }
 .content_body_read{
+	margin: 0px auto;
 	position: absolute;
 	width:100%;
 	top:20%;
@@ -627,11 +628,17 @@ div.read_contents{
 }
 
 div.container_main_cart{
-	height: 1200px;
+	position:relative;
+	top:10%;
 	width:100%;
 }
-
-
+div.title_line_cart{
+	float:left;
+	font-size:36px;
+	font-weight:600;
+	width:100%;
+	margin-left: 100px;
+}
 
 
 button.colorblue{
@@ -671,13 +678,14 @@ button.colorred{
 button:hover{
 	cursor:pointer;
 }
-button.colorgreen_size20{
+button.colorgreen_size28{
 	background:green;
 	outline:none;
 	border:none;
 	color:white;
+	width:100%;
 	border-radius: 4px;
-	font-size:20px;
+	font-size:28px;
 	margin:1px;
 }
 
