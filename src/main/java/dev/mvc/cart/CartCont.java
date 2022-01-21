@@ -101,6 +101,39 @@ public class CartCont {
         }
     }
 
+    @RequestMapping(value="/cart/buylist.do", method = RequestMethod.GET)
+    public ModelAndView buyList(
+            HttpSession session,
+            @RequestParam(value="cartno", defaultValue="0") int cartno){
+        try {
+            ModelAndView mav = new ModelAndView();
+
+            if (session.getAttribute("memberno") != null) { // 회원으로 로그인을 했다면 쇼핑카트로 이동
+                int memberno = (int)session.getAttribute("memberno");
+                System.out.println(memberno);
+                // 출력 순서별 출력
+                List<CartVO> list = this.cartProc.buyList(memberno);
+                System.out.println(list);
+
+                mav.addObject("list", list); // request.setAttribute("list", list);
+                mav.addObject("cartno", cartno); // 쇼핑계속하기에서 사용
+
+                mav.setViewName("/cart/buylist"); // /WEB-INF/views/cart/list.jsp
+
+            } else { // 회원으로 로그인하지 않았다면
+                mav.addObject("return_url", "/cart/list.do"); // 로그인 후 이동할 주소 ★
+
+                mav.setViewName("redirect:/member/login.do"); // /WEB-INF/views/member/login_ck_form.jsp
+            }
+            return mav;
+        }catch(Exception e){
+            System.out.println("error-------------------------------------------------------------");
+            System.out.println(e);
+            System.out.println("error-------------------------------------------------------------");
+            throw e;
+        }
+    }
+
     @RequestMapping(value = "/cart/cartMovieDetail.do", method = RequestMethod.GET)
     public ModelAndView cartMovieDetail(int mno){
         ModelAndView mav = new ModelAndView();

@@ -12,7 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <!--개인 장바구니 리스트 조회-->
     <select id="cartList" resultType="dev.mvc.cart.CartVO" parameterType="int">
         select c.cartno, c.memberno, c.MNO, m.title, m.director, m.THUMB1 from cart c, movie m
-        where c.memberno = #{memberno} and c.mno = m.mno
+        where c.memberno = #{memberno} and c.mno = m.mno and c.buy = '0'
+    </select>
+
+    <!--개인 구매목록 리스트 조회-->
+    <select id="buyList" resultType="dev.mvc.cart.CartVO" parameterType="int">
+        select c.cartno, c.memberno, c.MNO, m.title, m.director, m.THUMB1 from cart c, movie m
+        where c.memberno = #{memberno} and c.mno = m.mno and c.buy = '1'
     </select>
 
     <!--개인 장바구니 내 영화 조회 및 장바구니 담기 비활성화-->

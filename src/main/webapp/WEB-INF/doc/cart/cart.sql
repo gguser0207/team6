@@ -1,7 +1,12 @@
+drop table cart;
 create table cart(
     cartno number(10) not null primary key,
     memberno not null,
     mno not null,
+    buy  CHAR(1)
+        constraint BUY_VERIFIED_CK
+            check (buy = '0' or buy = '1')
+        not null,
     foreign key(memberno) references member(memberno)
     on delete cascade,
     foreign key(mno) references movie(mno)
@@ -26,10 +31,12 @@ select * from member;
 select * from movie;
 
 delete cart;
-insert into cart(cartno, memberno, mno) values(cart_seq.nextval, 4, 25);
-insert into cart(cartno, memberno, mno) values(cart_seq.nextval, 4, 26);
-insert into cart(cartno, memberno, mno) values(cart_seq.nextval, 5, 6);
-insert into cart(cartno, memberno, mno) values(cart_seq.nextval, 6, 6);
+insert into cart(cartno, memberno, mno, buy) values(cart_seq.nextval, 4, 25, 0);
+insert into cart(cartno, memberno, mno, buy) values(cart_seq.nextval, 4, 26, 0);
+insert into cart(cartno, memberno, mno, buy) values(cart_seq.nextval, 4, 49, 1);
+insert into cart(cartno, memberno, mno, buy) values(cart_seq.nextval, 4, 50, 1);
+insert into cart(cartno, memberno, mno, buy) values(cart_seq.nextval, 4, 51, 1);
+
 
 commit;
 

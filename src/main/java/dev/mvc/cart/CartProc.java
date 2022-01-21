@@ -37,6 +37,21 @@ public class CartProc implements CartProcInter{
     }
 
     @Override
+    public List<CartVO> buyList(int memberno){
+        try{
+            List<CartVO> list = this.cartDAO.buyList(memberno);
+            System.out.println(list);
+            return list;
+        }catch (Exception e){
+            List<CartVO> list = null;
+            System.out.println("error---------------------------------------------V");
+            System.out.println(e);
+            System.out.println("error---------------------------------------------ㅅ");
+            return list;
+        }
+    }
+
+    @Override
     public CartVO cartMovieDetail(int mno){
         CartVO cartVO = this.cartDAO.cartMovieDetail(mno);
         return cartVO;

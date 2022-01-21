@@ -18,6 +18,12 @@ public interface CartDAOInter {
     public List<CartVO> cartList(int memberno);
 
     /**
+     * 개인 장바구니 리스트 조회
+     * @return
+     */
+    public List<CartVO> buyList(int memberno);
+
+    /**
      * 로그인 된 멤버로 장바구니 내 정보조회
      * @param mno
      * @return
