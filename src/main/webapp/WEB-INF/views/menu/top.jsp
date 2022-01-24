@@ -28,8 +28,8 @@
         <li><a href="http://localhost:9091/member/create.do">회원가입</a></li> -->
         <!-- <li><a href="http://localhost:9091/member/list.do">회원목록</a></li> -->
         <li style="margin-left: 15px;">
-        <form id="search" name="search" method="POST" action="list.do">
-        
+        <form id="search" name="search" method="get" action="/movie/list_by_search.do">
+        	<input type='hidden' name='categrp_no' value='8'></input>
           <input type="text" name='word' id='word' placeholder="영화/장르"></input>
           <input type="submit" value="검색"></input>
         </form></li>

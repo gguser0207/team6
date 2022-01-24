@@ -96,4 +96,20 @@ public class MovieProc implements MovieProcInter {
 		int count = movieDAO.search_count(hashmap);
 		return count;
 	}
+
+	@Override
+	public List<MovieVO> list_by_search(HashMap<String, Object> hashMap) {
+		List<MovieVO> list = movieDAO.list_by_search(hashMap);
+		
+		for (MovieVO movieVO : list) {
+			String plot = movieVO.getPlot();
+			if(plot.length() > 150) {
+				plot = plot.substring(0, 150) + "...";
+				movieVO.setPlot(plot);
+				
+			}
+		}
+		
+		return list;
+	}
 }

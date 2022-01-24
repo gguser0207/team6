@@ -16,12 +16,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import dev.mvc.categrp.CategrpProcInter;
+import dev.mvc.categrp.CategrpVO;
 import dev.mvc.movie.Movie;
 import dev.mvc.tool.Tool;
 import dev.mvc.tool.Upload;
 
 @Controller
 public class MovieCont {
+    @Autowired
+    @Qualifier("dev.mvc.categrp.CategrpProc")
+    private CategrpProcInter categrpProc;
+  
     @Autowired
     @Qualifier("dev.mvc.movie.MovieProc")
     private MovieProcInter movieProc;
@@ -124,12 +130,33 @@ public class MovieCont {
 
         // 출력 순서별 출력
         List<MovieVO> list = this.movieProc.list();
-        mav.addObject("list", list); // request.setAttribute("list", list);
-        
-        // 검색작업 준비이	
-        
+        mav.addObject("list", list); 
 
         mav.setViewName("/movie/list"); // /webapp/WEB-INF/views/movie/list.jsp
+        return mav;
+    }
+    
+    // http://localhost:9091/movie/list.do
+    @RequestMapping(value = "/movie/list_by_search.do", method = RequestMethod.GET)
+    public ModelAndView list_by_search(@RequestParam(value="categrp_no", defaultValue="8")int categrp_no,
+    									@RequestParam(value="word", defaultValue="")String word) {
+        ModelAndView mav = new ModelAndView();
+        
+        HashMap<String, Object> map = new HashMap<String,Object>();
+        map.put("categrp_no",categrp_no);
+        map.put("word", word);
+        
+        
+        List<MovieVO> list = this.movieProc.list_by_search(map);
+        mav.addObject("list", list);
+        
+        int search_count = movieProc.search_count(map);
+        mav.addObject("search_count", search_count);
+        
+		CategrpVO categrpVO = categrpProc.read(categrp_no);
+        mav.addObject("categrpVO",categrpVO);
+        
+        mav.setViewName("/movie/list_by_search");
         return mav;
     }
     

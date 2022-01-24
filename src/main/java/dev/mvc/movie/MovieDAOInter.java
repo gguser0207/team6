@@ -68,7 +68,20 @@ public interface MovieDAOInter {
      * @return
      */
     public int search_count(HashMap<String, Object> hashmap);
+    /**
+     * 영화 검색 목록
+     * @param hashMap
+     * @return
+     */
+    public List<MovieVO> list_by_search(HashMap<String, Object> hashMap);
     
+    /**
+     * 영화 검색 & 페이징
+     * @param hashMap
+     * @return
+     */
+    public List<MovieVO> list_by_search_paging(HashMap<String,Object> hashMap);
+
     
     
 }

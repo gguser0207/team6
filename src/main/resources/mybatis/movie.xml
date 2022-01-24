@@ -50,18 +50,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     DELETE FROM movie
     WHERE mno= #{mno}
   </delete> 
-  
+
+    <select id="list_by_search" resultType="dev.mvc.movie.MovieVO" 
+             parameterType="HashMap">
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd
+    FROM movie
+    <choose>
+      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+        WHERE categrp_no=#{categrp_no}
+      </when>
+      <otherwise> <!-- 검색하는 경우 -->
+        WHERE categrp_no=#{categrp_no} AND (title LIKE '%' || #{word} || '%' 
+                               OR plot LIKE '%' || #{word} || '%' 
+                               OR director LIKE '%' || #{word} || '%' 
+                               OR actor LIKE '%' || #{word} || '%' 
+                               OR word LIKE '%' || #{word} || '%')
+      </otherwise>
+    </choose>
+    ORDER BY mno DESC   
+  </select>
+
+
   <select id='search_count' resultType='int' parameterType='HashMap'>
   	SELECT COUNT(*) as cnt
-  	FROM technology
+  	FROM movie
   	<choose>
   	  <when test='word == null or word ==""'>
-  	  WHERE mno = #{mno}
+  	  WHERE categrp_no = #{categrp_no}
   	  </when>
   	  <otherwise>
-  	  	WHERE mno =#{mno} AND (title LIKE '%'||#{word}||'%'
+  	  	WHERE categrp_no =#{categrp_no} AND (title LIKE '%'||#{word}||'%'
   	  							OR plot LIKE '%' ||#{word}||'%'
-  	  							OR word LIKE '%' ||#{word}||'%')
+                               OR director LIKE '%' || #{word} || '%' 
+                               OR actor LIKE '%' || #{word} || '%' 
+                               OR word LIKE '%' || #{word} || '%')
   	  </otherwise>
   	</choose>
   </select>
@@ -72,6 +94,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   FROM movie
   WHERE mno = #{mno } AND passwd = #{passwd }
   </select>
+  
+    <select id="list_by_search_paging" resultType="dev.mvc.movie.MovieVO" 
+             parameterType="HashMap">
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, r
+    FROM(
+	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rownum as r
+	    FROM(     
+		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd
+		    FROM movie
+		    <choose>
+		      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+		        WHERE categrp_no=#{categrp_no}
+		      </when>
+		      <otherwise> <!-- 검색하는 경우 -->
+		        WHERE categrp_no=#{categrp_no} AND (title LIKE '%' || #{word} || '%' 
+		                               OR plot LIKE '%' || #{word} || '%' 
+		                               OR director LIKE '%' || #{word} || '%' 
+		                               OR actor LIKE '%' || #{word} || '%' 
+		                               OR word LIKE '%' || #{word} || '%')
+		      </otherwise>
+		    </choose>
+		    ORDER BY mno DESC  
+		    )
+		)
+		WHERE <![CDATA[r >= #{start_num} AND r <= #{end_num}]]>
+    </select>
+  
+  
+  
 </mapper> 
 
 
