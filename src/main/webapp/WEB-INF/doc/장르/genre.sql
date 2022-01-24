@@ -25,13 +25,7 @@ INSERT INTO genre(genreno, genrename)
 VALUES (genre_seq.nextval , '공포');
 
 INSERT INTO genre(genreno, genrename)
-VALUES (genre_seq.nextval , '드라마');
-
-INSERT INTO genre(genreno, genrename)
 VALUES (genre_seq.nextval , '멜로/로맨스');
-
-INSERT INTO genre(genreno, genrename)
-VALUES (genre_seq.nextval , '시대극/사극');
 
 INSERT INTO genre(genreno, genrename)
 VALUES (genre_seq.nextval , '액션');
@@ -39,11 +33,22 @@ VALUES (genre_seq.nextval , '액션');
 INSERT INTO genre(genreno, genrename)
 VALUES (genre_seq.nextval , '코메디');
 
+INSERT INTO genre(genreno, genrename)
+VALUES (genre_seq.nextval , '드라마');
+
+INSERT INTO genre(genreno, genrename)
+VALUES (genre_seq.nextval , '시대극/사극');
+
 SELECT genreno, genrename
 FROM genre
 WHERE genreno = 1;
 
+SELECT genreno, genrename
+FROM genre;
 
 SELECT genreno, genrename
 FROM genre
 WHERE genrename = '코메디';
+
+DELETE FROM genre 
+WHERE  genreno = 5;

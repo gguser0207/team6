@@ -433,7 +433,7 @@ public class MemberCont {
                              String pw,
                              @RequestParam(value="id_save", defaultValue="") String id_save,
                              @RequestParam(value="passwd_save", defaultValue="") String passwd_save,
-                             @RequestParam(value="return_url", defaultValue="") String return_url) {
+                             @RequestParam(value="return_url", defaultValue="/index.do") String return_url) {
     ModelAndView mav = new ModelAndView();
     Map<String, Object> map = new HashMap<String, Object>();
     map.put("id", id);

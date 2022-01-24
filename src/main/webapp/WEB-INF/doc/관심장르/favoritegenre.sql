@@ -23,10 +23,13 @@ CREATE SEQUENCE fgenre_seq
 commit;
   
 INSERT INTO fgenre(fgenreno, memberno, genreno, rdate)
-VALUES (fgenre_seq.nextval, 1, 1, sysdate);
+VALUES (fgenre_seq.nextval, 4, 1, sysdate);
+
+INSERT INTO fgenre(fgenreno, memberno, genreno, rdate)
+VALUES (fgenre_seq.nextval, 4, 2, sysdate);
 
 SELECT fgenreno, memberno, genreno, rdate
 FROM fgenre
-WHERE fgenreno = 1;
+WHERE genreno = 1;
 
 

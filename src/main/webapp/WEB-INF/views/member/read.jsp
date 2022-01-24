@@ -86,7 +86,15 @@
                      value='${memberVO.address2 }' required="required" style='width: 80%;' placeholder="상세 주소">
         </div>
       </div>   
-   
+      
+      <div class="form-group">
+        <label class="col-md-4 control-label" style='font-size: 0.9em;'>회원 등급</label>    
+        <div class="member_bar">
+          <input type='text' class="form-control" name='grade' id='grade' 
+                     value='${memberVO.grade }' required="required" style='width: 11%;' placeholder="회원 등급">
+                    관리자(1~10) , 회원(11~20)
+        </div>
+      </div>   
       <div class="form-group">
         <div class="col-md-12">
    

@@ -20,6 +20,19 @@
   $(function(){
  
   });
+  
+	function grade(no) {
+		if(no <= 10){
+			no = '관리자'
+			} else if (no <= 20){
+				no = '일반 회원' 
+			}else if (no <= 40){
+				no = '비회원' 
+			}
+		document.writeln(no);
+
+	  }
+	  
 </script>
 </head> 
  
@@ -27,7 +40,7 @@
 <jsp:include page="../menu/top.jsp" flush='false' />
  
   <DIV class='title_line'>
-    회원(관리자 전용)
+    관리자 전용
   </DIV>
 
   <DIV class='content_body_member_list'>
@@ -60,6 +73,7 @@
           <TH class='th_bs'>전화번호</TH>
           <TH class='th_bs'>주소</TH>
           <TH class='th_bs'>등록일</TH>
+          <TH class='th_bs'>등급</TH>
           <TH class='th_bs'>기타</TH>
         </TR>
     
@@ -71,7 +85,6 @@
       <c:set var="phone" value ="${memberVO.phone}" />
       <c:set var="address1" value ="${memberVO.address1}" />
       <c:set var="rdate" value ="${memberVO.rdate}" />
-       
     <TR>
       <TD class=td_basic>${memberno}</TD>
       <TD class='td_left'><A href="./read.do?memberno=${memberno}">${id}</A></TD>
@@ -88,6 +101,11 @@
         </c:choose>
       </TD>
       <TD class='td_basic'>${rdate.substring(0, 10)}</TD> <!-- 년월일 -->
+      <TD class='td_basic'>
+      <script type="text/javascript">
+      grade(${memberVO.grade})
+      </script>
+      </TD>
       <TD class='td_basic'>
         <A href="./passwd_update.do?memberno=${memberno}"><IMG src='/member/images/passwd.png' title='패스워드 변경'></A>
         <A href="./read.do?memberno=${memberno}"><IMG src='/member/images/update.png' title='수정'></A>

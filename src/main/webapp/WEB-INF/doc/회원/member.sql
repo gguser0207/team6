@@ -40,7 +40,7 @@ CREATE SEQUENCE member_seq
   
  --등록
 INSERT INTO member(memberno, id, pw, nickname, phone, email, zipcode, address1, address2, rdate, grade) 
-VALUES (member_seq.nextval, 'id1', '1234', '홍길동', '01000000000', 'email@naver.com', 10900, '경기도 파주시 OOO로', 'OO동 OO호', sysdate, 1);
+VALUES (member_seq.nextval, 'id1', '1234', '홍길동', '010-0000-0000', 'email@naver.com', 10900, '경기도 파주시 OOO로', 'OO동 OO호', sysdate, 1);
 
 INSERT INTO member(memberno, id, pw, nickname, phone, email, zipcode, address1, address2, rdate, grade) 
 VALUES (member_seq.nextval, 'id2', '5678', '아무개', '01033300000', 'email@daum.net', 10000, '서울특별시 강서구 OOO로', 'OO동 OO호', sysdate, 11);
@@ -51,8 +51,8 @@ commit;
 
  -- 조회
 SELECT memberno, id, pw, nickname, phone, address1, address2, rdate, grade
-FROM MEMBER
-WHERE memberno = 2;
+FROM MEMBER;
+WHERE memberno = 4;
 
 SELECT memberno, id, pw, nickname, phone, address1, address2, rdate, grade
 FROM MEMBER
@@ -64,10 +64,17 @@ SET nickname='김무개', phone='11111111111', address1='서울 특별시 OO로'
 WHERE memberno=2;
 COMMIT;
 
+UPDATE MEMBER 
+SET grade=2
+WHERE memberno=4;
+COMMIT;
+
 SELECT memberno, id, pw, nickname, phone, address1, address2, rdate, grade
 FROM MEMBER
-WHERE memberno = 2;
+WHERE memberno = 4;
 
+SELECT memberno, id, pw, nickname, phone, address1, address2, rdate, grade
+FROM MEMBER;
 --삭제
 --모두 삭제
 DELETE FROM MEMBER;
@@ -76,10 +83,10 @@ DELETE FROM MEMBER;
 
 SELECT memberno, id, pw, nickname, phone, address1, address2, rdate, grade
 FROM MEMBER
-WHERE memberno = 3;
+WHERE memberno = 6;
 
 DELETE FROM MEMBER
-WHERE memberno=3;
+WHERE memberno=6;
 
 
 COMMIT;
