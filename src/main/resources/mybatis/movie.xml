@@ -23,6 +23,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      FROM movie 
     ORDER BY mno ASC
   </select>
+  <select id="rank_price" resultType="dev.mvc.movie.MovieVO" 
+             parameterType="HashMap">
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, r
+    FROM(
+	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rownum as r
+	    FROM(     
+		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd
+		    FROM movie
+		    <choose>
+		      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+		        WHERE categrp_no=#{categrp_no}
+		      </when>
+		      <otherwise> <!-- 검색하는 경우 -->
+		        WHERE categrp_no=#{categrp_no} AND (title LIKE '%' || #{word} || '%' 
+		                               OR plot LIKE '%' || #{word} || '%' 
+		                               OR director LIKE '%' || #{word} || '%' 
+		                               OR actor LIKE '%' || #{word} || '%' 
+		                               OR word LIKE '%' || #{word} || '%')
+		      </otherwise>
+		    </choose>
+		    ORDER BY price ASC  
+		    )
+		)
+		WHERE <![CDATA[r >= #{start_num} AND r <= #{end_num}]]>
+    </select>
   
   <!-- 조회, id: read, 입력: mno, 리턴: MovieVO -->
   <select id="read" resultType="dev.mvc.movie.MovieVO" parameterType="int">
@@ -120,7 +145,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 		WHERE <![CDATA[r >= #{start_num} AND r <= #{end_num}]]>
     </select>
-  
+  	<update id="update_score" parameterType="dev.mvc.movie.MovieVO">
+  		UPDATE movie
+  		SET score_cnt = score_cnt + 1, score_sum = score_sum + #{score_sum}, score = score_sum / score_cnt	
+  		WHERE mno = #{mno}
+  	</update>
   
   
 </mapper> 

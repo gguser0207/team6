@@ -137,6 +137,36 @@ public class MovieCont {
     }
     
     // http://localhost:9091/movie/list.do
+    @RequestMapping(value = "/movie/rank_price.do", method = RequestMethod.GET)
+    public ModelAndView rank_price(@RequestParam(value="categrp_no", defaultValue="8")int categrp_no,
+    									@RequestParam(value="word", defaultValue="")String word,
+    									@RequestParam(value="now_page", defaultValue="1")int now_page) {
+        ModelAndView mav = new ModelAndView();
+        
+        HashMap<String, Object> map = new HashMap<String,Object>();
+        map.put("categrp_no",categrp_no);
+        map.put("word", word);
+        map.put("now_page", now_page);
+        
+        List<MovieVO> list = this.movieProc.rank_price(map);
+        mav.addObject("list", list);
+        
+        int search_count = movieProc.search_count(map);
+        mav.addObject("search_count", search_count);
+        
+		CategrpVO categrpVO = categrpProc.read(categrp_no);
+        mav.addObject("categrpVO",categrpVO);
+        
+        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "rank");
+        mav.addObject("paging", paging);
+        
+        mav.addObject("now_page", now_page);
+        
+        mav.setViewName("/movie/rank_price");
+        return mav;
+    }
+    
+    // http://localhost:9091/movie/list.do
     @RequestMapping(value = "/movie/list_by_search.do", method = RequestMethod.GET)
     public ModelAndView list_by_search(@RequestParam(value="categrp_no", defaultValue="8")int categrp_no,
     									@RequestParam(value="word", defaultValue="")String word) {
@@ -181,7 +211,7 @@ public class MovieCont {
 		CategrpVO categrpVO = categrpProc.read(categrp_no);
         mav.addObject("categrpVO",categrpVO);
         
-        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word);
+        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "list");
         mav.addObject("paging", paging);
         
         mav.addObject("now_page", now_page);
@@ -243,6 +273,7 @@ public class MovieCont {
     	
     	return mav;
     }
+
 
 	@RequestMapping(value="/movie/read_update_file.do", method = RequestMethod.GET)
 	public ModelAndView read_update_file(int mno) {

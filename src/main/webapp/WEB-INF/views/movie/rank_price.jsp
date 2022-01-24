@@ -29,7 +29,16 @@
 <DIV class='title_line'>영화</DIV>
 
 <DIV class='content_body_movie_list'>
-<div class="create_form_move"><a href="/movie/create.do">영 화 등 록</a></div> 
+  <ASIDE class="aside_right">
+    <A href="./rank_price.do?mno=${mno }">낮은 가격 순</A>
+    <span class='menu_divide' >│</span>
+    <A href="javascript:location.reload();">높은 가격 순</A>
+    <span class='menu_divide' >│</span>
+    <A href="./list.do?mno=${mno }&now_page=${param.now_page}&word=${param.word }">평점 높은 순</A>    
+    <span class='menu_divide' >│</span>
+    <A href="./list.do?mno=${mno }&now_page=${param.now_page}&word=${param.word }">구매량 많은 순</A>    
+    <span class='menu_divide' >│</span>
+  </ASIDE> 
 
   <TABLE class='table table-striped' style="width:100%;">
     <colgroup>
@@ -119,7 +128,7 @@
    
   </TABLE>
 </DIV>
-
+<DIV class='bottom_paging'>${paging }</DIV> <%-- 페이지 리스트 --%>
  
 <jsp:include page="../menu/bottom.jsp" />
 </body>

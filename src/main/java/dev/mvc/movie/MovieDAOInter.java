@@ -90,8 +90,19 @@ public interface MovieDAOInter {
      * @param word
      * @return
      */
-    public String pagingBox(int categrp_no, int search_count, int now_page, String word);
-
+    public String pagingBox(int categrp_no, int search_count, int now_page, String word, String rank);
     
+    /**
+     * 가격대별 오름차순
+     * @return
+     */
+    public List<MovieVO> rank_price(HashMap<String,Object> hashMap);
+    
+    /**
+     * 평점 수정
+     * @param movieVO
+     * @return
+     */
+    public int update_score(MovieVO movieVO);
     
 }
