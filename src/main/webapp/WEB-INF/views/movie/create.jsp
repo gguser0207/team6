@@ -25,22 +25,15 @@
 <body>
 <jsp:include page="../menu/top.jsp" flush='false' />
  
-<DIV class='title_line'>
-  <A href="../categrp/list.do" class='title_link'>카테고리 그룹</A> > 
-  ${categrpVO.name } > ${cateVO.name } >
-  글 등록
-</DIV>
 
 <DIV class='content_body_movie_create'>
 	<div class="aside_right">
 	  <ASIDE class="aside_right">
-	    <A href="./create.do?cateno=${cateVO.cateno }">등록</A>
+	    <A href="./create.do?mno=${movieVO.mno }">등록</A>
 	    <span class='menu_divide' >│</span>
 	    <A href="javascript:location.reload();">새로고침</A>
 	    <span class='menu_divide' >│</span>
-	    <A href="./list_by_cateno_search_paging.do?cateno=${cateVO.cateno }">기본 목록형</A>    
-	    <span class='menu_divide' >│</span>
-	    <A href="./list_by_cateno_grid.do?cateno=${cateVO.cateno }">갤러리형</A>
+	    <A href="./list.do">기본 목록형</A>
 	  </ASIDE> 
 	</div>
 <%--     <DIV style="text-align: right; clear: both;">  
@@ -70,7 +63,7 @@
     
     <div class="form-group">
        <label class="control-label col-md-2">영화 이름</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='text' name='title' value='영화 이름' required="required" 
                    autofocus="autofocus" class="form-control" style='width: 100%;'>
        </div>
@@ -78,7 +71,7 @@
     
     <div class="form-group">
        <label class="control-label col-md-2">감독</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='text' name='director' value='감독이름' required="required" 
                    autofocus="autofocus" class="form-control" style='width: 100%;'>
        </div>
@@ -86,7 +79,7 @@
     
     <div class="form-group">
        <label class="control-label col-md-2">출연진</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='text' name='actor' value='출연진' required="required" 
                    autofocus="autofocus" class="form-control" style='width: 100%;'>
        </div>
@@ -94,7 +87,7 @@
 
     <div class="form-group">
        <label class="control-label col-md-2">개봉일</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='text' name='release' value='2022-01-01' required="required" 
                    autofocus="autofocus" class="form-control" style='width: 100%;'>
        </div>
@@ -102,7 +95,7 @@
   
     <div class="form-group">
        <label class="control-label col-md-2">가격</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='text' name='price' value='1200' required="required" 
                    autofocus="autofocus" class="form-control" style='width: 100%;'>
        </div>
@@ -110,27 +103,27 @@
     
     <div class="form-group">
        <label class="control-label col-md-2">영화 줄거리</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <textarea name='plot' required="required" class="form-control" rows="4" style='width: 100%;'>줄거리 작성하기</textarea>
        </div>
     </div>
     <div class="form-group">
        <label class="control-label col-md-2">검색어</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='text' name='word' value='월터,벤 스틸러,크리스튼위그,휴먼,도전' required="required" 
                     class="form-control" style='width: 100%;'>
        </div>
     </div>   
     <div class="form-group">
        <label class="control-label col-md-2">이미지</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='file' class="form-control" name='file1MF' id='file1MF' 
                     value='' placeholder="파일 선택">
        </div>
     </div>   
     <div class="form-group">
        <label class="control-label col-md-2">패스워드</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='password' name='passwd' value='1234' required="required" 
                     class="form-control" style='width: 50%;'>
        </div>

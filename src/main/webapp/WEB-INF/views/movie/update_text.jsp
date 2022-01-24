@@ -37,7 +37,7 @@
 <jsp:include page="../menu/top.jsp" flush='false' />
  
 
-<DIV class='content_body'>
+<DIV class='content_body_movie_update_text'>
 <%--     <ASIDE class="aside_right">
       <A href="./create.do?cateno=${cateVO.cateno }">등록</A>
       <span class='menu_divide' >│</span>
@@ -66,35 +66,34 @@
     </form>
   </DIV> --%>
   
-  <DIV class='menu_line'></DIV>
   
   <FORM name='frm' method='POST' action='./update_text.do' class="form-horizontal">
     <input type='hidden' name='mno' value='${mno }'>
     <input type='hidden' name='now_page' value='${param.now_page }'>
     
     <div class="form-group">
-       <label class="control-label col-md-2">상품명</label>
-       <div class="col-md-10">
+       <label class="movie_title">영화제목</label>
+       <div class="text_box">
          <input type='text' name='title' value='${title }' required="required" 
                    autofocus="autofocus" class="form-control" style='width: 100%;'>
        </div>
     </div>
     <div class="form-group">
        <label class="control-label col-md-2">줄거리 수정</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <textarea name='plot' required="required" class="form-control" rows="4" style='width: 100%;'>${plot }</textarea>
        </div>
     </div>
     <div class="form-group">
        <label class="control-label col-md-2">검색어</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='text' name='word' value='${word }' required="required" 
                    autofocus="autofocus" class="form-control" style='width: 100%;'>
        </div>
     </div>  
     <div class="form-group">
        <label class="control-label col-md-2">가격</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='text' name='price' value='${price }' required="required" autofocus="autofocus"
                     min="0" max="10000000" step="100" 
                     class="form-control" style='width: 100%;'>
@@ -103,7 +102,7 @@
     
     <div class="form-group">
        <label class="control-label col-md-2">감독</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='text' name='director' value='${director }' required="required"
                     min="0" max="10000000" step="100" 
                     class="form-control" style='width: 100%;'>
@@ -112,7 +111,7 @@
     
     <div class="form-group">
        <label class="control-label col-md-2">출연진</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='text' name='actor' value='${actor }' required="required"
                     min="0" max="100" step="1" 
                     class="form-control" style='width: 100%;'>
@@ -128,12 +127,12 @@
     </div>  --%>       
         <div class="form-group">
        <label class="control-label col-md-2">패스워드</label>
-       <div class="col-md-10">
+       <div class="text_box">
          <input type='password' name='passwd' value='' required="required" class="form-control" style='width: 100%;'>
        </div>
     </div>
      <div style='margin-top: 20px; clear: both;'>  
-       <button type="submit" class="btn btn-primary">수정하기</button>
+       <button type="submit" class="btn btn-primary" style='width:150px;'>수정하기</button>
        <button type="button" onclick="history.back();" class="btn btn-primary">취소</button>
      </div>  
   </FORM>

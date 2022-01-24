@@ -34,9 +34,9 @@
   <A href="../cate/list_by_categrpno.do?categrpno=${categrpVO.categrpno }" class='title_link'>${categrpVO.name }</A> >
   <A href="./list_by_cateno_search_paging.do?cateno=${cateVO.cateno }" class='title_link'>${cateVO.name }</A>
 </DIV> --%>
-<%-- 
-<DIV class='content_body'>
-  <ASIDE class="aside_right">
+
+<DIV class='content_body_movie_update_file'>
+<%--   <ASIDE class="aside_right">
     <A href="./create.do?cateno=${cateVO.cateno }">등록</A>
     <span class='menu_divide' >│</span>
     <A href="javascript:location.reload();">새로고침</A>
@@ -48,7 +48,7 @@
     <A href="./update_text.do?mno=${mno}">수정</A>
     <span class='menu_divide' >│</span>
     <A href="./update_text.do?mno=${mno}">파일 수정</A>  
-  </ASIDE>  --%>
+  </ASIDE> --%>
   
 <%--     <DIV style="text-align: right; clear: both;">  
     <form name='frm' id='frm' method='get' action='./list.do'>
@@ -62,9 +62,7 @@
     </form>
   </DIV>
    --%>
-  <DIV class='menu_line'></DIV>
 
-  <fieldset class="fieldset_basic">
     <ul>
       <li class="li_none">
         <DIV style='text-align: center; width: 50%; float: left;'>
@@ -72,17 +70,17 @@
           <c:set var="thumb1" value="${movieVO.thumb1 }" />
           <c:choose>
             <c:when test="${thumb1.endsWith('jpg') || thumb1.endsWith('png') || thumb1.endsWith('gif')}">
-              <IMG src="/movie/images/${file1saved }" style='width: 90%;'> 
+              <IMG src="/movie/images/${file1saved }" style='width: 50%;'> 
             </c:when>
             <c:otherwise> <!-- 이미지가 없음 -->
-               <IMG src="/movie/images/none1.png" style="width: 90%;"> 
+               <IMG src="/movie/images/none1.png" style="width: 50%;"> 
             </c:otherwise>
           </c:choose>
           
         </DIV>
 
-        <DIV style='text-align: left; width: 47%; float: left;'>
-          <span style='font-size: 1.5em;'>${title}</span>
+        <DIV style='text-align: left; width: 47%; float: right;'>
+          <span style='font-size: 1.5em;'>영화 제목: ${title}</span>
           <br>
           <FORM name='frm' method='POST' action='./update_file.do' 
               enctype="multipart/form-data">
@@ -95,8 +93,8 @@
             <input type='password' name='passwd' value='' required="required" style='width: 30%;'>
             <br>
             <div style='margin-top: 20px; clear: both;'>  
-              <button type="submit" class="btn btn-primary">파일 변경 처리</button>
-              <button type="button" onclick="history.back();" class="btn btn-primary">취소</button>
+              <button type="submit" class="btn btn-primary" style='width:200px;'>파일 변경 처리</button>
+              <button type="button" onclick="history.back();" class="btn btn-primary" style='width:150px;'>취소</button>
             </div>  
           </FORM>
         </DIV>
@@ -105,8 +103,6 @@
 
       </li>   
     </ul>
-  </fieldset>
-
 </DIV>
  
 <jsp:include page="../menu/bottom.jsp" flush='false' />

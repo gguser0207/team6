@@ -394,7 +394,7 @@ div.form-group{
 label {
     color:white;
     margin: 3px;
-    padding-bottom:18px;
+    width:100%;
 }
 
 .fade {
@@ -442,7 +442,7 @@ label {
     z-index:0;
     position:relative;
     display:flex;
-    top:25%;
+    top:12%;
     left:26%;
     width: 100%;
     justify-content:center;
@@ -512,14 +512,14 @@ label {
     align-items:center;
 } 
 btn_members_update{
-    background:black;
+    background:blackcontent_body_login
 }
 .message_fail button{width:150px;}
 
 .content_body_member_list{
     z-index:0;
     position:relative;
-    top:20%;
+    top:10%;
     left:8%;
     width: 90%;
     justify-content:center;
@@ -595,13 +595,27 @@ div.content_body_movie_create{
     z-index:0;
     position:relative;
     display:inline-block;
-    top:150px;
-    left:60px;
+    top:4%;
+    left:34%;
     width: 100%;
     justify-content:center;
     align-items:center;
 
 }
+.text_box input {
+	border-radius:8px;
+	outline:none;
+	border:none;
+	height:30px;
+}
+.text_box textarea {
+	border-radius:8px;
+	outline:none;
+	border:none;
+	height:90px;
+}
+
+
 form.form-horizontal{
 	width:1500px;
 }
@@ -689,6 +703,21 @@ button.colorgreen_size28{
 	margin:1px;
 }
 
+.content_body_movie_update_text{
+	position:relative;
+	width:100%;
+	top:7%;
+	left:33%;
+}
+.movie_title{
+	float:left;
+}
 
+.content_body_movie_update_file{
+	position:relative;
+	width:100%;
+	top:10%;
+	left:10%;
+}
 
 /* 관리자 로그인시에만 출력 */
