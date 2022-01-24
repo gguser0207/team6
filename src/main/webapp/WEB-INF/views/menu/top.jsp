@@ -9,7 +9,7 @@
         <div class="list_main">
       <ul>
         <li><a href="http://localhost:9091" class="home_btn">HOME</a></li>
-        <li><a href="/movie/list.do">영화</a></li>
+        <li><a href="/movie/list_by_search_paging.do">영화</a></li>
         <li><a href="#">순위</a></li>
       <c:choose>
         <c:when test="${sessionScope.id eq null}"> <%-- 로그인 안 한 경 우 --%>
@@ -28,7 +28,7 @@
         <li><a href="http://localhost:9091/member/create.do">회원가입</a></li> -->
         <!-- <li><a href="http://localhost:9091/member/list.do">회원목록</a></li> -->
         <li style="margin-left: 15px;">
-        <form id="search" name="search" method="get" action="/movie/list_by_search.do">
+        <form id="search" name="search" method="get" action="/movie/list_by_search_paging.do">
         	<input type='hidden' name='categrp_no' value='8'></input>
           <input type="text" name='word' id='word' placeholder="영화/장르"></input>
           <input type="submit" value="검색"></input>

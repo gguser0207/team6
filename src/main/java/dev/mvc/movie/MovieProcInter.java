@@ -81,6 +81,15 @@ public interface MovieProcInter {
      */
     public List<MovieVO> list_by_search_paging(HashMap<String,Object> hashMap);
     
+    /**
+     * 페이징 목록 문자열 생성, box형태
+     * @param categrp_no
+     * @param search_count
+     * @param word
+     * @return
+     */
+    public String pagingBox(int categrp_no, int search_count, int now_page, String word);
+    
 
     
 }

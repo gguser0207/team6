@@ -720,4 +720,20 @@ button.colorgreen_size28{
 	left:10%;
 }
 
+.bottom_paging{
+	margin-top: 120px;
+}
+span.span_box_1 a{
+	padding:0px; 
+	color: white;
+}
+
+span.span_box_1 a:hover{
+	cursor:poinput;
+}
+
+
+
+
+
 /* 관리자 로그인시에만 출력 */

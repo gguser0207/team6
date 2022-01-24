@@ -160,7 +160,35 @@ public class MovieCont {
         return mav;
     }
     
-
+    // http://localhost:9091/movie/list.do
+    @RequestMapping(value = "/movie/list_by_search_paging.do", method = RequestMethod.GET)
+    public ModelAndView list_by_search_paging(@RequestParam(value="categrp_no", defaultValue="8")int categrp_no,
+    									@RequestParam(value="word", defaultValue="")String word,
+    									@RequestParam(value="now_page", defaultValue="1")int now_page) {
+        ModelAndView mav = new ModelAndView();
+        
+        HashMap<String, Object> map = new HashMap<String,Object>();
+        map.put("categrp_no",categrp_no);
+        map.put("word", word);
+        map.put("now_page", now_page);
+        
+        List<MovieVO> list = this.movieProc.list_by_search_paging(map);
+        mav.addObject("list", list);
+        
+        int search_count = movieProc.search_count(map);
+        mav.addObject("search_count", search_count);
+        
+		CategrpVO categrpVO = categrpProc.read(categrp_no);
+        mav.addObject("categrpVO",categrpVO);
+        
+        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word);
+        mav.addObject("paging", paging);
+        
+        mav.addObject("now_page", now_page);
+        
+        mav.setViewName("/movie/list_by_search_paging");
+        return mav;
+    }
     // http://localhost:9091/movie/read_update_text.do?mno=1
     /**
      * 조회 + 수정폼
