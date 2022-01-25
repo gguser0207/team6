@@ -25,11 +25,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </select>
   <select id="rank_price_1" resultType="dev.mvc.movie.MovieVO" 
              parameterType="HashMap">
-    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score,r
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, genre, r
     FROM(
-	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, rownum as r
+	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, genre, rownum as r
 	    FROM(     
-		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score
+		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, genre
 		    FROM movie
 		    <choose>
 		      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
@@ -40,7 +40,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		                               OR plot LIKE '%' || #{word} || '%' 
 		                               OR director LIKE '%' || #{word} || '%' 
 		                               OR actor LIKE '%' || #{word} || '%' 
-		                               OR word LIKE '%' || #{word} || '%')
+		                               OR word LIKE '%' || #{word} || '%'
+		                               OR genre LIKE '%' || #{word} || '%')
 		      </otherwise>
 		    </choose>
 	    	ORDER BY price ASC  
@@ -52,11 +53,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
   <select id="rank_price_2" resultType="dev.mvc.movie.MovieVO" 
              parameterType="HashMap">
-    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, r
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, genre, r
     FROM(
-	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, rownum as r
+	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, genre, rownum as r
 	    FROM(     
-		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, score, rank 
+		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, score, rank, genre 
 		    FROM movie
 		    <choose>
 		      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
@@ -67,7 +68,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		                               OR plot LIKE '%' || #{word} || '%' 
 		                               OR director LIKE '%' || #{word} || '%' 
 		                               OR actor LIKE '%' || #{word} || '%' 
-		                               OR word LIKE '%' || #{word} || '%')
+		                               OR word LIKE '%' || #{word} || '%'
+		                               OR genre LIKE '%' || #{word} || '%')
 		      </otherwise>
 		    </choose>
 	    	ORDER BY price DESC  
@@ -80,11 +82,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
   <select id="rank_price_3" resultType="dev.mvc.movie.MovieVO" 
              parameterType="HashMap">
-    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, r
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, genre, r
     FROM(
-	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, rownum  as r
+	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, genre, rownum  as r
 	    FROM(     
-		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, score, rank
+		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, score, rank, genre
 		    FROM movie
 		    <choose>
 		      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
@@ -95,7 +97,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		                               OR plot LIKE '%' || #{word} || '%' 
 		                               OR director LIKE '%' || #{word} || '%' 
 		                               OR actor LIKE '%' || #{word} || '%' 
-		                               OR word LIKE '%' || #{word} || '%')
+		                               OR word LIKE '%' || #{word} || '%'
+		                               OR genre LIKE '%' || #{word} || '%')
 		      </otherwise>
 		    </choose>
 	    	ORDER BY score DESC  
@@ -134,7 +137,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="list_by_search" resultType="dev.mvc.movie.MovieVO" 
              parameterType="HashMap">
-    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, score, passwd 
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, score, passwd, genre
     FROM movie
     <choose>
       <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
@@ -145,7 +148,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                                OR plot LIKE '%' || #{word} || '%' 
                                OR director LIKE '%' || #{word} || '%' 
                                OR actor LIKE '%' || #{word} || '%' 
-                               OR word LIKE '%' || #{word} || '%')
+                               OR word LIKE '%' || #{word} || '%'
+                               OR genre LIKE '%' || #{word} || '%')
       </otherwise>
     </choose>
     ORDER BY mno DESC   
@@ -164,7 +168,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	  							OR plot LIKE '%' ||#{word}||'%'
                                OR director LIKE '%' || #{word} || '%' 
                                OR actor LIKE '%' || #{word} || '%' 
-                               OR word LIKE '%' || #{word} || '%')
+                               OR word LIKE '%' || #{word} || '%'
+                               OR genre LIKE '%' || #{word} || '%')
   	  </otherwise>
   	</choose>
   </select>
@@ -178,11 +183,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
     <select id="list_by_search_paging" resultType="dev.mvc.movie.MovieVO" 
              parameterType="HashMap">
-    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, score, passwd, r
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, score, passwd, genre, r
     FROM(
-	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, score, passwd, rownum as r
+	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, genre, price, score, passwd, rownum as r
 	    FROM(     
-		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, score, passwd
+		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, genre, price, score, passwd
 		    FROM movie
 		    <choose>
 		      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
@@ -193,7 +198,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		                               OR plot LIKE '%' || #{word} || '%' 
 		                               OR director LIKE '%' || #{word} || '%' 
 		                               OR actor LIKE '%' || #{word} || '%' 
-		                               OR word LIKE '%' || #{word} || '%')
+		                               OR word LIKE '%' || #{word} || '%'
+		                               OR genre LIKE '%' || #{word} || '%')
 		      </otherwise>
 		    </choose>
 		    ORDER BY mno DESC  
