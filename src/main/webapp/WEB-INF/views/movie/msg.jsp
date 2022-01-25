@@ -38,12 +38,12 @@
         </c:when>
         <c:when test="${param.code == 'delete_success'}"> <%-- Java if --%>
           <LI class='li_none'>
-            <span class="span_success">[${movieVO.title }] 영화 삭제에 성공했습니다.</span>
+            <span class="span_success"> 영화 삭제에 성공했습니다.</span>
           </LI>                                                                      
         </c:when>        
         <c:when test="${param.code == 'delete_fail'}"> <%-- Java if --%>
           <LI class='li_none'>
-            <span class="span_fail">[${movieVO.title }] 영화 삭제에 실패했습니다.</span>
+            <span class="span_fail"> 영화 삭제에 실패했습니다.</span>
           </LI>                                                                      
         </c:when> 
         <c:otherwise>
@@ -67,7 +67,7 @@
             </c:when>
         </c:choose>
         
-        <button type='button' onclick="location.href='./list.do'" class="btn">목록</button>
+        <button type='button' onclick="location.href='./list_by_search_paging.do'" class="btn">목록</button>
       </LI>
     </UL>
   </fieldset>

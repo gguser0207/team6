@@ -15,23 +15,22 @@ public class MovieVO {
 	  private String file1 = "";
 	  private String file1saved = "";
 	  private String thumb1 = "";
+	  private String genre = "";
 	  
 	  
-    public int getCategrp_no() {
-		return categrp_no;
-	}
+    public int getCategrp_no() {		return categrp_no;	}
+    
+    public void setCategrp_no(int categrp_no) {		this.categrp_no = categrp_no;	}
+    
+    
+	public String getGenre() {		return genre;	}
+	
+	public void setGenre(String genre) {		this.genre = genre;	}
+	
 
-	public void setCategrp_no(int categrp_no) {
-		this.categrp_no = categrp_no;
-	}
-
-	public int getRank() {
-		return rank;
-	}
-
-	public void setRank(int rank) {
-		this.rank = rank;
-	}
+	public int getRank() {		return rank;	}
+	
+	public void setRank(int rank) {		this.rank = rank;	}
 
 	private String passwd = "";
 	  private long size2;
@@ -45,131 +44,69 @@ public class MovieVO {
      */
       private String size1_label;
 
-    public MultipartFile getFile1MF() {
-		return file1MF;
-	}
+    public MultipartFile getFile1MF() {		return file1MF;	}
 
-	public void setFile1MF(MultipartFile file1mf) {
-		file1MF = file1mf;
-	}
+	public void setFile1MF(MultipartFile file1mf) {		file1MF = file1mf;	}
 
-	public String getSize1_label() {
-		return size1_label;
-	}
-    public void setSize1_label(String size1_label) {
-		this.size1_label = size1_label;
-	}
-	public int getScore() {
-		return score;
-	}
-
-	public void setScore(int score) {
-		this.score = score;
-	}
-
-	public String getWord() {
-		return word;
-	}
-
-	public void setWord(String word) {
-		this.word = word;
-	}
-
-	public String getFile1() {
-		return file1;
-	}
-
-	public void setFile1(String file1) {
-		this.file1 = file1;
-	}
-
-	public String getFile1saved() {
-		return file1saved;
-	}
-
-	public void setFile1saved(String file1saved) {
-		this.file1saved = file1saved;
-	}
-
-	public String getThumb1() {
-		return thumb1;
-	}
-
-	public long getSize2() {
-		return size2;
-	}
-
-	public void setSize2(long size2) {
-		this.size2 = size2;
-	}
-
-	public void setThumb1(String thumb1) {
-		this.thumb1 = thumb1;
-	}
-
-	public String getRelease() {
-		return release;
-	}
-
-	public void setRelease(String release) {
-		this.release = release;
-	}
-
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
+	public String getSize1_label() {		return size1_label;	}
 	
-	public int getMno() {
-	    return mno;
-	  }
+    public void setSize1_label(String size1_label) {		this.size1_label = size1_label;	}
 
-  public void setMno(int mno) {
-    this.mno = mno;
-  }
+    public int getScore() {		return score;	}
 
-  public String getTitle() {
-    return title;
-  }
+	public void setScore(int score) {		this.score = score;	}
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
+	public String getWord() {		return word;	}
 
-  public String getDirector() {
-    return director;
-  }
+	public void setWord(String word) {		this.word = word;	}
 
-  public void setDirector(String director) {
-    this.director = director;
-  }
+	public String getFile1() {		return file1;	}
 
-  public String getActor() {
-    return actor;
-  }
+	public void setFile1(String file1) {		this.file1 = file1;	}
 
-  public void setActor(String actor) {
-    this.actor = actor;
-  }
+	public String getFile1saved() {		return file1saved;	}
 
-  public String getPasswd() {
-	return passwd;
-}
+	public void setFile1saved(String file1saved) {		this.file1saved = file1saved;	}
 
-public void setPasswd(String passwd) {
-	this.passwd = passwd;
-}
+	public String getThumb1() {		return thumb1;	}
 
-public String getPlot() {
-    return plot;
-  }
+	public long getSize2() {		return size2;	}
 
-  public void setPlot(String plot) {
-    this.plot = plot;
-  }
+	public void setSize2(long size2) {		this.size2 = size2;	}
+
+	public void setThumb1(String thumb1) {		this.thumb1 = thumb1;	}
+
+	public String getRelease() {		return release;	}
+
+	public void setRelease(String release) {		this.release = release;	}
+
+	public String getPrice() {		return price;	}
+
+	public void setPrice(String price) {		this.price = price;	}
+	
+	public int getMno() {	    return mno;	  }
+
+	public void setMno(int mno) {    this.mno = mno;  }
+	
+	public String getTitle() {    return title;  }
+	
+    public void setTitle(String title) {    this.title = title;  }
+	
+    public String getDirector() {    return director;  }
+	
+    public void setDirector(String director) {    this.director = director;  }
+	
+    public String getActor() {    return actor;  }
+	
+	public void setActor(String actor) {    this.actor = actor;  }
+	
+	public String getPasswd() {	return passwd;}
+	
+	public void setPasswd(String passwd) {	this.passwd = passwd;}
+	
+	public String getPlot() {    return plot;  }
+	
+	public void setPlot(String plot) {    this.plot = plot;  }
 
 }
 

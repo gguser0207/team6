@@ -190,7 +190,7 @@
     <span class='menu_divide' >│</span>
     <A href="javascript:location.reload();">새로고침</A>
     <span class='menu_divide' >│</span>
-    <A href="./list.do?mno=${mno }&now_page=${param.now_page}&word=${param.word }">기본 목록형</A>    
+    <A href="./list_by_search_paging.do?mno=${mno }&now_page=${param.now_page}&word=${param.word }">기본 목록형</A>    
     <span class='menu_divide' >│</span>
     <form id=read_btn>
     <button type='button' id='btn_cart' class="btn btn-info" onclick="cart_ajax(${mno })">장바 구니</button>

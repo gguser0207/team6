@@ -33,7 +33,7 @@
 	    <span class='menu_divide' >│</span>
 	    <A href="javascript:location.reload();">새로고침</A>
 	    <span class='menu_divide' >│</span>
-	    <A href="./list.do">기본 목록형</A>
+	    <A href="./list_by_search_paging.do">기본 목록형</A>
 	  </ASIDE> 
 	</div>
 <%--     <DIV style="text-align: right; clear: both;">  
@@ -65,6 +65,14 @@
        <label class="control-label col-md-2">영화 이름</label>
        <div class="text_box">
          <input type='text' name='title' value='영화 이름' required="required" 
+                   autofocus="autofocus" class="form-control" style='width: 100%;'>
+       </div>
+    </div>
+    
+    <div class="form-group">
+       <label class="control-label col-md-2">장르</label>
+       <div class="text_box">
+         <input type='text' name='genre' value='장르' required="required" 
                    autofocus="autofocus" class="form-control" style='width: 100%;'>
        </div>
     </div>
@@ -130,7 +138,7 @@
     </div>   
     <div class="content_body_bottom">
       <button type="submit" class="btn btn-primary">등록</button>
-      <button type="button" onclick="location.href='./list.do'" class="btn btn-primary">목록</button>
+      <button type="button" onclick="location.href='./list_by_search_paging.do'" class="btn btn-primary">목록</button>
     </div>
   
   </FORM>

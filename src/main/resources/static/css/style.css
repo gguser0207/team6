@@ -13,10 +13,6 @@ body{
   background-size : cover;
   color:white;
 }
-thead {
-	border-bottom: 1px white solid;
-	margin-bottom: 13px;
-}
 
 nav {
   margin-top: 48px;
@@ -62,14 +58,14 @@ a {
 .slider{
   width: 500px;
   height: 550px;
-  top: 9%; /* 관리자 로그인시 18%로 조정 아닐시 13%*/
+  top: 4%; /* 관리자 로그인시 18%로 조정 아닐시 13%*/
   left: 35%;
   position: relative;
   display: flex; /* 관리자 접속시 none 회원 접속시 flex */
 }
 .slide{
   width: 500px;
-  height: 550px;
+  height: 750px;
   background-size: cover;
   border-radius: 10px;
   animation: fade 1.5s;

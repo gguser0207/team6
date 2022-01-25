@@ -31,6 +31,7 @@
 			    <button class="btn_index" id="btn_create">등록 하기</button>
 			    <button class="btn_index" id="btn_list" onclick="location.href='/categrp/list.do'">목록 확인</button>
        		</c:when>
+       		
    		</c:choose>
 
   </div>
@@ -61,8 +62,15 @@
 
   </div>
   <!-- 등록 폼 끝 -->
+<c:choose>
+  	<c:when test="${grade >= 1 and grade <= 10}">
+  		<div class="slider" style= "top:9%;">
+	</c:when>
+	<c:otherwise>
+		<div class="slider" style= "top:4%;">
+	</c:otherwise>
+</c:choose>
 
-  <div class="slider">
     <div class="slide" style="background-image: url(./images/1.jpg);"></div>
     <div class="slide" style="background-image: url(./images/2.jpg);"></div>
     <div class="slide" style="background-image: url(./images/3.jpg);"></div>
