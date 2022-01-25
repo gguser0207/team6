@@ -26,10 +26,18 @@ INSERT INTO fgenre(fgenreno, memberno, genreno, rdate)
 VALUES (fgenre_seq.nextval, 4, 1, sysdate);
 
 INSERT INTO fgenre(fgenreno, memberno, genreno, rdate)
+VALUES (fgenre_seq.nextval, 5, 1, sysdate);
+
+INSERT INTO fgenre(fgenreno, memberno, genreno, rdate)
 VALUES (fgenre_seq.nextval, 4, 2, sysdate);
+
+INSERT INTO fgenre(fgenreno, memberno, genreno, rdate)
+VALUES (fgenre_seq.nextval, 6, 2, sysdate);
 
 SELECT fgenreno, memberno, genreno, rdate
 FROM fgenre
 WHERE genreno = 1;
 
 
+SELECT fgenreno, memberno, genreno, rdate
+FROM fgenre;

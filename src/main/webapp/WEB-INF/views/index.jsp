@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <title>team6</title>
+  
   <script type="text/JavaScript"
   src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript">
@@ -19,7 +20,19 @@
     $(function show_controller(){
         $('#btn_back').on('click',function(){$('#create').hide(); $('.controll').show() });
       });
+    
+
+    function recommend_movie(){
+      var url = 'http://127.0.0.1:8000/recommend_movie/form1/';
+      var win = window.open(url, 'AI 서비스', 'width=900px, height=560px');
+
+      var x = (screen.width - 900) / 2;
+      var y = (screen.height - 560) / 2;
+
+      win.moveTo(x, y); // 화면 중앙으로 이동
+    }
   </script>
+  
 </head>
 <body>
 <jsp:include page="./menu/top.jsp" flush='false' />
@@ -76,6 +89,9 @@
     <div class="slide" style="background-image: url(./images/3.jpg);"></div>
     <a class="prev" onclick="button_click(-1)">&#10094</a>
     <a class="next" onclick="button_click(1)">&#10095</a>
+  </div>
+  <div class="django">
+  <A href="javascript: recommend_movie()">추천 시스템</A>
   </div>
   <DIV class='bottom'>
     이현수[PL]   임동규[DA]   송은호[AI]   유성용[WP] 
