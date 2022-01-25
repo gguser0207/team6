@@ -235,6 +235,20 @@ select {
   left: 40%;
   /* display: none; */
 }
+.django{
+	animation: fade 1.5s;
+position: absolute;
+top: 115%;
+  left: 40%;
+  /* display: none; */
+}
+.django .btn_index{
+  color: white;
+  font-size: 30px;
+  margin: 10px;
+  font-weight: 600;
+}
+
 .controll .btn_index{
   color: white;
   font-size: 30px;
