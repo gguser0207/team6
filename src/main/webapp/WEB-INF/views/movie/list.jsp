@@ -29,8 +29,14 @@
 <DIV class='title_line'>영화</DIV>
 
 <DIV class='content_body_movie_list'>
-<div class="create_form_move"><a href="/movie/create.do">영 화 등 록</a></div> 
 
+
+  <c:set var="grade" value="${sessionScope.grade}" />
+          <c:choose>
+          	<c:when test="${grade >= 1 and grade <= 10}">
+          		<div class="create_form_move"><a href="/movie/create.do">영 화 등 록</a></div> 
+       		</c:when>
+   		</c:choose>
   <TABLE class='table table-striped' style="width:100%;">
     <colgroup>
       <col style='width: 10%;'/>

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<c:set var="grade" value="${sessionScope.grade}" />
   <div class="container">
     <nav>
       <div class="logo">
@@ -20,7 +20,11 @@
         <c:otherwise><!--${sessionScope.id }님 반갑습니다.  -->
           <li ><A href='/cart/buylist.do' >구매목록</A><span class='top_menu_sep'> </span></li>
           <li ><A href='/cart/list.do' >장바구니</A><span class='top_menu_sep'> </span></li>
-          <li><a href="/member/list.do">회원목록</a></li>
+          <c:choose>
+          	<c:when test="${grade >= 1 and grade <= 10}">
+          		<li><a href="/member/list.do">회원목록</a></li>
+       		</c:when>
+   		</c:choose>
           <li class='login_id'><A href='/member/logout.do' >로그아웃</A><span class='top_menu_sep'> </span></li>
         </c:otherwise>
       </c:choose>     

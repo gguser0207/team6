@@ -25,8 +25,14 @@
 <jsp:include page="./menu/top.jsp" flush='false' />
   <!-- ajax categrp controll(CRUD) 시작 -->
   <div class="controll">
-    <button class="btn_index" id="btn_create">등록 하기</button>
-    <button class="btn_index" id="btn_list" onclick="location.href='/categrp/list.do'">목록 확인</button>
+  <c:set var="grade" value="${sessionScope.grade}" />
+          <c:choose>
+          	<c:when test="${grade >= 1 and grade <= 10}">
+			    <button class="btn_index" id="btn_create">등록 하기</button>
+			    <button class="btn_index" id="btn_list" onclick="location.href='/categrp/list.do'">목록 확인</button>
+       		</c:when>
+   		</c:choose>
+
   </div>
   <!-- ajax categrp controll(CRUD) 끝 -->
 
