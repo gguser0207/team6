@@ -91,7 +91,7 @@
     <a class="next" onclick="button_click(1)">&#10095</a>
   </div>
   <div class="django">
-  <A href="javascript: recommend_movie()">추천 시스템</A>
+  <A class="btn_index"  href="javascript: recommend_movie()">장르 추천</A>
   </div>
   <DIV class='bottom'>
     이현수[PL]   임동규[DA]   송은호[AI]   유성용[WP] 
