@@ -30,13 +30,11 @@
 
 <DIV class='content_body_movie_list'>
   <ASIDE class="aside_right">
-    <A href="./rank_price.do?mno=${mno }">낮은 가격 순</A>
+    <A href="./rank_price_1.do?">낮은 가격 순</A>
     <span class='menu_divide' >│</span>
-    <A href="javascript:location.reload();">높은 가격 순</A>
+    <A href="./rank_price_2.do?">높은 가격 순</A>
     <span class='menu_divide' >│</span>
-    <A href="./list.do?mno=${mno }&now_page=${param.now_page}&word=${param.word }">평점 높은 순</A>    
-    <span class='menu_divide' >│</span>
-    <A href="./list.do?mno=${mno }&now_page=${param.now_page}&word=${param.word }">구매량 많은 순</A>    
+    <A href=./rank_price_3.do?>평점 높은 순</A>    
     <span class='menu_divide' >│</span>
   </ASIDE> 
 
@@ -111,7 +109,7 @@
             <a href="./read.do?mno=${mno}&now_page=${param.now_page }&word=${param.word}"><strong>${plot}</strong></a> 
           </td> 
           <td style='vertical-align: middle;'>
-            <del><fmt:formatNumber value="${price}" pattern="#,###" /> 원</del><br>
+            <fmt:formatNumber value="${price}" pattern="#,###" /> 원<br>
           </td> 
           <td style='vertical-align: middle; text-align: center;'>
             <A href="./read_update_text.do?mno=${mno}&now_page=${now_page }"><div class="btn_ud">텍스트수정</div></A><br>

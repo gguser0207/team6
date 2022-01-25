@@ -102,7 +102,7 @@
             <a href="./read.do?mno=${mno}&now_page=${param.now_page }&word=${param.word}"><strong>${plot}</strong></a> 
           </td> 
           <td style='vertical-align: middle;'>
-            <del><fmt:formatNumber value="${price}" pattern="#,###" /> 원</del><br>
+            <fmt:formatNumber value="${price}" pattern="#,###" /> 원<br>
           </td> 
           <td style='vertical-align: middle; text-align: center;'>
             <A href="./read_update_text.do?mno=${mno}&now_page=${now_page }"><div class="btn_ud">텍스트수정</div></A><br>

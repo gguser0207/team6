@@ -10,7 +10,7 @@
       <ul>
         <li><a href="http://localhost:9091" class="home_btn">HOME</a></li>
         <li><a href="/movie/list_by_search_paging.do">영화</a></li>
-        <li><a href="/movie/rank_price.do">순위</a></li>
+        <li><a href="/movie/rank_price_1.do">순위</a></li>
       <c:choose>
         <c:when test="${sessionScope.id eq null}"> <%-- 로그인 안 한 경 우 --%>
           <li><A class='menu_link'  href='/member/login.do' >로그인</A><span class='top_menu_sep'> </span></li>

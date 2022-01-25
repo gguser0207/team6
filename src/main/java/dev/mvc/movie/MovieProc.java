@@ -167,7 +167,7 @@ public class MovieProc implements MovieProcInter {
         return list;
       }
     
-    public List<MovieVO> rank_price(HashMap<String, Object> map) {
+    public List<MovieVO> rank_price_1(HashMap<String, Object> map) {
         /*
         페이지당 10개의 레코드 출력
         1 page: WHERE r >= 1 AND r <= 10
@@ -200,7 +200,110 @@ public class MovieProc implements MovieProcInter {
         map.put("start_num", start_num);
         map.put("end_num", end_num);
        
-        List<MovieVO> list = this.movieDAO.rank_price(map);
+        List<MovieVO> list = this.movieDAO.rank_price_1(map);
+        
+        for (MovieVO movieVO : list) { // 내용이 160자 이상이면 160자만 선택
+          String plot = movieVO.getPlot();
+          if (plot.length() > 160) {
+            plot = plot.substring(0, 160) + "...";
+            movieVO.setPlot(plot);
+          }
+          
+          String title = Tool.convertChar(movieVO.getTitle());  // 특수 문자 변환
+          movieVO.setTitle(title);
+          
+          plot = Tool.convertChar(plot);
+          movieVO.setPlot(plot);
+        }
+        
+        return list;
+      }
+    public List<MovieVO> rank_price_2(HashMap<String, Object> map) {
+        /*
+        페이지당 10개의 레코드 출력
+        1 page: WHERE r >= 1 AND r <= 10
+        2 page: WHERE r >= 11 AND r <= 20
+        3 page: WHERE r >= 21 AND r <= 30
+          
+        페이지에서 출력할 시작 레코드 번호 계산 기준값, nowPage는 1부터 시작
+        1 페이지 시작 rownum: now_page = 1, (1 - 1) * 10 --> 0 
+        2 페이지 시작 rownum: now_page = 2, (2 - 1) * 10 --> 10
+        3 페이지 시작 rownum: now_page = 3, (3 - 1) * 10 --> 20
+        */
+        int begin_of_page = ((Integer)map.get("now_page") - 1) * Movie.RECORD_PER_PAGE;
+       
+        // 시작 rownum 결정
+        // 1 페이지 = 0 + 1: 1
+        // 2 페이지 = 10 + 1: 11
+        // 3 페이지 = 20 + 1: 21 
+        int start_num = begin_of_page + 1;
+        
+        //  종료 rownum
+        // 1 페이지 = 0 + 10: 10
+        // 2 페이지 = 0 + 20: 20
+        // 3 페이지 = 0 + 30: 30
+        int end_num = begin_of_page + Movie.RECORD_PER_PAGE;   
+        /*
+        1 페이지: WHERE r >= 1 AND r <= 10
+        2 페이지: WHERE r >= 11 AND r <= 20
+        3 페이지: WHERE r >= 21 AND r <= 30
+        */
+        map.put("start_num", start_num);
+        map.put("end_num", end_num);
+       
+        List<MovieVO> list = this.movieDAO.rank_price_2(map);
+        
+        for (MovieVO movieVO : list) { // 내용이 160자 이상이면 160자만 선택
+          String plot = movieVO.getPlot();
+          if (plot.length() > 160) {
+            plot = plot.substring(0, 160) + "...";
+            movieVO.setPlot(plot);
+          }
+          
+          String title = Tool.convertChar(movieVO.getTitle());  // 특수 문자 변환
+          movieVO.setTitle(title);
+          
+          plot = Tool.convertChar(plot);
+          movieVO.setPlot(plot);
+        }
+        
+        return list;
+      }
+    
+    public List<MovieVO> rank_price_3(HashMap<String, Object> map) {
+        /*
+        페이지당 10개의 레코드 출력
+        1 page: WHERE r >= 1 AND r <= 10
+        2 page: WHERE r >= 11 AND r <= 20
+        3 page: WHERE r >= 21 AND r <= 30
+          
+        페이지에서 출력할 시작 레코드 번호 계산 기준값, nowPage는 1부터 시작
+        1 페이지 시작 rownum: now_page = 1, (1 - 1) * 10 --> 0 
+        2 페이지 시작 rownum: now_page = 2, (2 - 1) * 10 --> 10
+        3 페이지 시작 rownum: now_page = 3, (3 - 1) * 10 --> 20
+        */
+        int begin_of_page = ((Integer)map.get("now_page") - 1) * Movie.RECORD_PER_PAGE;
+       
+        // 시작 rownum 결정
+        // 1 페이지 = 0 + 1: 1
+        // 2 페이지 = 10 + 1: 11
+        // 3 페이지 = 20 + 1: 21 
+        int start_num = begin_of_page + 1;
+        
+        //  종료 rownum
+        // 1 페이지 = 0 + 10: 10
+        // 2 페이지 = 0 + 20: 20
+        // 3 페이지 = 0 + 30: 30
+        int end_num = begin_of_page + Movie.RECORD_PER_PAGE;   
+        /*
+        1 페이지: WHERE r >= 1 AND r <= 10
+        2 페이지: WHERE r >= 11 AND r <= 20
+        3 페이지: WHERE r >= 21 AND r <= 30
+        */
+        map.put("start_num", start_num);
+        map.put("end_num", end_num);
+       
+        List<MovieVO> list = this.movieDAO.rank_price_3(map);
         
         for (MovieVO movieVO : list) { // 내용이 160자 이상이면 160자만 선택
           String plot = movieVO.getPlot();

@@ -4,6 +4,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MovieVO {
 	  private int mno;
+	  private int categrp_no;
+	  private int rank;
 	  private String title = "";
 	  private String director = "";
 	  private String actor = "";
@@ -13,7 +15,25 @@ public class MovieVO {
 	  private String file1 = "";
 	  private String file1saved = "";
 	  private String thumb1 = "";
-	  private String passwd = "";
+	  
+	  
+    public int getCategrp_no() {
+		return categrp_no;
+	}
+
+	public void setCategrp_no(int categrp_no) {
+		this.categrp_no = categrp_no;
+	}
+
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
+
+	private String passwd = "";
 	  private long size2;
 	  private String release = "";
 	  private String price = "";

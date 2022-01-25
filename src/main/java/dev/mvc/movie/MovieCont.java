@@ -137,8 +137,8 @@ public class MovieCont {
     }
     
     // http://localhost:9091/movie/list.do
-    @RequestMapping(value = "/movie/rank_price.do", method = RequestMethod.GET)
-    public ModelAndView rank_price(@RequestParam(value="categrp_no", defaultValue="8")int categrp_no,
+    @RequestMapping(value = "/movie/rank_price_1.do", method = RequestMethod.GET)
+    public ModelAndView rank_price_1(@RequestParam(value="categrp_no", defaultValue="8")int categrp_no,
     									@RequestParam(value="word", defaultValue="")String word,
     									@RequestParam(value="now_page", defaultValue="1")int now_page) {
         ModelAndView mav = new ModelAndView();
@@ -148,7 +148,63 @@ public class MovieCont {
         map.put("word", word);
         map.put("now_page", now_page);
         
-        List<MovieVO> list = this.movieProc.rank_price(map);
+        List<MovieVO> list = this.movieProc.rank_price_1(map);
+        mav.addObject("list", list);
+        
+        int search_count = movieProc.search_count(map);
+        mav.addObject("search_count", search_count);
+        
+		CategrpVO categrpVO = categrpProc.read(categrp_no);
+        mav.addObject("categrpVO",categrpVO);
+        
+        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "rank");
+        mav.addObject("paging", paging);
+        
+        mav.addObject("now_page", now_page);
+        
+        mav.setViewName("/movie/rank_price");
+        return mav;
+    }
+    @RequestMapping(value = "/movie/rank_price_2.do", method = RequestMethod.GET)
+    public ModelAndView rank_price_2(@RequestParam(value="categrp_no", defaultValue="8")int categrp_no,
+    									@RequestParam(value="word", defaultValue="")String word,
+    									@RequestParam(value="now_page", defaultValue="1")int now_page) {
+        ModelAndView mav = new ModelAndView();
+        
+        HashMap<String, Object> map = new HashMap<String,Object>();
+        map.put("categrp_no",categrp_no);
+        map.put("word", word);
+        map.put("now_page", now_page);
+        
+        List<MovieVO> list = this.movieProc.rank_price_2(map);
+        mav.addObject("list", list);
+        
+        int search_count = movieProc.search_count(map);
+        mav.addObject("search_count", search_count);
+        
+		CategrpVO categrpVO = categrpProc.read(categrp_no);
+        mav.addObject("categrpVO",categrpVO);
+        
+        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "rank");
+        mav.addObject("paging", paging);
+        
+        mav.addObject("now_page", now_page);
+        
+        mav.setViewName("/movie/rank_price");
+        return mav;
+    }
+    @RequestMapping(value = "/movie/rank_price_3.do", method = RequestMethod.GET)
+    public ModelAndView rank_price_3(@RequestParam(value="categrp_no", defaultValue="8")int categrp_no,
+    									@RequestParam(value="word", defaultValue="")String word,
+    									@RequestParam(value="now_page", defaultValue="1")int now_page) {
+        ModelAndView mav = new ModelAndView();
+        
+        HashMap<String, Object> map = new HashMap<String,Object>();
+        map.put("categrp_no",categrp_no);
+        map.put("word", word);
+        map.put("now_page", now_page);
+        
+        List<MovieVO> list = this.movieProc.rank_price_3(map);
         mav.addObject("list", list);
         
         int search_count = movieProc.search_count(map);

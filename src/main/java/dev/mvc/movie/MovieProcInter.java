@@ -94,7 +94,20 @@ public interface MovieProcInter {
      * 가격대별 오름차순
      * @return
      */
-    public List<MovieVO> rank_price(HashMap<String,Object> hashMap);
+    public List<MovieVO> rank_price_1(HashMap<String,Object> hashMap);
+    
+    /**
+     * 가격대별 내림차순
+     * @return
+     */
+    public List<MovieVO> rank_price_2(HashMap<String,Object> hashMap);
+    
+    
+    /**
+     * 평점 별 내림차순
+     * @return
+     */
+    public List<MovieVO> rank_price_3(HashMap<String,Object> hashMap);
     
     /**
      * 평점 수정

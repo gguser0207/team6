@@ -23,13 +23,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      FROM movie 
     ORDER BY mno ASC
   </select>
-  <select id="rank_price" resultType="dev.mvc.movie.MovieVO" 
+  <select id="rank_price_1" resultType="dev.mvc.movie.MovieVO" 
              parameterType="HashMap">
-    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, r
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score,r
     FROM(
-	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rownum as r
+	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, rownum as r
 	    FROM(     
-		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd
+		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score
 		    FROM movie
 		    <choose>
 		      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
@@ -43,7 +43,63 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		                               OR word LIKE '%' || #{word} || '%')
 		      </otherwise>
 		    </choose>
-		    ORDER BY price ASC  
+	    	ORDER BY price ASC  
+
+		    )
+		)
+		WHERE <![CDATA[r >= #{start_num} AND r <= #{end_num}]]>
+    </select>
+    
+  <select id="rank_price_2" resultType="dev.mvc.movie.MovieVO" 
+             parameterType="HashMap">
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, r
+    FROM(
+	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, rownum as r
+	    FROM(     
+		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, score, rank 
+		    FROM movie
+		    <choose>
+		      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+		        WHERE categrp_no=#{categrp_no}
+		      </when>
+		      <otherwise> <!-- 검색하는 경우 -->
+		        WHERE categrp_no=#{categrp_no} AND (title LIKE '%' || #{word} || '%' 
+		                               OR plot LIKE '%' || #{word} || '%' 
+		                               OR director LIKE '%' || #{word} || '%' 
+		                               OR actor LIKE '%' || #{word} || '%' 
+		                               OR word LIKE '%' || #{word} || '%')
+		      </otherwise>
+		    </choose>
+	    	ORDER BY price DESC  
+
+		    )
+		)
+		WHERE <![CDATA[r >= #{start_num} AND r <= #{end_num}]]>
+    </select>
+    
+    
+  <select id="rank_price_3" resultType="dev.mvc.movie.MovieVO" 
+             parameterType="HashMap">
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, r
+    FROM(
+	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rank, score, rownum  as r
+	    FROM(     
+		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, score, rank
+		    FROM movie
+		    <choose>
+		      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
+		        WHERE categrp_no=#{categrp_no}
+		      </when>
+		      <otherwise> <!-- 검색하는 경우 -->
+		        WHERE categrp_no=#{categrp_no} AND (title LIKE '%' || #{word} || '%' 
+		                               OR plot LIKE '%' || #{word} || '%' 
+		                               OR director LIKE '%' || #{word} || '%' 
+		                               OR actor LIKE '%' || #{word} || '%' 
+		                               OR word LIKE '%' || #{word} || '%')
+		      </otherwise>
+		    </choose>
+	    	ORDER BY score DESC  
+
 		    )
 		)
 		WHERE <![CDATA[r >= #{start_num} AND r <= #{end_num}]]>
@@ -78,7 +134,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="list_by_search" resultType="dev.mvc.movie.MovieVO" 
              parameterType="HashMap">
-    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, score, passwd 
     FROM movie
     <choose>
       <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
@@ -122,11 +178,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
     <select id="list_by_search_paging" resultType="dev.mvc.movie.MovieVO" 
              parameterType="HashMap">
-    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, r
+    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, score, passwd, r
     FROM(
-	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd, rownum as r
+	    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, score, passwd, rownum as r
 	    FROM(     
-		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, passwd
+		    SELECT mno, categrp_no, title, director, actor, plot, word, file1,file1saved, thumb1, size2, release, price, score, passwd
 		    FROM movie
 		    <choose>
 		      <when test="word == null or word == ''"> <!-- 검색하지 않는 경우 -->
