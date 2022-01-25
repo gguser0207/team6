@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,16 +29,37 @@ public class CartCont {
     public String create(HttpSession session, int mno){
         CartVO cartVO = new CartVO();
         cartVO.setMno(mno);
+        cartVO.setBuy('0');
 
         int memberno = (Integer)session.getAttribute("memberno");
         cartVO.setmemberno(memberno);
 
-        
+
         int cnt = this.cartProc.create(cartVO);
-        
         JSONObject json = new JSONObject();
         json.put("cnt", cnt);
         System.out.println("-> cartCont create: " + json.toString());
+
+        return json.toString();
+    }
+
+    @RequestMapping(value="/cart/create_buy.do", method= RequestMethod.POST )
+    @ResponseBody
+    public String createBuy(HttpSession session, int mno){
+
+        CartVO cartVO = new CartVO();
+        cartVO.setMno(mno);
+        cartVO.setBuy('1');
+
+        int memberno = (Integer)session.getAttribute("memberno");
+        cartVO.setmemberno(memberno);
+
+
+        int cnt = this.cartProc.create(cartVO);
+        JSONObject json = new JSONObject();
+        json.put("cnt", cnt);
+        System.out.println("-> cartCont createBuy: " + json.toString());
+
         return json.toString();
     }
 
