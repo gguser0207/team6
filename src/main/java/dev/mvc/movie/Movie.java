@@ -11,7 +11,7 @@ public class Movie {
 
   /** 목록 파일명 */
   public static String LIST_FILE = "list_by_search_paging.do"; 
-  public static String RANK_FILE = "rank_price.do"; 
+  public static String RANK_FILE = "rank_price"; 
   
 
   // Windows, VMWare, AWS cloud 절대 경로 설정

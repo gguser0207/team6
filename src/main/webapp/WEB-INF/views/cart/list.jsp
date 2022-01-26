@@ -24,7 +24,7 @@
         <div class="title_line_cart">장바구니</div>
         <c:forEach var="vo" items="${list}" varStatus="status">
 	      <c:if test="${status.index % 4 == 0 && status.index != 0 }"> 
-	        <HR class='menu_line'>
+
 	      </c:if>
 	    <div class="row" style="width:22%; float:left; margin:0.5%; padding:0.5%;
           background-color: 000; text-align:center;">

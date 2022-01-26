@@ -38,25 +38,51 @@
 
   <TABLE class='table table-striped' style="width:100%;">
     <colgroup>
-      <col style='width: 10%;'/>
-      <col style='width: 15%;'/>
-      <col style='width: 10%;'/>
-      <col style='width: 15%;'/>
-      <col style='width: 30%;'/>    
-      <col style='width: 10%;'/>
-      <col style='width: 10%;'/>
+		<c:choose>
+		  	<c:when test="${grade >= 1 and grade <= 10}">
+		      <col style='width: 10%;'/>
+		      <col style='width: 15%;'/>
+		      <col style='width: 10%;'/>
+		      <col style='width: 15%;'/>
+		      <col style='width: 30%;'/>    
+		      <col style='width: 10%;'/>
+		      <col style='width: 10%;'/>
+			</c:when>
+			<c:otherwise>
+		      <col style='width: 10%;'/>
+		      <col style='width: 15%;'/>
+		      <col style='width: 15%;'/>
+		      <col style='width: 20%;'/>
+		      <col style='width: 30%;'/>    
+		      <col style='width: 10%;'/>
+			</c:otherwise>
+		</c:choose>
     </colgroup>
    
     <thead>  
-    <TR>
-      <TH class="th_bs">영화 이미지</TH>
-      <TH class="th_bs">영화명</TH>
-      <TH class="th_bs">감독</TH>
-      <TH class="th_bs">출연</TH>
-      <TH class="th_bs">줄거리</TH>
-      <TH class="th_bs">가격</TH>
-      <TH class="th_bs">기타</TH>
-    </TR>
+	 <c:choose>
+	  	<c:when test="${grade >= 1 and grade <= 10}">
+	    <TR>
+	      <TH class="th_bs">영화 이미지</TH>
+	      <TH class="th_bs">영화명</TH>
+	      <TH class="th_bs">감독</TH>
+	      <TH class="th_bs">출연</TH>
+	      <TH class="th_bs">줄거리</TH>
+	      <TH class="th_bs">가격</TH>
+	      <TH class="th_bs">기타</TH>
+	    </TR>
+		</c:when>
+		<c:otherwise>
+	    <TR>
+	      <TH class="th_bs">영화 이미지</TH>
+	      <TH class="th_bs">영화명</TH>
+	      <TH class="th_bs">감독</TH>
+	      <TH class="th_bs">출연</TH>
+	      <TH class="th_bs">줄거리</TH>
+	      <TH class="th_bs">가격</TH>
+	    </TR>
+		</c:otherwise>
+	</c:choose>
     </thead>
     
     <tbody>
@@ -109,15 +135,19 @@
           <td style='vertical-align: middle;'>
             <del><fmt:formatNumber value="${price}" pattern="#,###" /> 원</del><br>
           </td> 
-          <td style='vertical-align: middle; text-align: center;'>
-            <A href="./read_update_text.do?mno=${mno}&now_page=${now_page }"><div class="btn_ud">텍스트수정</div></A><br>
-            <A href="./read_update_file.do?mno=${mno}&now_page=${now_page }"><div class="btn_ud">파일수정</div></A><br>
-		    <FORM name='frm_delete' id='frm_delete' method='POST' 
-		    onsubmit="return confirm('삭제시 복구되지 않습니다. 정말 삭제하시겠습니까?')" action='./delete.do'>
-		      <input type='hidden' name='mno' id='mno' value='${mno }'>
-		      <button type="submit" class="btn_ud" id='submit' onclick="btn_confirm()">삭제</button>
-		    </FORM>
-          </td>
+			 <c:choose>
+			  	<c:when test="${grade >= 1 and grade <= 10}">
+			          <td style='vertical-align: middle; text-align: center;'>
+			            <A href="./read_update_text.do?mno=${mno}&now_page=${now_page }"><div class="btn_ud">텍스트수정</div></A><br>
+			            <A href="./read_update_file.do?mno=${mno}&now_page=${now_page }"><div class="btn_ud">파일수정</div></A><br>
+					    <FORM name='frm_delete' id='frm_delete' method='POST' 
+					    onsubmit="return confirm('삭제시 복구되지 않습니다. 정말 삭제하시겠습니까?')" action='./delete.do'>
+					      <input type='hidden' name='mno' id='mno' value='${mno }'>
+					      <button type="submit" class="btn_ud" id='submit' onclick="btn_confirm()">삭제</button>
+					    </FORM>
+			          </td>
+				</c:when>
+			</c:choose>
         </tr>
       </c:forEach>
     </tbody>
