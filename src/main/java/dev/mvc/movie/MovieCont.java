@@ -157,7 +157,7 @@ public class MovieCont {
 		CategrpVO categrpVO = categrpProc.read(categrp_no);
         mav.addObject("categrpVO",categrpVO);
         
-        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "rank");
+        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "rank", "_1");
         mav.addObject("paging", paging);
         
         mav.addObject("now_page", now_page);
@@ -185,7 +185,7 @@ public class MovieCont {
 		CategrpVO categrpVO = categrpProc.read(categrp_no);
         mav.addObject("categrpVO",categrpVO);
         
-        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "rank");
+        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "rank", "_2");
         mav.addObject("paging", paging);
         
         mav.addObject("now_page", now_page);
@@ -213,7 +213,7 @@ public class MovieCont {
 		CategrpVO categrpVO = categrpProc.read(categrp_no);
         mav.addObject("categrpVO",categrpVO);
         
-        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "rank");
+        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "rank", "_3");
         mav.addObject("paging", paging);
         
         mav.addObject("now_page", now_page);
@@ -267,7 +267,7 @@ public class MovieCont {
 		CategrpVO categrpVO = categrpProc.read(categrp_no);
         mav.addObject("categrpVO",categrpVO);
         
-        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "list");
+        String paging = movieProc.pagingBox(categrp_no, search_count, now_page, word, "list", "_");
         mav.addObject("paging", paging);
         
         mav.addObject("now_page", now_page);

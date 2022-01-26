@@ -323,7 +323,7 @@ public class MovieProc implements MovieProcInter {
       }
     
     @Override
-    public String pagingBox(int cateno, int search_count, int now_page, String word, String type){ 
+    public String pagingBox(int cateno, int search_count, int now_page, String word, String type, String num){ 
       int total_page = (int)(Math.ceil((double)search_count/Movie.RECORD_PER_PAGE)); // 전체 페이지 수 
       int total_grp = (int)(Math.ceil((double)total_page/Movie.PAGE_PER_BLOCK)); // 전체 그룹  수
       int now_grp = (int)(Math.ceil((double)now_page/Movie.PAGE_PER_BLOCK));  // 현재 그룹 번호
@@ -376,7 +376,7 @@ public class MovieProc implements MovieProcInter {
       int _now_page = (now_grp - 1) * Movie.PAGE_PER_BLOCK;  
       if (type.equals("rank")){
           if (now_grp >= 2){ // 현재 그룹번호가 2이상이면 페이지수가 11페이 이상임으로 이전 그룹으로 갈수 있는 링크 생성 
-              str.append("<span class='span_box_1'><A href='"+Movie.RANK_FILE+"?&word="+word+"&now_page="+_now_page+"&cateno="+cateno+"'>이전</A></span>"); 
+              str.append("<span class='span_box_1'><A href='"+Movie.RANK_FILE+num+".do?&word="+word+"&now_page="+_now_page+"&categrp_no="+cateno+"'>이전</A></span>"); 
             } 
          
             // 중앙의 페이지 목록
@@ -389,7 +389,7 @@ public class MovieProc implements MovieProcInter {
                 str.append("<span class='span_box_2'>"+i+"</span>"); // 현재 페이지, 강조 
               }else{
                 // 현재 페이지가 아닌 페이지는 이동이 가능하도록 링크를 설정
-                str.append("<span class='span_box_1'><A href='"+Movie.RANK_FILE+"?word="+word+"&now_page="+i+"&cateno="+cateno+"'>"+i+"</A></span>");   
+                str.append("<span class='span_box_1'><A href='"+Movie.RANK_FILE+num+".do?word="+word+"&now_page="+i+"&categrp_no="+cateno+"'>"+i+"</A></span>");   
               } 
             } 
          
@@ -400,13 +400,13 @@ public class MovieProc implements MovieProcInter {
             // 현재 페이지 25일경우 -> 현재 3그룹: (3 * 10) + 1 = 4그룹의 시작페이지 31
             _now_page = (now_grp * Movie.PAGE_PER_BLOCK)+1; //  최대 페이지수 + 1 
             if (now_grp < total_grp){ 
-              str.append("<span class='span_box_1'><A href='"+Movie.RANK_FILE+"?&word="+word+"&now_page="+_now_page+"&cateno="+cateno+"'>다음</A></span>"); 
+              str.append("<span class='span_box_1'><A href='"+Movie.RANK_FILE+num+".do?&word="+word+"&now_page="+_now_page+"&categrp_no="+cateno+"'>다음</A></span>"); 
             } 
             str.append("</DIV>");  
       }
       else if (type.equals("list")) {
           if (now_grp >= 2){ // 현재 그룹번호가 2이상이면 페이지수가 11페이 이상임으로 이전 그룹으로 갈수 있는 링크 생성 
-              str.append("<span class='span_box_1'><A href='"+Movie.LIST_FILE+"?&word="+word+"&now_page="+_now_page+"&cateno="+cateno+"'>이전</A></span>"); 
+              str.append("<span class='span_box_1'><A href='"+Movie.LIST_FILE+"?&word="+word+"&now_page="+_now_page+"&categrp_no="+cateno+"'>이전</A></span>"); 
             } 
          
             // 중앙의 페이지 목록
@@ -419,7 +419,7 @@ public class MovieProc implements MovieProcInter {
                 str.append("<span class='span_box_2'>"+i+"</span>"); // 현재 페이지, 강조 
               }else{
                 // 현재 페이지가 아닌 페이지는 이동이 가능하도록 링크를 설정
-                str.append("<span class='span_box_1'><A href='"+Movie.LIST_FILE+"?word="+word+"&now_page="+i+"&cateno="+cateno+"'>"+i+"</A></span>");   
+                str.append("<span class='span_box_1'><A href='"+Movie.LIST_FILE+"?word="+word+"&now_page="+i+"&categrp_no="+cateno+"'>"+i+"</A></span>");   
               } 
             } 
          
@@ -430,7 +430,7 @@ public class MovieProc implements MovieProcInter {
             // 현재 페이지 25일경우 -> 현재 3그룹: (3 * 10) + 1 = 4그룹의 시작페이지 31
             _now_page = (now_grp * Movie.PAGE_PER_BLOCK)+1; //  최대 페이지수 + 1 
             if (now_grp < total_grp){ 
-              str.append("<span class='span_box_1'><A href='"+Movie.LIST_FILE+"?&word="+word+"&now_page="+_now_page+"&cateno="+cateno+"'>다음</A></span>"); 
+              str.append("<span class='span_box_1'><A href='"+Movie.LIST_FILE+"?&word="+word+"&now_page="+_now_page+"&categrp_no="+cateno+"'>다음</A></span>"); 
             } 
             str.append("</DIV>");   
       }

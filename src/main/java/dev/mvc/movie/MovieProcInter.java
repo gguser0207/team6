@@ -88,7 +88,7 @@ public interface MovieProcInter {
      * @param word
      * @return
      */
-    public String pagingBox(int categrp_no, int search_count, int now_page, String word, String rank);
+    public String pagingBox(int categrp_no, int search_count, int now_page, String word, String rank, String num);
     
     /**
      * 가격대별 오름차순
