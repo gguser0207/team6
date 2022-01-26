@@ -78,10 +78,8 @@ public class CartCont {
 
             if (session.getAttribute("memberno") != null) { // 회원으로 로그인을 했다면 쇼핑카트로 이동
                 int memberno = (int)session.getAttribute("memberno");
-                System.out.println(memberno);
                 // 출력 순서별 출력
                 List<CartVO> list = this.cartProc.cartList(memberno);
-                System.out.println(list);
 //
 //                for (CartVO cartVO : list) {
 //                    tot = cartVO.getSaleprice() * cartVO.getCnt();  // 할인 금액 합계 = 할인 금액 * 수량
@@ -135,10 +133,8 @@ public class CartCont {
 
             if (session.getAttribute("memberno") != null) { // 회원으로 로그인을 했다면 쇼핑카트로 이동
                 int memberno = (int)session.getAttribute("memberno");
-                System.out.println(memberno);
                 // 출력 순서별 출력
                 List<CartVO> list = this.cartProc.buyList(memberno);
-                System.out.println(list);
 
                 mav.addObject("list", list); // request.setAttribute("list", list);
                 mav.addObject("cartno", cartno); // 쇼핑계속하기에서 사용
@@ -175,7 +171,7 @@ public class CartCont {
         ModelAndView mav = new ModelAndView();
 
         this.cartProc.cartDelete(cartno);
-        mav.setViewName("/cart/cartDelete");
+        mav.setViewName("/cart/delete");
 
         return mav;
     }
