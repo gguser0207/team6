@@ -42,3 +42,7 @@ commit;
 
 select c.cartno, me.nickname, m.title, m.director, m.actor, m.THUMB1 from cart c, member me, movie m
 where me.memberno = c.memberno and c.mno = m.mno and c.memberno = 4;
+
+select * from cart;
+
+commit;

@@ -13,8 +13,22 @@
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
 
 <script type="text/javascript"
-        src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 
+        src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    function delete_func(cartno) {  // GET -> POST 전송, 상품 삭제
+        var frm = $('#frm_post');
+        frm.attr('action', './delete.do');
+        $('#cartno',  frm).val(cartno);
+        var sw = confirm('선택한 상품이 구매목록에 담겼습니다.\n구매목록으로 이동하시겠습니까?');
+        if (sw == true) {
+            frm.submit();
+            // 쇼핑카트로 이동
+            location.href='/cart/list.do';
+        } else {
+            alert('선택한 상품을 장바구니에 담지못했습니다.\n잠시후 다시 시도해주세요.');
+        }
+    }
+</script>
+
 </head> 
  
 <body>
@@ -32,7 +46,7 @@
              <c:choose>
                  <c:when test="${vo.thumb1.endsWith('jpg') || vo.thumb1.endsWith('png') || thumb1.endsWith('gif')}">
                      <%-- /static/contents/storage/ --%>
-                     <IMG src="/movie/images/${vo.thumb1}" style="width: 150px; height: 200px;">
+                     <a href="./read.do?mno=${mno}&now_page=${param.now_page }&word=${param.word}"><IMG src="/movie/images/${vo.thumb1}" style="width: 150px; height: 200px;"></a>
                  </c:when>
                  <c:otherwise> <!-- 기본 이미지 출력 -->
                      <IMG src="/movie/images/none1.png" style="width: 150px; height: 200px;">
@@ -44,8 +58,7 @@
              <button
                      type="button"
                      class="colorred"
-                     data-bs-toggle="modal"
-                     data-bs-target="#myModal"
+                     onclick="delete_func(${cartno })"
              >
                  제거
              </button>
@@ -57,36 +70,7 @@
 
 
 
-<%--<div class="modal" id="myModal">--%>
-<%--    <div class="modal-dialog">--%>
-<%--        <div class="modal-content">--%>
-<%--            <!-- Modal Header -->--%>
-<%--            <div class="modal-header">--%>
-<%--                <h4 class="modal-title">영화 제거</h4>--%>
-<%--                <button--%>
-<%--                        type="button"--%>
-<%--                        class="btn-close"--%>
-<%--                        data-bs-dismiss="modal"--%>
-<%--                ></button>--%>
-<%--            </div>--%>
 
-<%--            <!-- Modal body -->--%>
-<%--            <div class="modal-body">장바구니에서 영화를 제거하시겠습니까?</div>--%>
-
-<%--            <!-- Modal footer -->--%>
-<%--            <div class="modal-footer">--%>
-<%--                <button--%>
-<%--                        type="button"--%>
-<%--                        class="btn btn-danger"--%>
-<%--                        data-bs-dismiss="modal"--%>
-<%--                >--%>
-<%--                    확인--%>
-<%--                </button>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
-<%-- --%>
 <jsp:include page="../menu/bottom.jsp" />
 </body>
  
