@@ -100,10 +100,6 @@
     <a class="prev" onclick="button_click(-1)">&#10094</a>
     <a class="next" onclick="button_click(1)">&#10095</a>
   </div>
-  <div class="django">
-  <A class="btn_index"  href="javascript: recommend_movie()">장르 추천</A>
-  <A class="btn_index"  href="javascript: recommend_movie()">챗봇</A>
-  </div>
   <DIV class='bottom'>
     이현수[PL]   임동규[DA]   송은호[AI]   유성용[WP] 
   </DIV>
