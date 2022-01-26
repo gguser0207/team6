@@ -13,21 +13,8 @@
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
 
 <script type="text/javascript"
-        src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-    function delete_func(cartno) {  // GET -> POST 전송, 상품 삭제
-        console.log(cartno);
-        // var frm = $('#frm_post');
-        // frm.attr('action', './delete.do');
-        // $('#cartno',  frm).val(cartno);
-        // var sw = confirm('선택한 상품이 구매목록에 담겼습니다.\n구매목록으로 이동하시겠습니까?');
-        // if (sw == true) {
-        //     frm.submit();
-        //     // 쇼핑카트로 이동
-        //     location.href='/cart/list.do';
-        // } else {
-        //     alert('선택한 상품을 장바구니에 담지못했습니다.\n잠시후 다시 시도해주세요.');
-        // }
-    }
+        src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
 </script>
 
 </head> 
@@ -58,13 +45,14 @@
              <div class="border">${vo.title}</div>
              <button type="button" class="colorblue">평생 소장</button>
              <button type="button" class="colorgreen">대여하기</button>
+            <A href="./delete.do?cartno=${cartno}">
              <button
                      type="button"
                      class="colorred"
-                     onclick="delete_func(${cartno})"
              >
                  제거
              </button>
+            </A>
         </div>
         </c:forEach>
         <div class="cart_total"><button class="colorgreen_size28">전체 구매하러 가기</button></div>

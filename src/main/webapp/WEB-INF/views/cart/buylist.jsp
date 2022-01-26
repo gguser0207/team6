@@ -24,6 +24,8 @@
 <div class="container_main_cart">
         <div class="title_line_cart">구매목록</div>
         <c:forEach var="vo" items="${list}" varStatus="status">
+            <c:set var="mno" value="${vo.mno }" />
+            <c:set var="cartno" value="${vo.cartno }" />
 	      <c:if test="${status.index % 4 == 0 && status.index != 0 }"> 
 	        <HR class='menu_line'>
 	      </c:if>
@@ -40,14 +42,14 @@
                  </c:otherwise>
              </c:choose>
              <div class="border">${vo.title}</div>
-             <button
-                     type="button"
-                     class="colorred"
-                     data-bs-toggle="modal"
-                     data-bs-target="#myModal"
-             >
-                 제거
-             </button>
+            <A href="./delete.do?cartno=${cartno}">
+                <button
+                        type="button"
+                        class="colorred"
+                >
+                    제거
+                </button>
+            </A>
         </div>
         </c:forEach>
         <div class="cart_total"><button class="colorgreen_size28">전체 삭제하기</button></div>

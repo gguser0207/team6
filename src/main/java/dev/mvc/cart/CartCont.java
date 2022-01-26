@@ -166,12 +166,14 @@ public class CartCont {
         return mav;
     }
 
-    @RequestMapping(value = "/cart/delete.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/cart/delete.do", method = RequestMethod.GET)
     public ModelAndView cartDelete(int cartno){
         ModelAndView mav = new ModelAndView();
 
         this.cartProc.cartDelete(cartno);
         mav.setViewName("/cart/delete");
+
+        System.out.println("delete complete");
 
         return mav;
     }

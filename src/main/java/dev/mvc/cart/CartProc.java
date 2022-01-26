@@ -25,7 +25,6 @@ public class CartProc implements CartProcInter{
     public List<CartVO> cartList(int memberno){
         try{
             List<CartVO> list = this.cartDAO.cartList(memberno);
-            System.out.println(list);
             return list;
         }catch (Exception e){
             List<CartVO> list = null;
