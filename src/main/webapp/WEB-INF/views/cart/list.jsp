@@ -43,8 +43,8 @@
                  </c:otherwise>
              </c:choose>
              <div class="border">${vo.title}</div>
-             <button type="button" class="colorblue">평생 소장</button>
-             <button type="button" class="colorgreen">대여하기</button>
+            <A href="./pay.do?cartno=${cartno}"><button type="button" class="colorblue">평생 소장</button></A>
+            <A href="./pay.do?cartno=${cartno}"><button type="button" class="colorgreen">대여하기</button></A>
             <A href="./delete.do?cartno=${cartno}">
              <button
                      type="button"
