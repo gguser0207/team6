@@ -35,6 +35,13 @@ public interface CartDAOInter {
      * @param cartno
      * @return
      */
+    public  int cartBuy(int cartno);
+
+    /**
+     * 장바구니 삭제
+     * @param cartno
+     * @return
+     */
     public  int cartDelete(int cartno);
 
 }

@@ -335,7 +335,7 @@ public class MemberCont {
 //      MemberVO memberVO = memberProc.readById(id); // 로그인한 회원의 정보 조회
 //      session.setAttribute("memberno", memberVO.getMemberno());
 //      session.setAttribute("id", id);
-//      session.setAttribute("mname", memberVO.getMname());
+//      session.setAttribute("nickname", memberVO.getNickname());
 //      
 //      mav.setViewName("redirect:/index.do"); // 시작 페이지로 이동  
 //    } else {
@@ -581,7 +581,7 @@ public class MemberCont {
       MemberVO memberVO = memberProc.readById(id);
       session.setAttribute("memberno", memberVO.getMemberno()); // 서버의 메모리에 기록
       session.setAttribute("id", id);
-      session.setAttribute("mname", memberVO.getNickname());
+      session.setAttribute("nickname", memberVO.getNickname());
       session.setAttribute("grade", memberVO.getGrade());
       
       // -------------------------------------------------------------------

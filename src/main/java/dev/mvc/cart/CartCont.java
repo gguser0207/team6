@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,16 +29,37 @@ public class CartCont {
     public String create(HttpSession session, int mno){
         CartVO cartVO = new CartVO();
         cartVO.setMno(mno);
+        cartVO.setBuy('0');
 
         int memberno = (Integer)session.getAttribute("memberno");
         cartVO.setmemberno(memberno);
 
-        
+
         int cnt = this.cartProc.create(cartVO);
-        
         JSONObject json = new JSONObject();
         json.put("cnt", cnt);
         System.out.println("-> cartCont create: " + json.toString());
+
+        return json.toString();
+    }
+
+    @RequestMapping(value="/cart/create_buy.do", method= RequestMethod.POST )
+    @ResponseBody
+    public String createBuy(HttpSession session, int mno){
+
+        CartVO cartVO = new CartVO();
+        cartVO.setMno(mno);
+        cartVO.setBuy('1');
+
+        int memberno = (Integer)session.getAttribute("memberno");
+        cartVO.setmemberno(memberno);
+
+
+        int cnt = this.cartProc.create(cartVO);
+        JSONObject json = new JSONObject();
+        json.put("cnt", cnt);
+        System.out.println("-> cartCont createBuy: " + json.toString());
+
         return json.toString();
     }
 
@@ -56,10 +78,8 @@ public class CartCont {
 
             if (session.getAttribute("memberno") != null) { // 회원으로 로그인을 했다면 쇼핑카트로 이동
                 int memberno = (int)session.getAttribute("memberno");
-                System.out.println(memberno);
                 // 출력 순서별 출력
                 List<CartVO> list = this.cartProc.cartList(memberno);
-                System.out.println(list);
 //
 //                for (CartVO cartVO : list) {
 //                    tot = cartVO.getSaleprice() * cartVO.getCnt();  // 할인 금액 합계 = 할인 금액 * 수량
@@ -113,10 +133,8 @@ public class CartCont {
 
             if (session.getAttribute("memberno") != null) { // 회원으로 로그인을 했다면 쇼핑카트로 이동
                 int memberno = (int)session.getAttribute("memberno");
-                System.out.println(memberno);
                 // 출력 순서별 출력
                 List<CartVO> list = this.cartProc.buyList(memberno);
-                System.out.println(list);
 
                 mav.addObject("list", list); // request.setAttribute("list", list);
                 mav.addObject("cartno", cartno); // 쇼핑계속하기에서 사용
@@ -147,5 +165,30 @@ public class CartCont {
 
         return mav;
     }
+
+    @RequestMapping(value = "/cart/pay.do", method = RequestMethod.GET)
+    public ModelAndView cartBuy(int cartno){
+        ModelAndView mav = new ModelAndView();
+
+        this.cartProc.cartDelete(cartno);
+        mav.setViewName("/cart/pay");
+
+        System.out.println("update complete");
+
+        return mav;
+    }
+
+    @RequestMapping(value = "/cart/delete.do", method = RequestMethod.GET)
+    public ModelAndView cartDelete(int cartno){
+        ModelAndView mav = new ModelAndView();
+
+        this.cartProc.cartDelete(cartno);
+        mav.setViewName("/cart/delete");
+
+        System.out.println("delete complete");
+
+        return mav;
+    }
+
 
 }

@@ -174,6 +174,66 @@
     );  //  $.ajax END
 
   }
+
+  <%-- 쇼핑 카트에 상품 추가 --%>
+  function cart_buy_ajax(mno) {
+    var f = $('#frm_login');
+    $('#mno', f).val(mno);  // 쇼핑카트 등록시 사용할 상품 번호를 저장.
+
+    console.log('-> mno: ' + $('#mno', f).val());
+
+    // console.log('-> id:' + '${sessionScope.id}');
+    if ('${sessionScope.id}' != '' || $('#login_yn').val() == "YES") {  // 로그인이 안되어 있다면
+      cart_buy_ajax_post();   // 쇼핑카트에 insert 처리 Ajax 호출
+
+    } else {  // 로그인 안한 경우
+
+      $('#div_login').show();
+    }
+
+  }
+
+  <%-- 쇼핑카트 상품 등록 --%>
+  function cart_buy_ajax_post() {
+    var f = $('#frm_login');
+    var mno = $('#mno', f).val();  // 쇼핑카트 등록시 사용할 상품 번호.
+
+    var params = "";
+    // params = $('#frm_login').serialize(); // 직렬화, 폼의 데이터를 키와 값의 구조로 조합
+    params += 'mno=' + mno;
+    params += '&${ _csrf.parameterName }=${ _csrf.token }';
+    console.log('-> cart_ajax_post: ' + params);
+    // return;
+
+    $.ajax(
+            {
+              url: '/cart/create_buy.do',
+              type: 'post',  // get, post
+              cache: false, // 응답 결과 임시 저장 취소
+              async: true,  // true: 비동기 통신
+              dataType: 'json', // 응답 형식: json, html, xml...
+              data: params,      // 데이터
+              success: function(rdata) { // 응답이 온경우
+                var str = '';
+                console.log('-> cart_buy_ajax_post cnt: ' + rdata.cnt);  // 1: 쇼핑카트 등록 성공
+                if (rdata.cnt == 1) {
+                  var sw = confirm('선택한 상품이 구매목록에 담겼습니다.\n구매목록으로 이동하시겠습니까?');
+                  if (sw == true) {
+                    // 쇼핑카트로 이동
+                    location.href='/cart/buylist.do';
+                  }
+                } else {
+                  alert('선택한 상품을 장바구니에 담지못했습니다.\n잠시후 다시 시도해주세요.');
+                }
+              },
+              // Ajax 통신 에러, 응답 코드가 200이 아닌경우, dataType이 다른경우
+              error: function(request, status, error) { // callback 함수
+                console.log(error);
+              }
+            }
+    );  //  $.ajax END
+
+  }
 </script>
  
 </head> 
@@ -186,18 +246,20 @@
           
 <DIV class='content_body_read'>
   <ASIDE class="aside_right">
-    <A href="./create.do?mno=${mno }">등록</A>
-    <span class='menu_divide' >│</span>
+<c:choose>
+   	<c:when test="${grade >= 1 and grade <= 10}">
+   	    <A href="./create.do?mno=${mno }">등록</A>
+    	<span class='menu_divide' >│</span>
+	</c:when>	
+</c:choose>
     <A href="javascript:location.reload();">새로고침</A>
     <span class='menu_divide' >│</span>
-    <A href="./list_by_search_paging.do?mno=${mno }&now_page=${param.now_page}&word=${param.word }">기본 목록형</A>    
+    <A href="./list_by_search_paging.do?mno=${mno }&now_page=${param.now_page}&word=${param.word }">목록으로</A>    
     <span class='menu_divide' >│</span>
     <form id=read_btn>
-    <button type='button' id='btn_cart' class="btn btn-info" onclick="cart_ajax(${mno })">장바 구니</button>
+    <button type='button' id='btn_cart' class="btn btn-info" onclick="cart_ajax(${mno })" style='width: 200px;'>장바 구니에 담기</button>
     <span class='menu_divide' >│</span>
-    <button type='button' onclick="" class="btn btn-info">관심 상품</button>
-    <span class='menu_divide' >│</span>
-	<button type='button' id='btn_ordering' class="btn btn-info" onclick="cart_ajax(${mno })">바로 구매</button>  
+	<button type='button' id='btn_ordering' class="btn btn-info" onclick="cart_buy_ajax(${mno })">바로 구매</button>
     <span id="span_animation"></span>
     </form>
   </ASIDE> 

@@ -31,6 +31,16 @@
 
       win.moveTo(x, y); // 화면 중앙으로 이동
     }
+
+    function recommend_movie(){
+        var url = 'http://127.0.0.1:8000/chatbot/chatting/';
+        var win = window.open(url, 'AI 서비스', 'width=900px, height=560px');
+
+        var x = (screen.width - 900) / 2;
+        var y = (screen.height - 560) / 2;
+
+        win.moveTo(x, y); // 화면 중앙으로 이동
+      }
   </script>
   
 </head>
@@ -89,9 +99,6 @@
     <div class="slide" style="background-image: url(./images/3.jpg);"></div>
     <a class="prev" onclick="button_click(-1)">&#10094</a>
     <a class="next" onclick="button_click(1)">&#10095</a>
-  </div>
-  <div class="django">
-  <A class="btn_index"  href="javascript: recommend_movie()">장르 추천</A>
   </div>
   <DIV class='bottom'>
     이현수[PL]   임동규[DA]   송은호[AI]   유성용[WP] 

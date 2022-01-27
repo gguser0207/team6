@@ -12,7 +12,6 @@
 
 <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 </head> 
 <body>
@@ -52,7 +51,7 @@
           <LI class='li_none'>
             <button type='button' 
                          onclick="location.href='./login.do?id=${param.id}'"
-                         class="btn btn-primary">로그인</button>
+                         class="member_msg">로그인</button>
           </LI> 
         </c:when>
         

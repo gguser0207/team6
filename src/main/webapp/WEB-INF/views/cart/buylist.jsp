@@ -24,11 +24,13 @@
 <div class="container_main_cart">
         <div class="title_line_cart">구매목록</div>
         <c:forEach var="vo" items="${list}" varStatus="status">
+            <c:set var="mno" value="${vo.mno }" />
+            <c:set var="cartno" value="${vo.cartno }" />
 	      <c:if test="${status.index % 4 == 0 && status.index != 0 }"> 
 	        <HR class='menu_line'>
 	      </c:if>
 	    <div class="row" style="width:22%; float:left; margin:0.5%; padding:0.5%;
-          background-color: 000; text-align:center;">
+          background-color: #000000; text-align:center;">
 				 주문번호: ${vo.cartno} | 감독: ${vo.director} <br>
              <c:choose>
                  <c:when test="${vo.thumb1.endsWith('jpg') || vo.thumb1.endsWith('png') || thumb1.endsWith('gif')}">
@@ -40,52 +42,20 @@
                  </c:otherwise>
              </c:choose>
              <div class="border">${vo.title}</div>
-             <button
-                     type="button"
-                     class="colorred"
-                     data-bs-toggle="modal"
-                     data-bs-target="#myModal"
-             >
-                 제거
-             </button>
+            <A href="./delete.do?cartno=${cartno}">
+                <button
+                        type="button"
+                        class="colorred"
+                >
+                    제거
+                </button>
+            </A>
         </div>
         </c:forEach>
         <div class="cart_total"><button class="colorgreen_size28">전체 삭제하기</button></div>
         
     </div>
 
-
-
-<%--<div class="modal" id="myModal">--%>
-<%--    <div class="modal-dialog">--%>
-<%--        <div class="modal-content">--%>
-<%--            <!-- Modal Header -->--%>
-<%--            <div class="modal-header">--%>
-<%--                <h4 class="modal-title">영화 제거</h4>--%>
-<%--                <button--%>
-<%--                        type="button"--%>
-<%--                        class="btn-close"--%>
-<%--                        data-bs-dismiss="modal"--%>
-<%--                ></button>--%>
-<%--            </div>--%>
-
-<%--            <!-- Modal body -->--%>
-<%--            <div class="modal-body">장바구니에서 영화를 제거하시겠습니까?</div>--%>
-
-<%--            <!-- Modal footer -->--%>
-<%--            <div class="modal-footer">--%>
-<%--                <button--%>
-<%--                        type="button"--%>
-<%--                        class="btn btn-danger"--%>
-<%--                        data-bs-dismiss="modal"--%>
-<%--                >--%>
-<%--                    확인--%>
-<%--                </button>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
-<%-- --%>
 <jsp:include page="../menu/bottom.jsp" />
 </body>
  
