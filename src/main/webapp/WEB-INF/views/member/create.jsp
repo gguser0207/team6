@@ -24,8 +24,20 @@
     $('#btn_DaumPostcode').on('click', DaumPostcode); // 다음 우편 번호
     $('#btn_close').on('click', setFocus); // Dialog창을 닫은후의 focus 이동
     $('#btn_send').on('click', send); 
+    $('#btn_loadDefault').on('click', loadDefault);
   });
-  
+
+  function loadDefault() {
+	    $('#id').val('test');
+	    $('#pw').val('1234');
+	    $('#pw2').val('1234');
+	    $('#nickname').val('이현수');
+	    $('#phone').val('010-1234-5678');
+	    $('#email').val('example@naver.com');
+	    $('#zipcode').val('10916');
+	    $('#address1').val('경기 파주시 금릉역로 40 (교하동)');
+	    $('#address2').val('000동 000호');
+	  }
 
   // jQuery ajax 요청
   function checkID() {
@@ -68,7 +80,7 @@
           } else {
             $('#modal_content').attr('class', 'alert alert-success'); // Bootstrap CSS 변경
             msg = "사용 가능한 ID 입니다.";
-            $('#btn_close').attr("data-focus", "passwd");  // passwd 입력으로 focus 이동
+            $('#btn_close').attr("data-focus", "pw]");  // passwd 입력으로 focus 이동
             // $.cookie('checkId', 'TRUE'); // Cookie 기록
           }
           
@@ -106,7 +118,7 @@
 
   function send() { // 회원 가입 처리
     // 패스워드를 정상적으로 2번 입력했는지 확인
-    if ($('#passwd').val() != $('#passwd2').val()) {
+    if ($('#pw').val() != $('#pw2').val()) {
       msg = '입력된 패스워드가 일치하지 않습니다.<br>';
       msg += "패스워드를 다시 입력해주세요.<br>"; 
       
@@ -115,7 +127,7 @@
       $('#modal_content').html(msg);  // 내용
       $('#modal_panel').modal();         // 다이얼로그 출력
       
-      $('#btn_send').attr('data-focus', 'passwd');
+      $('#btn_send').attr('data-focus', 'pw');
       
       return false; // submit 중지
     }
@@ -318,6 +330,7 @@
       <div class="col-md-offset-2 col-md-10">
         <button type="button" id='btn_send' class="btn_members">가입</button>
         <button type="button" onclick="history.back()" class="btn_members">취소</button>
+        <button type='button' id='btn_loadDefault' class="btn_members">테스트 계정</button>
 
       </div>
     </div>   

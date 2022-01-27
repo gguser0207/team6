@@ -17,8 +17,16 @@
  
 <script type="text/javascript">
   $(function(){
- 
+	  $('#btn_loadDefault').on('click', loadDefault);
   });
+  function loadDefault() {
+	    $('#nickname').val('이현우');
+	    $('#phone').val('010-8765-4321');
+	    $('#zipcode').val('31253');
+	    $('#address1').val('충남 천안시 동남구 병천면 5산단로 357-42 (가전리)');
+	    $('#address2').val('XXX동 XXX호');
+	    $('#grade').val('2');
+	  }
 </script>
 </head> 
  
@@ -48,7 +56,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label" style='font-size: 0.9em;'>성명</label>    
         <div class="member_bar" style="color: white;">
-          <input type='text' class="form-control" name='mname' id='mname' 
+          <input type='text' class="form-control" name='nickname' id='nickname' 
                      value='${memberVO.nickname }' required="required" autofocus="autofocus" 
                      style='width: 30%;' placeholder="성명">
         </div>
@@ -57,7 +65,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label" style='font-size: 0.9em;'>전화번호</label>    
         <div class="member_bar">
-          <input type='text' class="form-control" name='tel' id='tel' 
+          <input type='text' class="form-control" name='phone' id='phone' 
                      value='${memberVO.phone }' required="required" style='width: 30%;' placeholder="전화번호"> 예) 010-0000-0000
         </div>
       </div>   
@@ -173,7 +181,7 @@
         <div class="col-md-offset-2 col-md-10">
           <button type="submit" class="btn btn-primary btn-md">저장</button>
           <button type="button" onclick="history.go(-1);" class="btn btn-primary btn-md">취소</button>
-   
+   		  <button type="button" id='btn_loadDefault'" >테스트</button>
         </div>
       </div>   
     </FORM>

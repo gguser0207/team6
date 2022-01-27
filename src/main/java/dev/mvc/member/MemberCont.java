@@ -76,7 +76,7 @@ public class MemberCont {
     
     if (cnt == 1) {
       mav.addObject("code", "create_success");
-      mav.addObject("mname", memberVO.getNickname());  // 홍길동님(user4) 회원 가입을 축하합니다.
+      mav.addObject("nickname", memberVO.getNickname());  // 홍길동님(user4) 회원 가입을 축하합니다.
       mav.addObject("id", memberVO.getId());
     } else {
       mav.addObject("code", "create_fail");
@@ -179,7 +179,7 @@ public class MemberCont {
     
     if (cnt == 1) {
       mav.addObject("code", "update_success");
-      mav.addObject("mname", memberVO.getNickname());  // 홍길동님(user4) 회원 정보를 변경했습니다.
+      mav.addObject("nickname", memberVO.getNickname());  // 홍길동님(user4) 회원 정보를 변경했습니다.
       mav.addObject("id", memberVO.getId());
     } else {
       mav.addObject("code", "update_fail");
@@ -226,7 +226,7 @@ public class MemberCont {
 
     if (cnt == 1) {
       mav.addObject("code", "delete_success");
-      mav.addObject("mname", memberVO.getNickname());  // 홍길동님(user4) 회원 정보를 변경했습니다.
+      mav.addObject("nickname", memberVO.getNickname());  // 홍길동님(user4) 회원 정보를 변경했습니다.
       mav.addObject("id", memberVO.getId());
     } else {
       mav.addObject("code", "delete_fail");
@@ -265,7 +265,7 @@ public class MemberCont {
     ModelAndView mav = new ModelAndView();
     
     MemberVO memberVO = this.memberProc.read(memberno);
-    mav.addObject("mname", memberVO.getNickname());  // 홍길동님(user4) 패스워드를 변경했습니다.
+    mav.addObject("nickname", memberVO.getNickname());  // 홍길동님(user4) 패스워드를 변경했습니다.
     mav.addObject("id", memberVO.getId());
     
     // 현재 패스워드 검사
