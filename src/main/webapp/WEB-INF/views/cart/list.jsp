@@ -11,7 +11,8 @@
 <title>mypage_cart</title>
  
 <link href="/css/style.css" rel="Stylesheet" type="text/css">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://js.tosspayments.com/v1"></script>
 <script type="text/javascript"
         src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
@@ -43,8 +44,8 @@
                  </c:otherwise>
              </c:choose>
              <div class="border">${vo.title}</div>
-            <A href="./pay.do?cartno=${cartno}"><button type="button" class="colorblue">평생 소장</button></A>
-            <A href="./pay.do?cartno=${cartno}"><button type="button" class="colorgreen">대여하기</button></A>
+            <button type="button" class="colorblue"id="payment-button">평생 소장</button>
+            <button type="button" class="colorgreen"id="payment-button">대여하기</button>
             <A href="./delete.do?cartno=${cartno}">
              <button
                      type="button"
@@ -58,7 +59,23 @@
         <div class="cart_total"><button class="colorgreen_size28">전체 구매하러 가기</button></div>
         
     </div>
+<script>
+    var clientKey = "test_ck_OEP59LybZ8BwZG6g12Y36GYo7pRe";
+    var tossPayments = TossPayments(clientKey);
 
+    var button = document.getElementById("payment-button"); // 결제하기 버튼
+
+    button.addEventListener("click", function () {
+        tossPayments.requestPayment("카드", {
+            amount: 15000,
+            orderId: "OpvvFtup5-M5Uk70UQRvO",
+            orderName: "영화 외 2건",
+            customerName: "team6",
+            successUrl: "http://localhost:9091/success",
+            failUrl: "http://localhost:9091/fail",
+        });
+    });
+</script>
 
 
 
