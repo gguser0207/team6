@@ -29,7 +29,7 @@ public class CartCont {
     public String create(HttpSession session, int mno){
         CartVO cartVO = new CartVO();
         cartVO.setMno(mno);
-        cartVO.setBuy('0');
+        cartVO.setBuy("0");
 
         int memberno = (Integer)session.getAttribute("memberno");
         cartVO.setmemberno(memberno);
@@ -49,7 +49,7 @@ public class CartCont {
 
         CartVO cartVO = new CartVO();
         cartVO.setMno(mno);
-        cartVO.setBuy('1');
+        cartVO.setBuy("1");
 
         int memberno = (Integer)session.getAttribute("memberno");
         cartVO.setmemberno(memberno);
@@ -170,7 +170,7 @@ public class CartCont {
     public ModelAndView cartBuy(int cartno){
         ModelAndView mav = new ModelAndView();
 
-        this.cartProc.cartDelete(cartno);
+        this.cartProc.cartBuy(cartno);
         mav.setViewName("/cart/pay");
 
         System.out.println("update complete");

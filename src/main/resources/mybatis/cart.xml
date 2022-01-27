@@ -28,7 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         WHERE mno = #{mno}
     </select>
 
-    <update id="update" parameterType="dev.mvc.cart.CartVO">
+    <update id="cartBuy" parameterType="dev.mvc.cart.CartVO">
         UPDATE cart
         SET buy='1'
         WHERE cartno=#{cartno}

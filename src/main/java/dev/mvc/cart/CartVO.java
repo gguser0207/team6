@@ -12,7 +12,7 @@ public class CartVO {
     private int cartno;
     private int memberno;
     private int mno;
-    private char buy;
+    private String buy;
 
     private String title = "";
     private String director = "";
@@ -37,8 +37,8 @@ public class CartVO {
     public String getThumb1(){return thumb1;}
     public void setThumb1(String thumb1){this.thumb1 = thumb1;}
 
-    public char getBuy(){return buy;}
-    public void setBuy(char buy){this.buy = buy;}
+    public String getBuy(){return buy;}
+    public void setBuy(String buy){this.buy = buy;}
 
     public int getPrice(){return mno;}
     public void setPrice(int price){this.price = price;}

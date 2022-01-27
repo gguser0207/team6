@@ -45,4 +45,6 @@ where me.memberno = c.memberno and c.mno = m.mno and c.memberno = 4;
 
 select * from cart;
 
+
+update cart set buy = '1' where cartno = 111;
 commit;
