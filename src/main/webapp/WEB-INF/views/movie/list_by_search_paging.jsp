@@ -25,8 +25,6 @@
  
 <body>
 <jsp:include page="../menu/top.jsp" />
- 
-<DIV class='title_line'>영화</DIV>
 
 <DIV class='content_body_movie_list'>
   <c:set var="grade" value="${sessionScope.grade}" />
