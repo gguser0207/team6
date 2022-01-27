@@ -246,16 +246,18 @@
           
 <DIV class='content_body_read'>
   <ASIDE class="aside_right">
-    <A href="./create.do?mno=${mno }">등록</A>
-    <span class='menu_divide' >│</span>
+<c:choose>
+   	<c:when test="${grade >= 1 and grade <= 10}">
+   	    <A href="./create.do?mno=${mno }">등록</A>
+    	<span class='menu_divide' >│</span>
+	</c:when>	
+</c:choose>
     <A href="javascript:location.reload();">새로고침</A>
     <span class='menu_divide' >│</span>
-    <A href="./list_by_search_paging.do?mno=${mno }&now_page=${param.now_page}&word=${param.word }">기본 목록형</A>    
+    <A href="./list_by_search_paging.do?mno=${mno }&now_page=${param.now_page}&word=${param.word }">목록으로</A>    
     <span class='menu_divide' >│</span>
     <form id=read_btn>
-    <button type='button' id='btn_cart' class="btn btn-info" onclick="cart_ajax(${mno })">장바 구니</button>
-    <span class='menu_divide' >│</span>
-    <button type='button' onclick="" class="btn btn-info">관심 상품</button>
+    <button type='button' id='btn_cart' class="btn btn-info" onclick="cart_ajax(${mno })" style='width: 200px;'>장바 구니에 담기</button>
     <span class='menu_divide' >│</span>
 	<button type='button' id='btn_ordering' class="btn btn-info" onclick="cart_buy_ajax(${mno })">바로 구매</button>
     <span id="span_animation"></span>

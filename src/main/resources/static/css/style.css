@@ -542,10 +542,13 @@ btn_members_update{
     display:inline-block;
 }
 .aside_right{
+	position:relative;
+	left:-500px;
     display:flex;
     padding: 16px;
     font-size : 24px;
-    text-align: center;
+    width:100%;
+    justify-content: center;
     font-weight: 600;
     
 }
@@ -747,7 +750,51 @@ span.span_box_1 a:hover{
 	cursor:poinput;
 }
 
+.content_body_passwd_update{
+    z-index:0;
+    position:relative;
+    top:7%;
+    left:44%;
+    width: 100%;
+    justify-content:center;
+    align-items:center;
+}
+.content_body_passwd_update ASIDE{
+	left:-750px;
+	margin:10px;
+}
+.content_body_passwd_update FORM{
+	
+	margin:10px;
+}
+.form-group-update{
+	float:left;
+	width:800px;
+}
+.content_body_passwd_update input {
+	border-radius: 12px;
+	height: 30px;
+	border: none;
+	outline: none;
+	width: 50px;
+}
+.fieldset_basic{
+	border: none;
+	position:absolute;
+	left:-100px;
+	width:500px;
+}
 
+.member_msg{
+	width:100px;
+	background: black;
+	padding: 8px;
+	border:none;
+	outline: none;
+	color:white;
+	font-size: 24px;
+	font-weight:600;
+}
 
 
 

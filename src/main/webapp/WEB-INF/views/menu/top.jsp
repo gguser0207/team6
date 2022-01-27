@@ -24,7 +24,7 @@
       win.moveTo(x, y); // 화면 중앙으로 이동
     }
 
-    function recommend_movie(){
+    function chatbot_movie(){
         var url = 'http://127.0.0.1:8000/chatbot/chatting/';
         var win = window.open(url, 'AI 서비스', 'width=900px, height=560px');
 
@@ -45,7 +45,7 @@
         <li><a href="/movie/list_by_search_paging.do">영화</a></li>
         <li><a href="/movie/rank_price_1.do">순위</a></li>
         <li><a href="javascript: recommend_movie()">장르 추천</a></li>
-        <li><a href="javascript: recommend_movie()">챗봇</a></li>
+        <li><a href="javascript: chatbot_movie()">챗봇</a></li>
 
       <c:choose>
         <c:when test="${sessionScope.id eq null}"> <%-- 로그인 안 한 경 우 --%>

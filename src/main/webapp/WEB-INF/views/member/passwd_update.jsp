@@ -12,7 +12,6 @@
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
   $(function() { // 자동 실행
@@ -75,7 +74,7 @@
     회원 패스워드 변경
   </DIV>
 
-  <DIV class='content_body'>
+  <DIV class='content_body_passwd_update'>
     <ASIDE class="aside_right">
       <A href="javascript:location.reload();">새로고침</A>
       <span class='menu_divide' >│</span> 
@@ -84,36 +83,35 @@
       <A href='./list.do'>목록</A>
     </ASIDE> 
    
-    <div class='menu_line'></div>
       
     <FORM name='frm' id='frm' method='POST' action='./passwd_update.do' 
                 class="form-horizontal">
       <input type='hidden' name='memberno' id='memberno' value='${param.memberno }'>       
   
-      <div class="form-group">
+      <div class="form-group-update">
         <label class="col-md-5 control-label" style="font-size: 0.9em;">현재 패스워드</label>    
-        <div class="col-md-7">
+        <div class="md5">
           <input type='password' class="form-control" name='current_passwd' 
                     id='current_passwd' value='' required="required" 
-                    style='width: 30%;' placeholder="패스워드">
+                    style='width: 30%;' placeholder="현재 패스워드">
         </div>
       </div>   
                       
-      <div class="form-group">
+      <div class="form-group-update">
         <label class="col-md-5 control-label" style="font-size: 0.9em;">새로운 패스워드</label>    
-        <div class="col-md-7">
+        <div class=md5>
           <input type='password' class="form-control" name='new_passwd' 
                     id='new_passwd' value='' required="required" 
-                    style='width: 30%;' placeholder="패스워드">
+                    style='width: 30%;' placeholder="새로운 패스워드">
         </div>
       </div>   
    
-      <div class="form-group">
+      <div class="form-group-update">
         <label class="col-md-5 control-label" style="font-size: 0.9em;">새로운 패스워드 확인</label>    
-        <div class="col-md-7">
+        <div class="md5">
           <input type='password' class="form-control" name='new_passwd2' 
                     id='new_passwd2' value='' required="required" 
-                    style='width: 30%;' placeholder="패스워드">
+                    style='width: 30%;' placeholder="새로운 패스워드 확인">
         </div>
       </div>   
       
