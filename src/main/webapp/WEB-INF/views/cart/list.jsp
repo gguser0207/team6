@@ -31,7 +31,7 @@
 
 	      </c:if>
 	    <div class="row" style="width:22%; float:left; margin:0.5%; padding:0.5%;
-          background-color: 000; text-align:center;">
+          background-color: #000000; text-align:center;">
 				 주문번호: ${vo.cartno} | 감독: ${vo.director} <br>
              <c:choose>
                  <c:when test="${vo.thumb1.endsWith('jpg') || vo.thumb1.endsWith('png') || thumb1.endsWith('gif')}">

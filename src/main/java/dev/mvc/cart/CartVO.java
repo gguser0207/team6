@@ -17,6 +17,7 @@ public class CartVO {
     private String title = "";
     private String director = "";
     private String thumb1 = "";
+    private int price = 0;
 
     public int getCartno(){return cartno;}
     public void setCartno(int cartno){this.cartno = cartno;}
@@ -38,4 +39,7 @@ public class CartVO {
 
     public char getBuy(){return buy;}
     public void setBuy(char buy){this.buy = buy;}
+
+    public int getPrice(){return mno;}
+    public void setPrice(int price){this.price = price;}
 }
