@@ -44,8 +44,8 @@
        tossPayments.requestPayment("카드", {
            amount: 15000,
            orderId: "OpvvFtup5-M5Uk70UQRvO",
-           orderName: "토스 티셔츠 외 2건",
-           customerName: "박토스",
+           orderName: "영화 외 2건",
+           customerName: "team6",
            successUrl: "http://localhost:9091/success",
            failUrl: "http://localhost:9091/fail",
        });
