@@ -56,38 +56,6 @@
         
     </div>
 
-
-
-<%--<div class="modal" id="myModal">--%>
-<%--    <div class="modal-dialog">--%>
-<%--        <div class="modal-content">--%>
-<%--            <!-- Modal Header -->--%>
-<%--            <div class="modal-header">--%>
-<%--                <h4 class="modal-title">영화 제거</h4>--%>
-<%--                <button--%>
-<%--                        type="button"--%>
-<%--                        class="btn-close"--%>
-<%--                        data-bs-dismiss="modal"--%>
-<%--                ></button>--%>
-<%--            </div>--%>
-
-<%--            <!-- Modal body -->--%>
-<%--            <div class="modal-body">장바구니에서 영화를 제거하시겠습니까?</div>--%>
-
-<%--            <!-- Modal footer -->--%>
-<%--            <div class="modal-footer">--%>
-<%--                <button--%>
-<%--                        type="button"--%>
-<%--                        class="btn btn-danger"--%>
-<%--                        data-bs-dismiss="modal"--%>
-<%--                >--%>
-<%--                    확인--%>
-<%--                </button>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
-<%-- --%>
 <jsp:include page="../menu/bottom.jsp" />
 </body>
  

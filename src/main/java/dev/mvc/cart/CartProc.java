@@ -57,6 +57,12 @@ public class CartProc implements CartProcInter{
     }
 
     @Override
+    public int cartBuy(int cartno){
+        int cnt = this.cartDAO.cartBuy(cartno);
+        return cnt;
+    }
+
+    @Override
     public int cartDelete(int cartno){
         int cnt = this.cartDAO.cartDelete(cartno);
         return cnt;
